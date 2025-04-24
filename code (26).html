@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naveen Bharat (NB) - Join the Education Revolution</title>
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Import Google Fonts for NB Branding */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Hind:wght@500&display=swap');
+
+    :root {
+      --nb-saffron: #FF9933;
+      --nb-green: #138808;
+      --nb-teal: #20B2AA; /* Used for focus states */
+      --nb-dark: #333333;
+      --nb-light-gray: #f0f0f0;
+      --nb-border-gray: #ddd;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0; /* Remove default body margin */
+      padding: 0;
+    }
+
+    /* Demo Trigger Button Styles */
+    .demo-trigger-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* Center button vertically */
+    }
+    #openNBModal {
+        padding: 15px 30px;
+        background: var(--nb-saffron);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.2s;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    #openNBModal:hover {
+        background: #e68a2e; /* Slightly darker saffron */
+        transform: translateY(-2px);
+    }
+
+
+    /* NB Modal Container */
+    .nb-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth fade */
+    }
+
+    .nb-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nb-modal {
+      background: white;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 550px; /* Slightly wider for better form layout */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transform: scale(0.95) translateY(20px); /* Start slightly smaller and lower */
+      transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28), opacity 0.3s ease; /* Spring effect */
+      opacity: 0;
+      overflow: hidden; /* Prevent content spill during animation */
+      display: flex;
+      flex-direction: column;
+      max-height: 90vh; /* Limit height on small screens */
+    }
+
+    .nb-modal-overlay.active .nb-modal {
+      transform: scale(1) translateY(0); /* Scale up and move to final position */
+      opacity: 1;
+    }
+
+    /* NB Modal Header */
+    .nb-modal-header {
+      background: linear-gradient(135deg, var(--nb-saffron), var(--nb-green));
+      color: white;
+      padding: 20px 25px;
+      border-radius: 12px 12px 0 0;
+      position: relative;
+      flex-shrink: 0; /* Prevent header from shrinking */
+    }
+
+    .nb-modal-header h2 {
+      margin: 0;
+      font-size: 1.6rem; /* Adjusted size */
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+    }
+
+    .nb-logo {
+      font-weight: 700;
+      font-family: 'Hind', sans-serif;
+      background: white;
+      color: var(--nb-green);
+      padding: 4px 9px;
+      border-radius: 6px;
+      font-size: 1.1rem; /* Adjusted size */
+      line-height: 1;
+    }
+
+    .nb-close-btn {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.8rem; /* Larger close icon */
+      cursor: pointer;
+      transition: transform 0.2s, opacity 0.2s;
+      opacity: 0.8;
+      padding: 5px; /* Easier to click */
+      line-height: 1;
+    }
+
+    .nb-close-btn:hover {
+      transform: rotate(90deg);
+      opacity: 1;
+    }
+
+    /* NB Modal Body */
+    .nb-modal-body {
+      padding: 20px 25px;
+      overflow-y: auto; /* Allow scrolling if content overflows */
+      flex-grow: 1; /* Allow body to take available space */
+    }
+
+    .nb-form-group {
+      margin-bottom: 18px; /* Slightly reduced margin */
+    }
+
+    .nb-form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: var(--nb-dark);
+      font-size: 0.95rem;
+    }
+
+    .nb-form-control {
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px solid var(--nb-border-gray); /* Thinner border */
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      box-sizing: border-box; /* Include padding and border in width */
+    }
+
+    .nb-form-control:focus {
+      border-color: var(--nb-teal);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(32, 178, 170, 0.2);
+    }
+
+    /* Role Selector - NB Branded */
+    .nb-role-selector {
+      display: grid; /* Use grid for better alignment */
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive columns */
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .nb-role-option input[type="radio"] {
+      display: none; /* Visually hide the radio button */
+    }
+
+    .nb-role-option label {
+      display: block;
+      padding: 10px;
+      background: var(--nb-light-gray);
+      border: 1px solid var(--nb-border-gray);
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--nb-dark); /* Explicitly set default text color */
+    }
+    .nb-role-option label:hover {
+       background: #e0e0e0;
+       border-color: #ccc;
+    }
+
+    .nb-role-option input[type="radio"]:checked + label {
+      background: var(--nb-saffron);
+      border-color: var(--nb-saffron);
+      color: white;
+      font-weight: 600;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Conditional Fields (Dynamic) */
+    .nb-dynamic-field {
+      display: none; /* Hidden by default */
+      animation: fadeIn 0.4s ease forwards; /* Use forwards to keep final state */
+      margin-top: 18px; /* Space above dynamic field */
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Separator */
+     .nb-separator {
+        text-align: center;
+        margin: 20px 0;
+        color: #aaa;
+        font-size: 0.9rem;
+        position: relative;
+     }
+     .nb-separator::before,
+     .nb-separator::after {
+         content: '';
+         position: absolute;
+         top: 50%;
+         width: 40%;
+         height: 1px;
+         background-color: #ddd;
+     }
+      .nb-separator::before { left: 0; }
+      .nb-separator::after { right: 0; }
+
+
+    /* NB Branded OAuth Buttons */
+    .nb-oauth-buttons {
+      display: flex;
+      gap: 15px; /* Increased gap */
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+
+    .nb-oauth-btn {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: 1px solid var(--nb-border-gray);
+      background: white;
+      color: var(--nb-dark); /* Default color */
+    }
+
+    .nb-oauth-btn i {
+        font-size: 1.2em; /* Slightly larger icons */
+    }
+
+    .nb-oauth-btn.google {
+      /* color: #DB4437; */ /* Keep default dark color, maybe color icon? */
+    }
+     .nb-oauth-btn.google i {
+      color: #DB4437;
+    }
+
+    .nb-oauth-btn.whatsapp {
+      /* color: #25D366; */
+    }
+    .nb-oauth-btn.whatsapp i {
+      color: #25D366;
+    }
+
+    .nb-oauth-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-color: #bbb;
+    }
+
+    /* NB Modal Footer */
+    .nb-modal-footer {
+      display: flex;
+      justify-content: flex-end; /* Align button to the right */
+      padding: 15px 25px;
+      border-top: 1px solid #eee;
+      background-color: #f9f9f9; /* Subtle background */
+      border-radius: 0 0 12px 12px;
+       flex-shrink: 0; /* Prevent footer from shrinking */
+    }
+
+    .nb-btn {
+      padding: 10px 20px; /* Adjusted padding */
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: none;
+    }
+
+    .nb-btn-primary {
+      background: var(--nb-green);
+      color: white;
+    }
+
+    .nb-btn-primary:hover {
+      background: #0e7206; /* Darker green */
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(19, 136, 8, 0.2);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 480px) {
+      .nb-modal {
+        width: 95%;
+        max-height: 95vh;
+      }
+      .nb-modal-header h2 {
+        font-size: 1.4rem;
+      }
+      .nb-logo {
+        font-size: 1rem;
+        padding: 3px 7px;
+      }
+      .nb-role-selector {
+         /* Keep grid for small screens too, it's responsive */
+      }
+
+      .nb-oauth-buttons {
+        /* Keep flex row, looks okay on mobile */
+        /* Or uncomment below for column layout */
+        /* flex-direction: column; */
+        /* gap: 10px; */
+      }
+       .nb-modal-footer {
+          padding: 15px;
+       }
+        .nb-btn {
+          width: 100%; /* Make button full width */
+          text-align: center;
+        }
+    }
+
+     /* Add style for feedback messages */
+    .nb-form-feedback {
+        margin-top: 15px;
+        padding: 10px 15px;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        display: none; /* Hidden by default */
+    }
+    .nb-form-feedback.success {
+        background-color: #d4edda; /* Light green */
+        color: #155724; /* Dark green */
+        border: 1px solid #c3e6cb;
+    }
+    .nb-form-feedback.error {
+        background-color: #f8d7da; /* Light red */
+        color: #721c24; /* Dark red */
+        border: 1px solid #f5c6cb;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Demo Trigger Button -->
+  <div class="demo-trigger-container">
+      <button id="openNBModal">
+          Join NB EdRev
+      </button>
+  </div>
+
+
+  <!-- NB Modal Structure -->
+  <div class="nb-modal-overlay" id="nbModal">
+    <div class="nb-modal">
+      <div class="nb-modal-header">
+        <h2><span class="nb-logo">NB</span> Join the Education Revolution</h2>
+        <button class="nb-close-btn" id="closeNBModal" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="nb-modal-body">
+        <!-- Using a form tag is semantically correct -->
+        <form id="nbSignupForm">
+
+            <div class="nb-form-group">
+              <label>I am a:</label>
+              <div class="nb-role-selector">
+                <div class="nb-role-option">
+                  <input type="radio" name="role" id="roleStudent" value="student" checked>
+                  <label for="roleStudent">Student</label>
+                </div>
+                <div class="nb-role-option">
+                  <input type="radio" name="role" id="roleEducator" value="educator">
+                  <label for="roleEducator">Educator</label>
+                </div>
+                <div class="nb-role-option">
+                  <input type="radio" name="role" id="roleParent" value="parent">
+                  <label for="roleParent">Parent</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="nb-form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" class="nb-form-control" placeholder="Enter your full name" required>
+            </div>
+            <div class="nb-form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" class="nb-form-control" placeholder="you@example.com" required>
+            </div>
+             <div class="nb-form-group">
+                <label for="mobile">Mobile Number</label>
+                <input type="tel" id="mobile" name="mobile" class="nb-form-control" placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}" required>
+            </div>
+
+            <div id="dynamicFieldsContainer">
+                <div class="nb-dynamic-field" id="studentFields">
+                    <div class="nb-form-group">
+                        <label for="grade">Grade / Class</label>
+                        <input type="text" id="grade" name="grade" class="nb-form-control" placeholder="e.g., Class 10, College Freshman">
+                    </div>
+                </div>
+                <div class="nb-dynamic-field" id="educatorFields">
+                    <div class="nb-form-group">
+                        <label for="subject">Subject(s) Taught</label>
+                        <input type="text" id="subject" name="subject" class="nb-form-control" placeholder="e.g., Mathematics, Physics">
+                    </div>
+                     <div class="nb-form-group">
+                        <label for="experience">Years of Experience</label>
+                        <input type="number" id="experience" name="experience" class="nb-form-control" placeholder="e.g., 5" min="0"> <!-- Added min attribute -->
+                    </div>
+                </div>
+                <div class="nb-dynamic-field" id="parentFields">
+                    <div class="nb-form-group">
+                        <label for="childName">Child's Name</label>
+                        <input type="text" id="childName" name="childName" class="nb-form-control" placeholder="Enter your child's name">
+                    </div>
+                     <div class="nb-form-group">
+                        <label for="childGrade">Child's Grade / Class</label>
+                        <input type="text" id="childGrade" name="childGrade" class="nb-form-control" placeholder="e.g., Class 8">
+                    </div>
+                </div>
+            </div>
+
+            <div class="nb-separator">OR Sign up with</div>
+            <div class="nb-oauth-buttons">
+                <button type="button" class="nb-oauth-btn google">
+                    <i class="fab fa-google"></i> Google
+                </button>
+                <button type="button" class="nb-oauth-btn whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </button>
+            </div>
+
+            <!-- Feedback Area -->
+            <div id="formFeedback" class="nb-form-feedback"></div>
+
+        </form> <!-- End of form -->
+      </div> <!-- End of modal body -->
+
+      <div class="nb-modal-footer">
+        <!-- Submit Button -->
+        <button type="submit" form="nbSignupForm" class="nb-btn nb-btn-primary" id="submitBtn">Register Now</button>
+      </div>
+    </div> <!-- End of modal -->
+  </div> <!-- End of modal overlay -->
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const openModalBtn = document.getElementById('openNBModal');
+      const closeModalBtn = document.getElementById('closeNBModal');
+      const modalOverlay = document.getElementById('nbModal');
+      const modal = modalOverlay.querySelector('.nb-modal');
+      const roleRadios = document.querySelectorAll('input[name="role"]');
+      const dynamicFieldsContainer = document.getElementById('dynamicFieldsContainer');
+      const allDynamicFields = dynamicFieldsContainer.querySelectorAll('.nb-dynamic-field');
+      const signupForm = document.getElementById('nbSignupForm');
+      const formFeedback = document.getElementById('formFeedback'); // Get feedback div
+      const submitBtn = document.getElementById('submitBtn'); // Get submit button
+
+      // --- Function to show/hide dynamic fields ---
+      function updateDynamicFields() {
+        const selectedRole = document.querySelector('input[name="role"]:checked')?.value; // Use optional chaining
+        if (!selectedRole) return; // Exit if no role is selected
+
+        // Hide all dynamic fields and make their inputs non-required
+        allDynamicFields.forEach(field => {
+          field.style.display = 'none';
+          field.querySelectorAll('input, select, textarea').forEach(input => {
+             // We rely on HTML5 validation + backend validation
+          });
+        });
+
+        // Show the relevant fieldset
+        const relevantField = document.getElementById(`${selectedRole}Fields`);
+        if (relevantField) {
+          relevantField.style.display = 'block';
+        }
+      }
+
+      // --- Function to display feedback messages ---
+      function showFeedback(message, type = 'error') {
+        if (!formFeedback) return;
+        formFeedback.textContent = message;
+        formFeedback.className = `nb-form-feedback ${type}`; // Set class for styling
+        formFeedback.style.display = 'block'; // Make it visible
+      }
+
+      // --- Function to hide feedback messages ---
+      function hideFeedback() {
+        if (!formFeedback) return;
+        formFeedback.style.display = 'none';
+        formFeedback.textContent = '';
+        formFeedback.className = 'nb-form-feedback';
+      }
+
+      // --- Event Listeners ---
+
+      // Open Modal
+      if (openModalBtn) {
+        openModalBtn.addEventListener('click', () => {
+          modalOverlay.classList.add('active');
+          hideFeedback(); // Clear feedback when opening
+          // signupForm.reset(); // Let's not reset immediately, user might just reopen
+          updateDynamicFields(); // Set correct dynamic fields
+        });
+      }
+
+      // Close Modal via Close Button
+      if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', () => {
+          modalOverlay.classList.remove('active');
+        });
+      }
+
+      // Close Modal via Overlay Click
+      if (modalOverlay) {
+        modalOverlay.addEventListener('click', (event) => {
+          if (event.target === modalOverlay) {
+            modalOverlay.classList.remove('active');
+          }
+        });
+      }
+
+      // Close Modal via Escape Key
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modalOverlay.classList.contains('active')) {
+          modalOverlay.classList.remove('active');
+        }
+      });
+
+      // Update dynamic fields when role changes
+      roleRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+            updateDynamicFields();
+            hideFeedback(); // Hide feedback if role changes
+        });
+      });
+
+      // --- Handle Form Submission (UPDATED FOR FETCH) ---
+      if(signupForm) {
+        signupForm.addEventListener('submit', async (event) => { // Make async
+            event.preventDefault(); // Prevent default browser submission
+            hideFeedback(); // Clear previous feedback
+            submitBtn.disabled = true; // Disable button during submission
+            submitBtn.textContent = 'Registering...'; // Indicate loading
+
+            // Basic HTML5 validation check
+            if (!signupForm.checkValidity()) {
+                console.log('Form validation failed (HTML5).');
+                showFeedback('Please fill in all required fields correctly.', 'error');
+                signupForm.reportValidity(); // Trigger browser's validation UI
+                submitBtn.disabled = false; // Re-enable button
+                submitBtn.textContent = 'Register Now';
+                return; // Stop submission
+            }
+
+            // Collect form data
+            const formData = new FormData(signupForm);
+            const data = {};
+            formData.forEach((value, key) => { data[key] = value; });
+
+            // Filter out data from non-selected roles' dynamic fields (client-side cleanup)
+            const selectedRole = data.role;
+            Object.keys(data).forEach(key => {
+                const inputElement = signupForm.elements[key];
+                if (inputElement) {
+                    const parentDynamicField = inputElement.closest('.nb-dynamic-field');
+                    if (parentDynamicField && parentDynamicField.id !== `${selectedRole}Fields`) {
+                         if (key !== 'grade' && key !== 'subject' && key !== 'experience' && key !== 'childName' && key !== 'childGrade') {
+                             // Keep common fields
+                         } else {
+                              delete data[key]; // Remove data from non-selected roles
+                         }
+                    }
+                }
+            });
+
+            console.log('Sending data:', data);
+
+            try {
+                // Send data to the backend API endpoint
+                const response = await fetch('/register', { // Use the endpoint defined in Flask
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json', // Indicate we're sending JSON
+                    },
+                    body: JSON.stringify(data), // Convert JS object to JSON string
+                });
+
+                const result = await response.json(); // Parse the JSON response from the server
+
+                if (response.ok) { // Check if response status is 2xx
+                    console.log('Server response (Success):', result);
+                    showFeedback(result.message || 'Registration successful!', 'success');
+                    // signupForm.reset(); // Reset form on success // Let's keep data for now
+                    // updateDynamicFields(); // Update fields view after reset if needed
+                    // Optionally close modal after a delay
+                    // setTimeout(() => modalOverlay.classList.remove('active'), 3000);
+                } else {
+                    // Handle errors (e.g., 400 Bad Request, 500 Internal Server Error)
+                    console.error('Server response (Error):', result);
+                    showFeedback(result.message || 'Registration failed. Please try again.', 'error');
+                }
+
+            } catch (error) {
+                // Handle network errors or issues with the fetch itself
+                console.error('Fetch error:', error);
+                showFeedback('An error occurred. Please check your connection and try again.', 'error');
+            } finally {
+                 // Re-enable button and restore text regardless of success/error
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Register Now';
+            }
+        });
+      }
+
+       // Handle OAuth Button Clicks (Placeholders - no change needed here)
+       const oauthButtons = document.querySelectorAll('.nb-oauth-btn');
+       oauthButtons.forEach(button => {
+           button.addEventListener('click', () => {
+               const provider = button.classList.contains('google') ? 'Google' : 'WhatsApp';
+               console.log(`${provider} Sign-in clicked`);
+               alert(`${provider} sign-in flow is not implemented in this demo.`);
+           });
+       });
+
+      // --- Initial Setup ---
+      // Ensure dynamic fields are correctly set on load IF modal starts open (not the case here)
+      // updateDynamicFields();
+    });
+  </script>
+
+</body>
+</html>
