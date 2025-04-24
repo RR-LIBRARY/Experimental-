@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naveen Bharat (NB) - Join the Education Revolution</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Import Google Fonts for NB Branding */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Hind:wght@500&display=swap');
+    
+    :root {
+      --nb-saffron: #FF9933;
+      --nb-green: #138808;
+      --nb-teal: #20B2AA;
+      --nb-dark: #333333;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f5f5;
+    }
+    
+    /* NB Modal Container */
+    .nb-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .nb-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .nb-modal {
+      background: white;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transform: translateY(20px);
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      opacity: 0;
+    }
+    
+    .nb-modal-overlay.active .nb-modal {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    /* NB Modal Header */
+    .nb-modal-header {
+      background: linear-gradient(135deg, var(--nb-saffron), var(--nb-green));
+      color: white;
+      padding: 20px;
+      border-radius: 12px 12px 0 0;
+      position: relative;
+    }
+    
+    .nb-modal-header h2 {
+      margin: 0;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .nb-logo {
+      font-weight: 700;
+      font-family: 'Hind', sans-serif;
+      background: white;
+      color: var(--nb-green);
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 1.2rem;
+    }
+    
+    .nb-close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    
+    .nb-close-btn:hover {
+      transform: rotate(90deg);
+    }
+    
+    /* NB Modal Body */
+    .nb-modal-body {
+      padding: 25px;
+    }
+    
+    .nb-form-group {
+      margin-bottom: 20px;
+    }
+    
+    .nb-form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--nb-dark);
+    }
+    
+    .nb-form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border 0.3s;
+    }
+    
+    .nb-form-control:focus {
+      border-color: var(--nb-teal);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(32, 178, 170, 0.2);
+    }
+    
+    /* Role Selector - NB Branded */
+    .nb-role-selector {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .nb-role-option {
+      flex: 1;
+      min-width: 120px;
+    }
+    
+    .nb-role-option input[type="radio"] {
+      display: none;
+    }
+    
+    .nb-role-option label {
+      display: block;
+      padding: 12px;
+      background: #f0f0f0;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .nb-role-option input[type="radio"]:checked + label {
+      background: var(--nb-saffron);
+      color: white;
+      font-weight: 600;
+    }
+    
+    /* Conditional Fields (Dynamic) */
+    .nb-dynamic-field {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* NB Modal Footer */
+    .nb-modal-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 25px 25px;
+    }
+    
+    .nb-btn {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: none;
+    }
+    
+    .nb-btn-primary {
+      background: var(--nb-green);
+      color: white;
+    }
+    
+    .nb-btn-primary:hover {
+      background: #0e7206;
+      transform: translateY(-2px);
+    }
+    
+    .<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naveen Bharat (NB) - Join the Education Revolution</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Import Google Fonts for NB Branding */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Hind:wght@500&display=swap');
+    
+    :root {
+      --nb-saffron: #FF9933;
+      --nb-green: #138808;
+      --nb-teal: #20B2AA;
+      --nb-dark: #333333;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f5f5;
+    }
+    
+    /* NB Modal Container */
+    .nb-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .nb-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .nb-modal {
+      background: white;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transform: translateY(20px);
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      opacity: 0;
+    }
+    
+    .nb-modal-overlay.active .nb-modal {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    /* NB Modal Header */
+    .nb-modal-header {
+      background: linear-gradient(135deg, var(--nb-saffron), var(--nb-green));
+      color: white;
+      padding: 20px;
+      border-radius: 12px 12px 0 0;
+      position: relative;
+    }
+    
+    .nb-modal-header h2 {
+      margin: 0;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .nb-logo {
+      font-weight: 700;
+      font-family: 'Hind', sans-serif;
+      background: white;
+      color: var(--nb-green);
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 1.2rem;
+    }
+    
+    .nb-close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    
+    .nb-close-btn:hover {
+      transform: rotate(90deg);
+    }
+    
+    /* NB Modal Body */
+    .nb-modal-body {
+      padding: 25px;
+    }
+    
+    .nb-form-group {
+      margin-bottom: 20px;
+    }
+    
+    .nb-form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--nb-dark);
+    }
+    
+    .nb-form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border 0.3s;
+    }
+    
+    .nb-form-control:focus {
+      border-color: var(--nb-teal);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(32, 178, 170, 0.2);
+    }
+    
+    /* Role Selector - NB Branded */
+    .nb-role-selector {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .nb-role-option {
+      flex: 1;
+      min-width: 120px;
+    }
+    
+    .nb-role-option input[type="radio"] {
+      display: none;
+    }
+    
+    .nb-role-option label {
+      display: block;
+      padding: 12px;
+      background: #f0f0f0;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .nb-role-option input[type="radio"]:checked + label {
+      background: var(--nb-saffron);
+      color: white;
+      font-weight: 600;
+    }
+    
+    /* Conditional Fields (Dynamic) */
+    .nb-dynamic-field {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* NB Modal Footer */
+    .nb-modal-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 25px 25px;
+    }
+    
+    .nb-btn {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: none;
+    }
+    
+    .nb-btn-primary {
+      background: var(--nb-green);
+      color: white;
+    }
+    
+    .nb-btn-primary:hover {
+      background: #0e7206;
+      transform: translateY(-2px);
+    }
+    
+    .nb-btn-secondary {
+      background: none;
+      color: var(--nb-dark);
+      border: 1px solid #ddd;
+    }
+    
+    .nb-btn-secondary:hover {
+      background: #f5f5f5;
+    }
+    
+    /* NB Branded OAuth Buttons */
+    .nb-oauth-buttons {
+      display: flex;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    
+    .nb-oauth-btn {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: 1px solid #ddd;
+      background: white;
+    }
+    
+    .nb-oauth-btn.google {
+      color: #DB4437;
+    }
+    
+    .nb-oauth-btn.whatsapp {
+      color: #25D366;
+    }
+    
+    .nb-oauth-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 480px) {
+      .nb-modal {
+        width: 95%;
+      }
+      
+      .nb-role-selector {
+        flex-direction: column;
+      }
+      
+      .nb-oauth-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Demo Trigger Button -->
+  <button id="openNBModal" style="margin: 50px auto; display: block; padding: 15px 30px; background: var(--nb-saffron); color: white; border: none; border-radius: 8px; font-size: 1.2rem; cursor: pointer;">
+    Join NB EdRev
+  </button>
+
+  <!-- NB Modal Structure -->
+  <div class="nb-modal-overlay" id="nbModal">
+    <div class="nb-modal">
+      <div class="nb-modal-header">
+        <h2><span class="nb-logo">NB</span> Join the Education Revolution</h2>
+        <button class="nb-close-btn" id="closeNBModal">&times;</button>
+      </div>
+      
+      <div class="nb-modal-body">
+        <div class="nb-form-group">
+          <label>I am a:</label>
+          <div class="nb-role-selector">
+            <div class="nb-role-option">
+              <input type="radio" name="role"nb-btn-secondary {
+      background: none;
+      color: var(--nb-dark);
+      border: 1px solid #ddd;
+    }
+    
+    .nb-btn-secondary:hover {
+      background: #f5f5f5;
+    }
+    
+    /* NB Branded OAuth Buttons */
+    .nb-oauth-buttons {
+      display: flex;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    
+    .nb-oauth-btn {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: 1px solid #ddd;
+      background: white;
+    }
+    
+    .nb-oauth-btn.google {
+      color: #DB4437;
+    }
+    
+    .nb-oauth-btn.whatsapp {
+      color: #25D366;
+    }
+    
+    .nb-oauth-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 480px) {
+      .nb-modal {
+        width: 95%;
+      }
+      
+      .nb-role-selector {
+        flex-direction: column;
+      }
+      
+      .nb-oauth-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Demo Trigger Button -->
+  <button id="openNBModal" style="margin: 50px auto; display: block; padding: 15px 30px; background: var(--nb-saffron); color: white; border: none; border-radius: 8px; font-size: 1.2rem; cursor: pointer;">
+    Join NB EdRev
+  </button>
+
+  <!-- NB Modal Structure -->
+  <div class="nb-modal-overlay" id="nbModal">
+    <div class="nb-modal">
+      <div class="nb-modal-header">
+        <h2><span class="nb-logo">NB</span> Join the Education Revolution</h2>
+        <button class="nb-close-btn" id="closeNBModal">&times;</button>
+      </div>
+      
+      <div class="nb-modal-body">
+        <div class="nb-form-group">
+          <label>I am a:</label>
+          <div class="nb-role-selector">
+            <div class="nb-role-option">
+              <input type="radio" name="role"
