@@ -1,0 +1,65 @@
+```python
+import pygame
+import math
+import sys
+
+# Initialize Pygame
+pygame.init()
+
+# Screen setup
+width, height = 800, 600
+screen = pygame.display.set_mode((width, height))
+pygame.display.set_caption("10 Spinning Balls in Tetragonal Arrangement")
+
+# Colors
+BLACK = (0, 0, 0)
+COLORS = [
+    (255, 0, 0), (0, 255, 0), (0, 0, 255),
+    (255, 255, 0), (255, 0, 255), (0, 255, 255),
+    (128, 0, 0), (0, 128, 0), (0, 0, 128),
+    (128, 128, 0)
+]
+
+# Ball properties
+radius = 20
+num_balls = 10
+angles = [0] * num_balls
+angular_speeds = [0.01 * (i + 1) for i in range(num_balls)]  # Different speeds
+
+# Tetragonal positions (3D-like projection)
+positions = [
+    (200, 200), (300, 200), (400, 200),  # Top row
+    (200, 300), (300, 300), (400, 300),  # Middle row
+    (200, 400), (300, 400), (400, 400),  # Bottom row
+    (500, 300)  # Extra ball (for 10)
+]
+
+# Main loop
+clock = pygame.time.Clock()
+running = True
+
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    screen.fill(BLACK)
+
+    # Update angles
+    for i in range(num_balls):
+        angles[i] += angular_speeds[i]
+
+    # Draw balls with rotation effect
+    for i in range(num_balls):
+        x, y = positions[i]
+        # Add a small circular motion
+        offset_x = 30 * math.cos(angles[i])
+        offset_y = 30 * math.sin(angles[i])
+        pygame.draw.circle(screen, COLORS[i], (int(x + offset_x), int(y + offset_y)), radius)
+
+    pygame.display.flip()
+    clock.tick(60)
+
+pygame.quit()
+sys.exit()
+```
