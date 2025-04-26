@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naveen Bharat - Transforming Education</title>
+    <!-- 3D Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <!-- Advanced Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Archivo:wght@400;500;600;700&display=swap">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --secondary: #00BFA6;
+            --dark: #1A1A2E;
+            --light: #F8F9FA;
+            --accent: #FF6584;
+            --neon: #00F5D4;
+            --glass: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Archivo', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* 3D Background Canvas */
+        #canvas-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        /* Cyberpunk Glass Morphism */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.36);
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(108, 99, 255, 0.3);
+        }
+
+        /* Holographic Effect */
+        .holographic {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .holographic::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(108, 99, 255, 0.1),
+                rgba(0, 191, 166, 0.1),
+                rgba(255, 101, 132, 0.1)
+            );
+            transform: rotate(30deg);
+            animation: holographic 6s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes holographic {
+            0% { transform: rotate(0deg) translateX(-50%); }
+            100% { transform: rotate(360deg) translateX(-50%); }
+        }
+
+        /* Header with Parallax */
+        header {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 10px rgba(108, 99, 255, 0.7));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .logo-text {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Space Grotesk', sans-serif;
+            text-shadow: 0 0 20px rgba(108, 99, 255, 0.3);
+        }
+
+        /* Hero Section with Particle Background */
+        .hero {
+            position: relative;
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--light), var(--neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            opacity: 0.9;
+        }
+
+        /* Features Grid with 3D Flip */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            perspective: 1000px;
+        }
+
+        .feature-card {
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+            height: 400px;
+        }
+
+        .feature-card:hover {
+            transform: rotateY(180deg);
+        }
+
+        .feature-front, .feature-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+            border-radius: 16px;
+        }
+
+        .feature-back {
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        /* Course Cards with Holographic Effect */
+        .course-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            transition: all 0.5s;
+        }
+
+        .course-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                rgba(108, 99, 255, 0.1),
+                rgba(0, 191, 166, 0.1),
+                rgba(255, 101, 132, 0.1)
+            );
+            z-index: -1;
+        }
+
+        /* Interactive Testimonials */
+        .testimonial-card {
+            position: relative;
+            padding: 2rem;
+            border-radius: 16px;
+            transition: all 0.5s;
+        }
+
+        .testimonial-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Futuristic CTA */
+        .cta-section {
+            position: relative;
+            padding: 6rem 2rem;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .cta-button {
+            position: relative;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.5s;
+            box-shadow: 0 0 20px rgba(108, 99, 255, 0.5);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .logo-text {
+                font-size: 2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Advanced Animations */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Particle Network Background */
+        .particle-network {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <!-- 3D Background -->
+    <div id="canvas-bg"></div>
+
+    <!-- Header with Parallax -->
+    <header class="holographic">
+        <div class="particle-network" id="particle-network"></div>
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://via.placeholder.com/80x80" alt="Naveen Bharat Logo" class="logo-img">
+                <span class="logo-text">Naveen Bharat</span>
+            </div>
+            <h1>India's Most Trusted Hybrid Learning Platform</h1>
+            <p class="hero-subtitle">Bridging the gap between online convenience and offline excellence with personalized mentorship and AI-driven learning paths.</p>
+            <div class="button-group">
+                <button class="cta-button pulse">Explore Courses</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="glass-card" style="margin: 5rem auto; padding: 4rem; max-width: 1200px;">
+        <h2 class="text-center" style="margin-bottom: 3rem; font-size: 2.5rem;">Why Choose Naveen Bharat?</h2>
+        <div class="features-grid">
+            <!-- Feature 1 with 3D Flip -->
+            <div class="feature-card">
+                <div class="feature-front glass-card" style="background: rgba(28, 28, 40, 0.8);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);">
+                        <i class="fas fa-laptop-code"></i>
