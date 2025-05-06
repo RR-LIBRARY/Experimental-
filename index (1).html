@@ -975,7 +975,50 @@
             text-align: center; margin-top: var(--space-xxl); /* Use variable */
         }
         /* --- END: Styles for NEW Library Virtual Tour Section --- */
+        /* --- START: Floating Help Button Styles (Added for Doubt Button) --- */
+        .floating-help-button {
+            position: fixed; /* Screen par fix rahega */
+            bottom: 30px;    /* Neeche se doori */
+            right: 30px;     /* Right se doori */
+            width: 60px;     /* Button ki chaudai */
+            height: 60px;    /* Button ki unchai */
+            background-color: #FF5722; /* High-attention color (Orange/Red) */
+            color: white;      /* Icon/Text ka color */
+            border-radius: 50%; /* Gol banane ke liye */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;   /* Icon ka size */
+            text-decoration: none; /* Link ka underline hatane ke liye */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Thoda shadow effect */
+            z-index: 1000;     /* Baki elements ke upar rahega */
+            transition: all 0.3s ease; /* Hover effects ke liye smooth transition */
+            animation: pulseAnimation 2s infinite; /* Attention grabbing animation */
+            cursor: pointer; /* Cursor ko pointer banayein */
+        }
 
+        .floating-help-button:hover {
+            background-color: #E64A19; /* Hover par thoda dark color */
+            transform: scale(1.1);   /* Hover par thoda bada hoga */
+            animation: none; /* Stop pulsing on hover */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Pulse Animation for high attention */
+        @keyframes pulseAnimation {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 87, 34, 0.7); /* Color should match button's base color */
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(255, 87, 34, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 87, 34, 0);
+            }
+        }
+        /* --- END: Floating Help Button Styles --- */
+
+</style>  <!-- Yeh aapka existing closing style tag hoga -->
     </style>
 </head>
 <body>
