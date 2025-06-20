@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Transcription</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            color: #4CAF50;
+        }
+        .transcript-line {
+            margin-bottom: 15px;
+        }
+        .timestamp {
+            font-weight: bold;
+            color: #555;
+            margin-right: 10px;
+        }
+        .speaker-note {
+            font-style: italic;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Video Transcription</h1>
+        </div>
+
+        <div class="transcript">
+            <p class="transcript-line"><span class="timestamp">[00:00:04]</span> <span class="speaker-note">(Music and intro animation)</span></p>
+            <p class="transcript-line"><span class="timestamp">[00:00:32]</span> Aasaan hai!</p>
+            <p class="transcript-line"><span class="timestamp">[00:00:37]</span> Please, have a seat.</p>
+            <p class="transcript-line"><span class="timestamp">[00:00:41]</span> Aaj ke is session ko shuru karne se pehle, mera aap sab se ek simple sa question hai.</p>
+            <p class="transcript-line"><span class="timestamp">[00:00:47]</span> Aap me se kitne log aaj yahan par kuch aisa experience karna chahte hain, jo aaj se pehle aapne apni poori life me kabhi na kiya ho?</p>
+            <p class="transcript-line"><span class="timestamp">[00:00:57]</span> Sab chahte hain.</p>
+            <p class="transcript-line"><span class="timestamp">[00:01:00]</span> Toh agle kuch seconds ke liye,</p>
+            <p class="transcript-line"><span class="timestamp">[00:01:03]</span> na aap kuch bolenge,</p>
+            <p class="transcript-line"><span class="timestamp">[00:01:05]</span> na main kuch bolunga.</p>
+            <p class="transcript-line"><span class="timestamp">[00:01:10]</span> Na apne muh se bolenge, na mind me bolenge.</p>
+            <p class="transcript-line"><span class="timestamp">[00:01:14]</span> Koi thoughts nahi.</p>
+            <p class="transcript-line"><span class="timestamp">[00:01:15]</span> Sirf aapne mujhe dekhna hai.</p>
+            <p class="transcript-line"><span class="timestamp">[00:01:18]</span> Aapka dhyan meri taraf.</p>
+            <p class="transcript-line"><span class="timestamp">[00:01:20]</span> Mera dhyan aapki taraf. Ye main kyon kar raha hu, ye thodi der baad bataunga aapko.</p>
+            <p class="transcript-line"><span class="timestamp">[00:01:25]</span> Jab kuch seconds ke liye ye cheez ho jayegi.</p>
+            <p class="transcript-line"><span class="timestamp">[00:01:27]</span> Abhi ek baar honestly, sincerely, jo cheez main keh raha hu usko karne ki koshish karo.</p>
+            <p class="transcript-line"><span class="timestamp">[00:01:31]</span> Just try it.</p>
+            <p class="transcript-line"><span class="timestamp">[00:01:33]</span> Hoga kya, beech beech me aapke mind me kuch thoughts aayenge.</p>
+            <p class="transcript-line"><span class="timestamp">[00:01:37]</span> Aane hi aane hain.</p>
+            <p class="transcript-line"><span class="timestamp">[00:01:40]</span> Jaise hi ek thought aayega, aapka mind wahan chala jayega.</p>
+            <p class="transcript-line"><span class="timestamp">[00:01:42]</span> Yahan se hat jayega.</p>
+            <p class="transcript-line"><span class="timestamp">[00:01:45]</span> Jaane do, unko control nahi karna, unse ladna nahi hai, unko rokna nahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[00:01:49]</span> Wahan gaya, thodi der baad ekdum se yaad aayega ki are yaar main to yahan pe dekh raha tha.</p>
+            <p class="transcript-line"><span class="timestamp">[00:01:54]</span> Main to dekhne ka kaam kar raha tha, yeh main kahan chala gaya, sapno ki duniya mein.</p>
+            <p class="transcript-line"><span class="timestamp">[00:01:58]</span> Kuch aur hi sochne lag gaya.</p>
+            <p class="transcript-line"><span class="timestamp">[00:02:01]</span> Jaise hi yeh yaad aayega, wapas apna dhyan yahan par le aao, meri taraf.</p>
+            <p class="transcript-line"><span class="timestamp">[00:02:06]</span> 24 ghante ye mind hamare upar haavi rehta hai.</p>
+            <p class="transcript-line"><span class="timestamp">[00:02:08]</span> Thoughts continuously chalte rehte hain. Abhi aap dekhna,</p>
+            <p class="transcript-line"><span class="timestamp">[00:02:11]</span> simple si cheez main aapko keh raha hu ki kuch seconds ke liye aapko rukna hai.</p>
+            <p class="transcript-line"><span class="timestamp">[00:02:14]</span> Abhi dekhna kuch logo ki kaisi watt lagegi.</p>
+            <p class="transcript-line"><span class="timestamp">[00:02:17]</span> I'm 100% sure, buri halat ho jayegi.</p>
+            <p class="transcript-line"><span class="timestamp">[00:02:19]</span> Uncomfortable hone lag jayenge.</p>
+            <p class="transcript-line"><span class="timestamp">[00:02:21]</span> Jabki karna kya hai? Bahut simple si cheez, sirf dekhna hai.</p>
+            <p class="transcript-line"><span class="timestamp">[00:02:25]</span> Let's have pin drop silence.</p>
+            <p class="transcript-line"><span class="timestamp">[00:02:29]</span> Complete silence.</p>
+            <p class="transcript-line"><span class="timestamp">[00:02:32]</span> Poori tarah se relax ho jao.</p>
+            <p class="transcript-line"><span class="timestamp">[02:50:00]</span> Body ko kam se kam move karna hai.</p>
+            <p class="transcript-line"><span class="timestamp">[02:52:00]</span> Hilna nahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[08:13:56]</span> <span class="speaker-note">(Audience member speaks)</span> Sir, it has been a few minutes, sir.</p>
+            <p class="transcript-line"><span class="timestamp">[08:24:87]</span> Kaun tha yeh?</p>
+            <p class="transcript-line"><span class="timestamp">[08:25:95]</span> Shakal dikhao!</p>
+            <p class="transcript-line"><span class="timestamp">[08:27:66]</span> Ek baar khade hoenge?</p>
+            <p class="transcript-line"><span class="timestamp">[08:30:84]</span> Baith jayiye.</p>
+            <p class="transcript-line"><span class="timestamp">[08:35:46]</span> Main kaha tha na kuch nahi bolna hai.</p>
+            <p class="transcript-line"><span class="timestamp">[08:39:69]</span> Waise bolne ka mann aur bhi bahut logo ka kar raha tha, unke behalf pe aapne bol diya.</p>
+            <p class="transcript-line"><span class="timestamp">[08:43:83]</span> Toh auron ki duayein lag rahi hain aapko.</p>
+            <p class="transcript-line"><span class="timestamp">[08:48:47]</span> Saccha sach batana kitne logo ki halat agar aise hi main karta rehta ek ghante tak,</p>
+            <p class="transcript-line"><span class="timestamp">[08:54:68]</span> toh kitne log ro padte?</p>
+            <p class="transcript-line"><span class="timestamp">[08:57:37]</span> Ya fir gaaliyan nikaalne lag jaate? Abhi inhone bade politely kaha.</p>
+            <p class="transcript-line"><span class="timestamp">[09:02:72]</span> Kehte "abe tereko samajh nahi aa raha hai? Yeh kuch second hai yeh?</p>
+            <p class="transcript-line"><span class="timestamp">[09:07:07]</span> Kya karaye ja raha hai? Pagal ho gaya hai kya?" Aisi aisi cheezein aane lag jaati.</p>
+            <p class="transcript-line"><span class="timestamp">[09:14:14]</span> Isiliye main apne sessions ke paise nahi leta.</p>
+            <p class="transcript-line"><span class="timestamp">[09:17:15]</span> Mere ko comment aate hain "Abe bolne ke paise milte hain tujhe?</p>
+            <p class="transcript-line"><span class="timestamp">[09:23:08]</span> Yaar ab bol, muh khol.</p>
+            <p class="transcript-line"><span class="timestamp">[09:26:44]</span> Sunne aaye hain, tujhe dekhne nahi aaye hain."</p>
+            <p class="transcript-line"><span class="timestamp">[09:31:73]</span> Dekho kya ho raha hai.</p>
+            <p class="transcript-line"><span class="timestamp">[09:33:43]</span> Aapki saari life ki jitni bhi problems hain,</p>
+            <p class="transcript-line"><span class="timestamp">[09:36:69]</span> uski jad kya hai?</p>
+            <p class="transcript-line"><span class="timestamp">[09:39:69]</span> Mind hai.</p>
+            <p class="transcript-line"><span class="timestamp">[09:43:72]</span> Agar main mind ki baat karu,</p>
+            <p class="transcript-line"><span class="timestamp">[09:45:10]</span> toh ek bahut hi accha instrument hai.</p>
+            <p class="transcript-line"><span class="timestamp">[09:47:64]</span> Jaise mobile hai.</p>
+            <p class="transcript-line"><span class="timestamp">[09:49:78]</span> Mobile hamari problems ki jad nahi hai. Mobile to ek accha instrument hai.</p>
+            <p class="transcript-line"><span class="timestamp">[09:53:36]</span> Computer apne aap me ek bahut hi accha device hai.</p>
+            <p class="transcript-line"><span class="timestamp">[09:56:45]</span> Ek instrument hai.</p>
+            <p class="transcript-line"><span class="timestamp">[09:57:42]</span> Jisko agar aap use karo toh aap kuch bhi kar sakte ho.</p>
+            <p class="transcript-line"><span class="timestamp">[10:01:05]</span> Lekin agar wahi instrument aapke upar haavi ho jaye toh kya hoga?</p>
+            <p class="transcript-line"><span class="timestamp">[10:05:43]</span> Bahut bura hai.</p>
+            <p class="transcript-line"><span class="timestamp">[10:06:55]</span> Aadmi baitha rahega ghanto tak, usko pata hi nahi lagega,</p>
+            <p class="transcript-line"><span class="timestamp">[10:09:54]</span> "Main kya dekhne baitha tha aur kya dekh raha hu."</p>
+            <p class="transcript-line"><span class="timestamp">[10:11:80]</span> Hota hai aisa?</p>
+            <p class="transcript-line"><span class="timestamp">[10:13:95]</span> Yes.</p>
+            <p class="transcript-line"><span class="timestamp">[10:17:80]</span> Toh problems ki jad kya hai?</p>
+            <p class="transcript-line"><span class="timestamp">[10:20:96]</span> Ki yeh jo mind hai hamara,</p>
+            <p class="transcript-line"><span class="timestamp">[10:23:44]</span> yeh hum par hadh se zyada haavi ho gaya hai.</p>
+            <p class="transcript-line"><span class="timestamp">[10:27:35]</span> Hume rukna nahi aa raha.</p>
+            <p class="transcript-line"><span class="timestamp">[10:30:17]</span> Humko rukna seekhna hai.</p>
+            <p class="transcript-line"><span class="timestamp">[10:33:57]</span> Do tarah ke solutions hain mere paas mein. Ek hai temporary solutions. Temporary kya hai? Main kuch bhi bolta rahu.</p>
+            <p class="transcript-line"><span class="timestamp">[10:39:18]</span> Bolta rahunga, bolta rahunga, bolta rahunga. Aap sunte rahoge, sunte rahoge, sunte rahoge. Mind me feed hota rahega, hota rahega, hota rahega. Usse kuch badla kya?</p>
+            <p class="transcript-line"><span class="timestamp">[10:46:17]</span> Aayenge, minor changes aayenge, kuch din ke liye aayenge, kuch mahino ke liye aayenge, fir back to normal life.</p>
+            <p class="transcript-line"><span class="timestamp">[10:51:71]</span> Permanent solution kya hai?</p>
+            <p class="transcript-line"><span class="timestamp">[10:53:71]</span> Ki aapko apni life ki problems ke solutions khud nikaalne hain.</p>
+            <p class="transcript-line"><span class="timestamp">[10:58:36]</span> Kyunki aapki life meri life se bilkul alag hai.</p>
+            <p class="transcript-line"><span class="timestamp">[11:02:64]</span> Mujhe kya pata aapki life mein kya problems hain.</p>
+            <p class="transcript-line"><span class="timestamp">[11:06:17]</span> Aapke jo parents hain mere parents se bilkul alag hain. Aapki wife meri wife se bilkul alag hai.</p>
+            <p class="transcript-line"><span class="timestamp">[11:12:87]</span> Toh mujhe kya pata ki aapki problem ke solutions kaise niklenge.</p>
+            <p class="transcript-line"><span class="timestamp">[11:16:32]</span> Woh aapko khud hi nikaalne padenge na, apni situation ko samajh kar ke. Aur apni situation ko kab samajh paoge?</p>
+            <p class="transcript-line"><span class="timestamp">[11:21:99]</span> Jab ruk kar ke ek situation ko dekh paoge.</p>
+            <p class="transcript-line"><span class="timestamp">[11:26:24]</span> Mobile ke upar aapne at a time 10 applications khol li.</p>
+            <p class="transcript-line"><span class="timestamp">[11:31:37]</span> 20 applications khol li.</p>
+            <p class="transcript-line"><span class="timestamp">[11:33:57]</span> 50 applications khol li. Kya hoga?</p>
+            <p class="transcript-line"><span class="timestamp">[11:36:23]</span> Hang ho jayega.</p>
+            <p class="transcript-line"><span class="timestamp">[11:37:37]</span> Dekho kitna simple hai samajhna.</p>
+            <p class="transcript-line"><span class="timestamp">[11:39:69]</span> Hai na?</p>
+            <p class="transcript-line"><span class="timestamp">[11:40:48]</span> Hang ho jayega. Kyunki humne ek saath mein 50 applications khol li, to ab hum kya karenge?</p>
+            <p class="transcript-line"><span class="timestamp">[11:46:17]</span> Remove toh tab hoga na jab hang hatega. Ek baar toh hang ho gaya hai.</p>
+            <p class="transcript-line"><span class="timestamp">[11:51:30]</span> Toh hang ke liye hume kya karna padega? Agar computer hang ho gaya,</p>
+            <p class="transcript-line"><span class="timestamp">[11:53:57]</span> restart karna padega.</p>
+            <p class="transcript-line"><span class="timestamp">[11:55:62]</span> Absolutely simple. Restart ka button dabana padega, shutdown karna padega, wapas se restart karna padega.</p>
+            <p class="transcript-line"><span class="timestamp">[12:01:71]</span> Fir ek-ek kar ke jo applications hain unko kam karna padega. Ya agar speed kam ho gayi hai to humko applications ko kam karna padega.</p>
+            <p class="transcript-line"><span class="timestamp">[12:08:24]</span> Hum dekhenge ki accha ye 20 khuli hui hain, ek-ek kar ke hataya, hataya, hataya.</p>
+            <p class="transcript-line"><span class="timestamp">[12:12:79]</span> Fir wapas se theek chalne lag gaya. Aise hi hota hai?</p>
+            <p class="transcript-line"><span class="timestamp">[12:16:85]</span> To imagine karo, hamara jo mind hai, wo bilkul us computer ki tarah hai.</p>
+            <p class="transcript-line"><span class="timestamp">[12:20:47]</span> Jisme at a time hazaron, laakhon applications chal rahi hain.</p>
+            <p class="transcript-line"><span class="timestamp">[12:25:38]</span> Aapke mind mein hazaron applications open to ho gayi hain,</p>
+            <p class="transcript-line"><span class="timestamp">[12:31:00]</span> lekin usko band kaise karna hai,</p>
+            <p class="transcript-line"><span class="timestamp">[12:32:82]</span> yeh hume nahi aata.</p>
+            <p class="transcript-line"><span class="timestamp">[12:34:07]</span> Ek ek kar ke.</p>
+            <p class="transcript-line"><span class="timestamp">[12:36:44]</span> Apne mind ko restart kaise karna hai,</p>
+            <p class="transcript-line"><span class="timestamp">[12:39:69]</span> yeh hume nahi aata.</p>
+            <p class="transcript-line"><span class="timestamp">[12:41:64]</span> Thodi der ke liye shutdown kaise karna hai mind ko,</p>
+            <p class="transcript-line"><span class="timestamp">[12:44:27]</span> yeh hume nahi aata.</p>
+            <p class="transcript-line"><span class="timestamp">[12:46:83]</span> Hume kya aata hai,</p>
+            <p class="transcript-line"><span class="timestamp">[12:48:58]</span> ki ek application hai jo bahut tang kar rahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[12:51:71]</span> Supposingly,</p>
+            <p class="transcript-line"><span class="timestamp">[12:53:07]</span> koi aisi problem aayi aapki life mein, ya koi aisa experience hua, kisi ki death hui, ya kuch bhi hua, jiski wajah se aapko bahut dukh ho raha hai.</p>
+            <p class="transcript-line"><span class="timestamp">[13:00:19]</span> Toh aap kya karoge? Ya for example, ghar mein ladai ho gayi. Wife ke saath mein ladai ho gayi. Toh aap kya karoge? Immediately ek doosri application khol doge.</p>
+            <p class="transcript-line"><span class="timestamp">[13:08:18]</span> Uss application ko band kaise karna hai, yeh aapko nahi aata.</p>
+            <p class="transcript-line"><span class="timestamp">[13:12:00]</span> Samajhne ki koshish karna.</p>
+            <p class="transcript-line"><span class="timestamp">[13:17:85]</span> Ab doosri application se mera matlab extra marital affair ki baat nahi kar raha main.</p>
+            <p class="transcript-line"><span class="timestamp">[13:23:03]</span> Main kya keh raha hu, aap apne dhyan ko</p>
+            <p class="transcript-line"><span class="timestamp">[13:25:01]</span> kahin aur lagane ki koshish karoge.</p>
+            <p class="transcript-line"><span class="timestamp">[13:27:72]</span> Aapko yeh to pata nahi hai ki uss application ko band kaise karna hai, aapko yeh nahi pata ki mind ko restart kaise karna hai.</p>
+            <p class="transcript-line"><span class="timestamp">[13:32:41]</span> Toh option bacha kya?</p>
+            <p class="transcript-line"><span class="timestamp">[13:34:20]</span> Ek doosri application khol do jisme maza aaye.</p>
+            <p class="transcript-line"><span class="timestamp">[13:37:05]</span> Ek aisi application jo aapko tang kar rahi hai,</p>
+            <p class="transcript-line"><span class="timestamp">[13:40:48]</span> usse peecha toh chuda nahi sakte.</p>
+            <p class="transcript-line"><span class="timestamp">[13:41:64]</span> Woh khuli hui hai, woh band nahi hui hai.</p>
+            <p class="transcript-line"><span class="timestamp">[13:44:59]</span> Woh wapas aayegi.</p>
+            <p class="transcript-line"><span class="timestamp">[13:46:27]</span> Aap usse thodi der ke liye bhaag sakte ho.</p>
+            <p class="transcript-line"><span class="timestamp">[13:49:58]</span> Aap thodi der ke liye apne ghar se kahin bahar ja sakte ho.</p>
+            <p class="transcript-line"><span class="timestamp">[13:53:30]</span> Laut ke aana to padega na bhai.</p>
+            <p class="transcript-line"><span class="timestamp">[13:55:82]</span> Fir kya karoge?</p>
+            <p class="transcript-line"><span class="timestamp">[13:57:48]</span> Fir woh application wapas se khul jayegi.</p>
+            <p class="transcript-line"><span class="timestamp">[14:08:44]</span> <span class="speaker-note">(Audience member speaks)</span> Sir, aapne wo applications ki baat ki thi na?</p>
+            <p class="transcript-line"><span class="timestamp">[14:11:80]</span> Hmm hmm.</p>
+            <p class="transcript-line"><span class="timestamp">[14:12:12]</span> Ek application chal raha hai, band nahi ho raha hai sir.</p>
+            <p class="transcript-line"><span class="timestamp">[14:13:95]</span> Kya, batao na?</p>
+            <p class="transcript-line"><span class="timestamp">[14:15:35]</span> Score kya hua hai?</p>
+            <p class="transcript-line"><span class="timestamp">[14:18:61]</span> Kitne logo ka ye score waali application khuli hui hai?</p>
+            <p class="transcript-line"><span class="timestamp">[14:21:49]</span> Score kya hua hai, score kya hua hai? Dekhu, dekhu!</p>
+            <p class="transcript-line"><span class="timestamp">[14:23:44]</span> <span class="speaker-note">(Note: There was a cricket match between India & Zimbabwe on that day.)</span></p>
+            <p class="transcript-line"><span class="timestamp">[14:25:70]</span> Batting shuru ho gayi ya nahi hui hai?</p>
+            <p class="transcript-line"><span class="timestamp">[14:26:95]</span> <span class="speaker-note">(Audience member speaks)</span> Aapne boli toh khul gayi.</p>
+            <p class="transcript-line"><span class="timestamp">[14:28:44]</span> Achha, boli toh khul gayi.</p>
+            <p class="transcript-line"><span class="timestamp">[14:29:94]</span> Exactly.</p>
+            <p class="transcript-line"><span class="timestamp">[14:31:40]</span> Matlab ke,</p>
+            <p class="transcript-line"><span class="timestamp">[14:33:43]</span> applications kahin jaati nahi hain, padi rehti hain.</p>
+            <p class="transcript-line"><span class="timestamp">[14:36:27]</span> Jaise hi aapko unke saath mein contact hota hai,</p>
+            <p class="transcript-line"><span class="timestamp">[14:39:07]</span> woh wapas se khul jaati hain.</p>
+            <p class="transcript-line"><span class="timestamp">[14:41:24]</span> Ki agar breakup ho gaya, toh yeh mat samjho ki aapka peecha chhut gaya aapki girlfriend se.</p>
+            <p class="transcript-line"><span class="timestamp">[14:44:83]</span> Paanch saal baad bhi dobara dikhegi toh sab yaad aa jayega.</p>
+            <p class="transcript-line"><span class="timestamp">[14:53:32]</span> Band karne ka koi tarika nahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[14:56:49]</span> No way out.</p>
+            <p class="transcript-line"><span class="timestamp">[14:58:62]</span> Dekho ho kya raha hai,</p>
+            <p class="transcript-line"><span class="timestamp">[15:00:73]</span> problem ko samajhna hai, pakadna hai. Ho kya raha hai.</p>
+            <p class="transcript-line"><span class="timestamp">[15:04:36]</span> Hamara mind baar-baar pleasures ki taraf bhaag raha hai, pain se bachne ke liye.</p>
+            <p class="transcript-line"><span class="timestamp">[15:11:00]</span> As simple as that.</p>
+            <p class="transcript-line"><span class="timestamp">[15:13:62]</span> Woh painful application kisi ke liye kuch bhi ho sakti hai.</p>
+            <p class="transcript-line"><span class="timestamp">[15:18:18]</span> Toh uska hum solution kya nikaalte hain ki kuch</p>
+            <p class="transcript-line"><span class="timestamp">[15:20:64]</span> pleasurable experience, jo humko pata hai ki kuch seconds ke liye hai, kuch moments ke liye hai,</p>
+            <p class="transcript-line"><span class="timestamp">[15:25:21]</span> lekin bhaage ja rahe hain.</p>
+            <p class="transcript-line"><span class="timestamp">[15:27:36]</span> Bhaage ja rahe hain.</p>
+            <p class="transcript-line"><span class="timestamp">[15:28:60]</span> Jo koi solution nahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[15:30:17]</span> Kuch der ke liye hum bhool sakte hain un sab baaton ko, fir wapas se yaad aa jayengi.</p>
+            <p class="transcript-line"><span class="timestamp">[15:33:78]</span> Fir wapas se life aa kar ke hum pe haavi ho jayegi.</p>
+            <p class="transcript-line"><span class="timestamp">[15:36:58]</span> Fir kya karenge?</p>
+            <p class="transcript-line"><span class="timestamp">[15:38:88]</span> Apni life ki jo problems hain, unko face na kar ke hum bhaag rahe hain.</p>
+            <p class="transcript-line"><span class="timestamp">[15:44:66]</span> Toh solution kya hai?</p>
+            <p class="transcript-line"><span class="timestamp">[15:46:75]</span> Solution bahar nahi hai, hamare andar hai.</p>
+            <p class="transcript-line"><span class="timestamp">[15:50:52]</span> Hamare andar hai.</p>
+            <p class="transcript-line"><span class="timestamp">[15:52:16]</span> Humein rukna seekhna hai.</p>
+            <p class="transcript-line"><span class="timestamp">[15:56:80]</span> Thodi-thodi practice karni hai.</p>
+            <p class="transcript-line"><span class="timestamp">[15:58:65]</span> Thodi thodi.</p>
+            <p class="transcript-line"><span class="timestamp">[16:00:81]</span> Ruk kar ke cheezon ko dekhna hai. Haan.</p>
+            <p class="transcript-line"><span class="timestamp">[16:03:00]</span> <span class="speaker-note">(Audience member speaks)</span> Aap pichle session mein bolte aa rahe hain ki na daudna hai, na rukna hai, bas chalte rehna hai.</p>
+            <p class="transcript-line"><span class="timestamp">[16:09:00]</span> Toh aap is session mein kyon bol rahe ho ki hume rukna hai?</p>
+            <p class="transcript-line"><span class="timestamp">[16:11:00]</span> Context ko samjho.</p>
+            <p class="transcript-line"><span class="timestamp">[16:12:93]</span> Kis context mein main baat kar raha hu?</p>
+            <p class="transcript-line"><span class="timestamp">[16:15:36]</span> Haan?</p>
+            <p class="transcript-line"><span class="timestamp">[16:21:84]</span> Aap sab ko bhi ye confusion hai ya thoda</p>
+            <p class="transcript-line"><span class="timestamp">[16:24:00]</span> Nahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[16:25:21]</span> Kisi ko hai ye aur kisi ke mann mein yeh question aa raha hai?</p>
+            <p class="transcript-line"><span class="timestamp">[16:27:85]</span> Nahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[16:28:60]</span> <span class="speaker-note">(Audience member speaks)</span> Everything depends on the situation, sir.</p>
+            <p class="transcript-line"><span class="timestamp">[16:30:60]</span> Absolutely.</p>
+            <p class="transcript-line"><span class="timestamp">[16:31:69]</span> Main yeh nahi keh raha ki aap permanently ruk jao.</p>
+            <p class="transcript-line"><span class="timestamp">[16:34:52]</span> 24 ghante mein se,</p>
+            <p class="transcript-line"><span class="timestamp">[16:36:26]</span> 5 ghante aapne padhai kari. Aap student ho?</p>
+            <p class="transcript-line"><span class="timestamp">[16:37:71]</span> Yes sir.</p>
+            <p class="transcript-line"><span class="timestamp">[16:38:64]</span> Haan.</p>
+            <p class="transcript-line"><span class="timestamp">[16:39:18]</span> Toh 5 ghante, 6 ghante aapne padhai kari,</p>
+            <p class="transcript-line"><span class="timestamp">[16:41:09]</span> uske alawa apna sports ke liye chale gaye, kuch activities aur yeh woh.</p>
+            <p class="transcript-line"><span class="timestamp">[16:45:00]</span> YouTube pe bhi ja rahe ho, ulti-sidhi videos bhi dekh rahe ho, sab kar rahe ho. Aur nahi karoge toh kya karoge? Abhi shaadi to hui nahi hai aapki.</p>
+            <p class="transcript-line"><span class="timestamp">[16:50:35]</span> Kya karoge?</p>
+            <p class="transcript-line"><span class="timestamp">[16:56:49]</span> Sidhi si baat hai na!</p>
+            <p class="transcript-line"><span class="timestamp">[16:58:65]</span> Kya karoge? Kuch to karoge, mind ko kahin toh lagaoge.</p>
+            <p class="transcript-line"><span class="timestamp">[17:01:21]</span> Yeh sab kar rahe ho,</p>
+            <p class="transcript-line"><span class="timestamp">[17:02:81]</span> lekin balance bana rahe ho.</p>
+            <p class="transcript-line"><span class="timestamp">[17:04:36]</span> It's all about creating a balance.</p>
+            <p class="transcript-line"><span class="timestamp">[17:07:95]</span> Bhagte rehna bina soche samjhe bura hai, kyunki wo phasayega aapko,</p>
+            <p class="transcript-line"><span class="timestamp">[17:11:93]</span> jo abhi ho raha hai.</p>
+            <p class="transcript-line"><span class="timestamp">[17:13:64]</span> Aur ruke hi rehna, woh aur bhi bura hai.</p>
+            <p class="transcript-line"><span class="timestamp">[17:16:38]</span> Kyunki survive karne ke liye kuch toh karna hi padega na.</p>
+            <p class="transcript-line"><span class="timestamp">[17:19:42]</span> Kisi bhi end pe aa kar ke kaam ko nahi chhodna hai. Main sirf baat yeh kar raha hu</p>
+            <p class="transcript-line"><span class="timestamp">[17:23:71]</span> ki kya koi aisa raasta hai,</p>
+            <p class="transcript-line"><span class="timestamp">[17:26:09]</span> jahan par ruk bhi sako,</p>
+            <p class="transcript-line"><span class="timestamp">[17:28:44]</span> aur apne 100% efficiency ke saath mein kaam bhi kar sako.</p>
+            <p class="transcript-line"><span class="timestamp">[17:33:04]</span> Matlab aapki kaam karne ki efficiency abhi jo bhi hai,</p>
+            <p class="transcript-line"><span class="timestamp">[17:36:69]</span> usse hazar guna badh jaye.</p>
+            <p class="transcript-line"><span class="timestamp">[17:39:69]</span> Imagine karo ek computer hai,</p>
+            <p class="transcript-line"><span class="timestamp">[17:41:64]</span> jiske andar bahut kachra bhara hua hai.</p>
+            <p class="transcript-line"><span class="timestamp">[17:44:48]</span> Temp files hoti hain?</p>
+            <p class="transcript-line"><span class="timestamp">[17:45:32]</span> Sabko pata hai, jo hum delete karte hain ja kar ke.</p>
+            <p class="transcript-line"><span class="timestamp">[17:48:07]</span> Ya computer ki bahut buri halat ho jati hai toh hum format karwa dete hain.</p>
+            <p class="transcript-line"><span class="timestamp">[17:52:16]</span> Isse humko kya samajh aata hai ki koi bhi computer,</p>
+            <p class="transcript-line"><span class="timestamp">[17:56:49]</span> mein jitni free space hogi,</p>
+            <p class="transcript-line"><span class="timestamp">[17:58:65]</span> woh utna hi acche se kaam kar payega.</p>
+            <p class="transcript-line"><span class="timestamp">[18:01:83]</span> Isi tarah se hamara mind hai.</p>
+            <p class="transcript-line"><span class="timestamp">[18:03:77]</span> Ki agar kisi tarah se aapko</p>
+            <p class="transcript-line"><span class="timestamp">[18:05:35]</span> in files ko,</p>
+            <p class="transcript-line"><span class="timestamp">[18:07:05]</span> hatana aa jaye, in applications ko hatana aa jaye, restart karna aa jaye, yeh button aapke haath mein aa jaye,</p>
+            <p class="transcript-line"><span class="timestamp">[18:14:60]</span> refresh karna aa jaye,</p>
+            <p class="transcript-line"><span class="timestamp">[18:16:04]</span> in temp files ko utha-utha kar ke hatana aa jaye kisi bhi tarah se,</p>
+            <p class="transcript-line"><span class="timestamp">[18:20:10]</span> toh kya hoga? Aapki efficiency</p>
+            <p class="transcript-line"><span class="timestamp">[18:21:99]</span> lakhon-karodon guna badh jayegi.</p>
+            <p class="transcript-line"><span class="timestamp">[18:23:80]</span> It will increase like anything. Aapke mind ki powers badh jayegi.</p>
+            <p class="transcript-line"><span class="timestamp">[18:28:90]</span> Toh yeh cheezein kaise hongi?</p>
+            <p class="transcript-line"><span class="timestamp">[18:30:84]</span> Bahut hi aasan hai.</p>
+            <p class="transcript-line"><span class="timestamp">[18:32:41]</span> Agar main un applications ki baat karu,</p>
+            <p class="transcript-line"><span class="timestamp">[18:34:60]</span> jo aapke mobile ko, matlab ki aapke mind ko hang karti chali ja rahi hai,</p>
+            <p class="transcript-line"><span class="timestamp">[18:38:70]</span> toh hume kya seekhna hai? Do cheezein seekhni hain yahan pe. Ek restart karna, ki restart kaise kare usko,</p>
+            <p class="transcript-line"><span class="timestamp">[18:46:38]</span> aur doosra,</p>
+            <p class="transcript-line"><span class="timestamp">[18:48:21]</span> un windows ko band kaise kiya jaye?</p>
+            <p class="transcript-line"><span class="timestamp">[18:50:47]</span> Yehi do challenges hain.</p>
+            <p class="transcript-line"><span class="timestamp">[18:52:69]</span> Agar yeh dono cheezein humko samajh aa jaye,</p>
+            <p class="transcript-line"><span class="timestamp">[18:54:99]</span> toh kya uske baad mein koi problem reh jaati hai hamari life mein?</p>
+            <p class="transcript-line"><span class="timestamp">[18:57:47]</span> No.</p>
+            <p class="transcript-line"><span class="timestamp">[18:58:88]</span> Toh kaise hoga?</p>
+            <p class="transcript-line"><span class="timestamp">[19:00:81]</span> Restart, sabse pehle baat karte hain restart ki.</p>
+            <p class="transcript-line"><span class="timestamp">[19:02:81]</span> Uske baad mein baat karenge un windows ko band karne ki. Dekho, restart kitna simple hai.</p>
+            <p class="transcript-line"><span class="timestamp">[19:08:24]</span> Jab bhi mind zaroorat se zyada haavi hone lag jaye,</p>
+            <p class="transcript-line"><span class="timestamp">[19:11:47]</span> aaram se baitho, apna dhyan apni breath ke upar le aao.</p>
+            <p class="transcript-line"><span class="timestamp">[19:15:36]</span> Absolutely simple.</p>
+            <p class="transcript-line"><span class="timestamp">[19:17:41]</span> Breath is always there in the present moment.</p>
+            <p class="transcript-line"><span class="timestamp">[19:20:41]</span> Breath mein koi imagination nahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[19:22:69]</span> Aap chaho bhi to iski kisi form ko aap imagine nahi kar sakte.</p>
+            <p class="transcript-line"><span class="timestamp">[19:25:31]</span> Chaho bhi to iski sound ko aap imagine nahi kar sakte.</p>
+            <p class="transcript-line"><span class="timestamp">[19:28:44]</span> Sandeep ek sound hai.</p>
+            <p class="transcript-line"><span class="timestamp">[19:30:47]</span> Mohit ek sound hai.</p>
+            <p class="transcript-line"><span class="timestamp">[19:31:85]</span> Ho sakta hai Sandeep se aapko pyaar ho to ye sound sunte hi aapko maza aayega. Mohit se aapko nafrat hai, yeh sound sunte hi aapko gussa aayega.</p>
+            <p class="transcript-line"><span class="timestamp">[19:38:39]</span> Breath, iski sound ko suno. Kya hoga?</p>
+            <p class="transcript-line"><span class="timestamp">[19:41:40]</span> Na maza aayega,</p>
+            <p class="transcript-line"><span class="timestamp">[19:43:08]</span> na dukh hoga.</p>
+            <p class="transcript-line"><span class="timestamp">[19:44:48]</span> Neutral hai.</p>
+            <p class="transcript-line"><span class="timestamp">[19:46:27]</span> Iski koi form nahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[19:48:32]</span> The moment you see a form,</p>
+            <p class="transcript-line"><span class="timestamp">[19:53:23]</span> jisse bhi aapne apne aap ko identify kiya hua hai kisi bhi tarah se,</p>
+            <p class="transcript-line"><span class="timestamp">[19:57:95]</span> to ya toh aapko sukh hoga ya dukh hoga.</p>
+            <p class="transcript-line"><span class="timestamp">[20:00:81]</span> Kisi bhi aisi form ko aap dekhoge,</p>
+            <p class="transcript-line"><span class="timestamp">[20:03:00]</span> jisse aapne apne aap ko nahi joda hua hai, toh na aapko sukh hoga na dukh hoga.</p>
+            <p class="transcript-line"><span class="timestamp">[20:07:69]</span> Ek center point hai,</p>
+            <p class="transcript-line"><span class="timestamp">[20:09:68]</span> jo aap ho.</p>
+            <p class="transcript-line"><span class="timestamp">[20:11:71]</span> Is center ke saath mein kya ho raha hai? Bahut saari cheezein judi hui hain.</p>
+            <p class="transcript-line"><span class="timestamp">[20:14:87]</span> Jin ko abhi-abhi maine applications kaha.</p>
+            <p class="transcript-line"><span class="timestamp">[20:18:61]</span> Aap bahut saari cheezon se</p>
+            <p class="transcript-line"><span class="timestamp">[20:20:47]</span> attach hue pade ho, jaane ya anjaane mein,</p>
+            <p class="transcript-line"><span class="timestamp">[20:22:96]</span> jo aapki saari ki saari problems ki jad hai.</p>
+            <p class="transcript-line"><span class="timestamp">[20:26:49]</span> For example,</p>
+            <p class="transcript-line"><span class="timestamp">[20:28:44]</span> aap ek park mein ghum rahe ho,</p>
+            <p class="transcript-line"><span class="timestamp">[20:30:84]</span> park mein ghum rahe ho aur ghumte-ghumte aap gaye wahan pe, aapne dekha ki ek chota sa ek puppy hai wahan pe,</p>
+            <p class="transcript-line"><span class="timestamp">[20:36:69]</span> aur aapne usko utha liya.</p>
+            <p class="transcript-line"><span class="timestamp">[20:38:88]</span> Abhi tak koi problem nahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[20:40:48]</span> Problem kab shuru hogi? Jab aap us pe kabza kar loge.</p>
+            <p class="transcript-line"><span class="timestamp">[20:44:60]</span> Aapne kaha ki yeh puppy mera hai.</p>
+            <p class="transcript-line"><span class="timestamp">[20:47:33]</span> Ab main isko apne ghar mein rakhunga.</p>
+            <p class="transcript-line"><span class="timestamp">[20:50:07]</span> Iska main dhyan rakhunga.</p>
+            <p class="transcript-line"><span class="timestamp">[20:52:16]</span> Main yeh ensure karunga isko koi problem na ho kisi tarah ki, jabki uss puppy ne marna hi marna hai kabhi na kabhi.</p>
+            <p class="transcript-line"><span class="timestamp">[20:59:18]</span> Jo aapne apna relation joda uss puppy ke saath mein,</p>
+            <p class="transcript-line"><span class="timestamp">[21:02:64]</span> woh saari ki saari problems ki jad hai.</p>
+            <p class="transcript-line"><span class="timestamp">[21:05:46]</span> Jab tak aapko yeh pata hai ki woh jo chota sa puppy hai,</p>
+            <p class="transcript-line"><span class="timestamp">[21:08:92]</span> woh mera nahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[21:11:03]</span> Usme kuch bhi mera nahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[21:13:30]</span> Kis cheezon ka bana hai? Dhyan se dekho.</p>
+            <p class="transcript-line"><span class="timestamp">[21:15:36]</span> Aaj toh science itni tarakki kar gayi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[21:17:69]</span> Aaj theoretical baaton ki zaroorat nahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[21:19:80]</span> Kis cheez ka bana hai woh puppy?</p>
+            <p class="transcript-line"><span class="timestamp">[21:21:49]</span> Aapka bana hai?</p>
+            <p class="transcript-line"><span class="timestamp">[21:22:60]</span> Aapke tukde se bana hai?</p>
+            <p class="transcript-line"><span class="timestamp">[21:25:70]</span> Kis cheez ka bana hai woh?</p>
+            <p class="transcript-line"><span class="timestamp">[21:29:48]</span> Scientifically isko dekha jaye toh kis cheez ka bana hai? Energy ka bana hai.</p>
+            <p class="transcript-line"><span class="timestamp">[21:33:64]</span> It is simple energy. Energy kiski?</p>
+            <p class="transcript-line"><span class="timestamp">[21:36:58]</span> Aapki hai kya?</p>
+            <p class="transcript-line"><span class="timestamp">[21:39:18]</span> Aapka kabza hai energy ke upar? Aap keh sakte ho energy meri hai?</p>
+            <p class="transcript-line"><span class="timestamp">[21:43:95]</span> Kahan aapki hai?</p>
+            <p class="transcript-line"><span class="timestamp">[21:44:60]</span> Aap energy ke ho, haan yeh theek hai.</p>
+            <p class="transcript-line"><span class="timestamp">[21:46:83]</span> That makes sense.</p>
+            <p class="transcript-line"><span class="timestamp">[21:49:52]</span> Toh hua kya?</p>
+            <p class="transcript-line"><span class="timestamp">[21:51:21]</span> Woh</p>
+            <p class="transcript-line"><span class="timestamp">[21:52:60]</span> jo energy ka hai, energy jo uski hai, us par ja kar ke aapne kabza kar liya.</p>
+            <p class="transcript-line"><span class="timestamp">[21:58:39]</span> Uske saath mein apna ek relation jod liya.</p>
+            <p class="transcript-line"><span class="timestamp">[22:01:41]</span> Aur kaha ki ab main</p>
+            <p class="transcript-line"><span class="timestamp">[22:03:68]</span> iska dhyan rakhunga. The moment that happens,</p>
+            <p class="transcript-line"><span class="timestamp">[22:06:55]</span> ab</p>
+            <p class="transcript-line"><span class="timestamp">[22:07:69]</span> uss puppy ka jo sukh-dukh hai, woh aapka sukh-dukh ban gaya.</p>
+            <p class="transcript-line"><span class="timestamp">[22:11:64]</span> Dhyan se dekhna kya ho raha hai.</p>
+            <p class="transcript-line"><span class="timestamp">[22:13:30]</span> Jabki uske saath jo hone wala hai, us par aapka koi control nahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[22:16:71]</span> Usko agar koi beemari lagni hogi, toh lagegi.</p>
+            <p class="transcript-line"><span class="timestamp">[22:20:10]</span> Usne marna hoga, toh marega. Jeena hoga, toh jiyega. Aap kuch bhi nahi kar sakte.</p>
+            <p class="transcript-line"><span class="timestamp">[22:25:31]</span> You cannot do anything. You do not have any control.</p>
+            <p class="transcript-line"><span class="timestamp">[22:28:60]</span> Jo uske saath hona hoga, woh hoga.</p>
+            <p class="transcript-line"><span class="timestamp">[22:30:73]</span> But aapne jo uske saath mein apna relation joda, uski wajah se ab jaise hi woh puppy khush hoga, for example, apni poonch hilayega aur aapke paas mein aayega, aa kar ke aapka pair chaatega toh aap bade khush ho jaoge.</p>
+            <p class="transcript-line"><span class="timestamp">[22:41:20]</span> Ah! Maza aa gaya, maza aa gaya. Aur jitna yeh hoga, aap usse utna hi attach hote chale jaoge.</p>
+            <p class="transcript-line"><span class="timestamp">[22:46:89]</span> Judte chale ja rahe ho, chipakte chale ja rahe ho, chipakte-chipakte-chipakte,</p>
+            <p class="transcript-line"><span class="timestamp">[22:51:16]</span> kabhi na kabhi to alag hona padega na.</p>
+            <p class="transcript-line"><span class="timestamp">[22:52:68]</span> Reality hai, aankh khol kar ke dekho is duniya ko ki kya ho raha hai.</p>
+            <p class="transcript-line"><span class="timestamp">[22:57:05]</span> Jab tak hum nahi dekhenge, hum apni problems ke solutions nahi nikaal payenge.</p>
+            <p class="transcript-line"><span class="timestamp">[23:00:81]</span> Jahan ab woh beemar pada,</p>
+            <p class="transcript-line"><span class="timestamp">[23:02:85]</span> usko koi problem aayi, usne poonch hilani band kari, aapko aa kar ke chaatna band kiya, rona shuru kiya, side mein baith kar ke aansu tapak rahe hain.</p>
+            <p class="transcript-line"><span class="timestamp">[23:10:48]</span> Jab tak woh park mein tha, tab tak dikkat nahi thi.</p>
+            <p class="transcript-line"><span class="timestamp">[23:13:57]</span> Kitne roz marte hain, kitne aate hain, kitne chale jaate hain, tab tak dikkat nahi thi.</p>
+            <p class="transcript-line"><span class="timestamp">[23:17:15]</span> The moment that happens,</p>
+            <p class="transcript-line"><span class="timestamp">[23:18:61]</span> ab aap phas gaye.</p>
+            <p class="transcript-line"><span class="timestamp">[23:20:96]</span> Ab aap phas gaye.</p>
+            <p class="transcript-line"><span class="timestamp">[23:22:68]</span> Isme bhi koi problem nahi hai, basharte,</p>
+            <p class="transcript-line"><span class="timestamp">[23:25:31]</span> ki aap yeh samajh jao</p>
+            <p class="transcript-line"><span class="timestamp">[23:27:01]</span> ki yeh puppy mera nahi hai, mere ko sirf ek role mila hai,</p>
+            <p class="transcript-line"><span class="timestamp">[23:30:84]</span> is puppy ka dhyan rakhne ka.</p>
+            <p class="transcript-line"><span class="timestamp">[23:33:14]</span> Isko real life situation se relate karna.</p>
+            <p class="transcript-line"><span class="timestamp">[23:35:86]</span> Puppy main hata kar ke kuch bhi laga dena, koi bhi relation jod dena.</p>
+            <p class="transcript-line"><span class="timestamp">[23:39:69]</span> Life ki baat ho rahi hai yahan par.</p>
+            <p class="transcript-line"><span class="timestamp">[23:43:08]</span> Isme bhi koi dikkat nahi hai uss puppy ko ghar mein laane mein bhi koi dikkat nahi hai, basharte ki aap yeh samjho</p>
+            <p class="transcript-line"><span class="timestamp">[23:47:11]</span> ki main is puppy ki nurse hu.</p>
+            <p class="transcript-line"><span class="timestamp">[23:51:71]</span> Kisi ke jaane se koi nurse roti hai kya?</p>
+            <p class="transcript-line"><span class="timestamp">[23:56:88]</span> Ki "I am just a caretaker.</p>
+            <p class="transcript-line"><span class="timestamp">[23:58:80]</span> I'm just a caretaker." Aap usko pyaar karo, uske saath mein raho,</p>
+            <p class="transcript-line"><span class="timestamp">[24:03:00]</span> apne role ko play karna hai.</p>
+            <p class="transcript-line"><span class="timestamp">[24:06:17]</span> Yeh samajhna hai</p>
+            <p class="transcript-line"><span class="timestamp">[24:08:44]</span> ki koi mera nahi hai. Main ek role play kar raha hu,</p>
+            <p class="transcript-line"><span class="timestamp">[24:12:35]</span> for a time being.</p>
+            <p class="transcript-line"><span class="timestamp">[24:14:48]</span> Wahan par koi dikkat nahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[24:16:30]</span> Yeh sab cheezein kab samajh aayengi? Theoretically toh samajh aa gayi meri yeh baatein. Theoretically kisi ko samajhne mein dikkat ho rahi hai?</p>
+            <p class="transcript-line"><span class="timestamp">[24:22:00]</span> Aur attachment agar aapka khatam bhi hua toh kya pyaar khatam hua? Balki aap pyaar zyada acche se kar paoge.</p>
+            <p class="transcript-line"><span class="timestamp">[24:26:95]</span> Ab agar woh puppy beemar hua,</p>
+            <p class="transcript-line"><span class="timestamp">[24:28:60]</span> aur aap ek nurse ki tarah uske saath mein deal kar rahe ho, aap zyada dhang se kar paoge?</p>
+            <p class="transcript-line"><span class="timestamp">[24:32:85]</span> Ya agar aap usse attach hue pade ho 5 saal se,</p>
+            <p class="transcript-line"><span class="timestamp">[24:35:14]</span> aur woh thoda sa bhi beemar hua, aap bokhla jaoge.</p>
+            <p class="transcript-line"><span class="timestamp">[24:37:69]</span> Aapke haath-pair phool jayenge. "Are yeh kya ho gaya?"</p>
+            <p class="transcript-line"><span class="timestamp">[24:40:48]</span> Puppy ko aap bacha sakte the, lekin nahi bacha paa rahe, kis wajah se? Apne darr ki wajah se.</p>
+            <p class="transcript-line"><span class="timestamp">[24:44:31]</span> Agar aap ek nurse ki tarah usko deal kar rahe ho, toh aap fatafat se usko doctor ke paas le kar jaoge, usko theek karwa doge.</p>
+            <p class="transcript-line"><span class="timestamp">[24:49:50]</span> Aap apna kaam bhi dhang se nahi kar paoge,</p>
+            <p class="transcript-line"><span class="timestamp">[24:52:50]</span> attachment ki wajah se.</p>
+            <p class="transcript-line"><span class="timestamp">[24:55:00]</span> Aur kya hota hai attachment ki wajah se?</p>
+            <p class="transcript-line"><span class="timestamp">[24:56:56]</span> Aap attach ho gaye kisi ke saath mein.</p>
+            <p class="transcript-line"><span class="timestamp">[24:58:65]</span> Ek hai</p>
+            <p class="transcript-line"><span class="timestamp">[24:59:88]</span> theoretically attach hona. Usme koi problem nahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[25:01:83]</span> Theoretically matlab, duniya ki nazar mein.</p>
+            <p class="transcript-line"><span class="timestamp">[25:05:46]</span> Ki "yeh meri wife hai."</p>
+            <p class="transcript-line"><span class="timestamp">[25:06:85]</span> "Yeh mera husband hai." Koi dikkat nahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[25:09:47]</span> Ek role hai,</p>
+            <p class="transcript-line"><span class="timestamp">[25:10:32]</span> jisko hum play kar rahe hain.</p>
+            <p class="transcript-line"><span class="timestamp">[25:11:64]</span> Ek hai mind mein attach hona.</p>
+            <p class="transcript-line"><span class="timestamp">[25:13:30]</span> That is very dangerous.</p>
+            <p class="transcript-line"><span class="timestamp">[25:15:00]</span> Aap kya kar rahe ho? Ek independent insaan ke upar, jiske paas mein apna ek independent mind hai, us pe kabza karne ki koshish kar rahe ho.</p>
+            <p class="transcript-line"><span class="timestamp">[25:22:20]</span> Clashes hone hi hone hain.</p>
+            <p class="transcript-line"><span class="timestamp">[25:24:50]</span> Yeh hai clashes ki jad.</p>
+            <p class="transcript-line"><span class="timestamp">[25:26:49]</span> Aap attach ho gaye.</p>
+            <p class="transcript-line"><span class="timestamp">[25:28:07]</span> Buri tarah se attach ho gaye apne mind ke level pe.</p>
+            <p class="transcript-line"><span class="timestamp">[25:31:37]</span> Toh kya hoga?</p>
+            <p class="transcript-line"><span class="timestamp">[25:32:85]</span> Clashes honge.</p>
+            <p class="transcript-line"><span class="timestamp">[25:34:60]</span> Ab agar yeh cheez meri hai, toh main chahta hu ki woh yeh kare.</p>
+            <p class="transcript-line"><span class="timestamp">[25:38:70]</span> "Yeh mera hai, toh main chahta hu ki woh yeh kare."</p>
+            <p class="transcript-line"><span class="timestamp">[25:42:07]</span> Dono apne liye kuch chahte hain.</p>
+            <p class="transcript-line"><span class="timestamp">[25:44:60]</span> Dekho kitna bada conflict hai.</p>
+            <p class="transcript-line"><span class="timestamp">[25:46:17]</span> Dono hi chahte hain ki samne wala banda mujhe samjhe.</p>
+            <p class="transcript-line"><span class="timestamp">[25:50:35]</span> Ab koi kisi ko kaise samajh payega?</p>
+            <p class="transcript-line"><span class="timestamp">[25:52:95]</span> Clashes chalte hi rahenge.</p>
+            <p class="transcript-line"><span class="timestamp">[25:56:04]</span> Jab tak ki ek banda wahan pe aaram se khada ho kar ke, detached ho kar ke uss situation ko dekhe na.</p>
+            <p class="transcript-line"><span class="timestamp">[26:02:44]</span> Life ko saamne waale bande ke nazariye se dekhe na.</p>
+            <p class="transcript-line"><span class="timestamp">[26:07:05]</span> Woh kab ho payega?</p>
+            <p class="transcript-line"><span class="timestamp">[26:08:92]</span> Jab hum us attachment ko chhodenge.</p>
+            <p class="transcript-line"><span class="timestamp">[26:11:47]</span> Hum is tarah se us situation ko dekhenge, ki jaise do log hain,</p>
+            <p class="transcript-line"><span class="timestamp">[26:15:64]</span> jo lad rahe hain, lekin main</p>
+            <p class="transcript-line"><span class="timestamp">[26:17:71]</span> in dono mein se ek bhi nahi hu. Main ek third person hu jo yahan pe baith kar ke in dono ko dekh raha hu.</p>
+            <p class="transcript-line"><span class="timestamp">[26:22:68]</span> Ab aap solution nikaal sakte ho.</p>
+            <p class="transcript-line"><span class="timestamp">[26:24:50]</span> Ab aap saamne wale ke nazar se problem ko samajh sakte ho.</p>
+            <p class="transcript-line"><span class="timestamp">[26:27:60]</span> Ab aapki relationship itni strong ho sakti hai jiski koi hadh nahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[26:32:00]</span> Ab pyaar ki gunjaish hai.</p>
+            <p class="transcript-line"><span class="timestamp">[26:33:98]</span> Now there is scope for love.</p>
+            <p class="transcript-line"><span class="timestamp">[26:35:64]</span> What is love? That is understanding.</p>
+            <p class="transcript-line"><span class="timestamp">[26:38:70]</span> Is that not love?</p>
+            <p class="transcript-line"><span class="timestamp">[26:47:64]</span> Iss duniya ko ek bahut badi galatfehmi ho gayi hai jo mujhe bhi hui thi, ke</p>
+            <p class="transcript-line"><span class="timestamp">[26:52:16]</span> agar hume khush hona hai na,</p>
+            <p class="transcript-line"><span class="timestamp">[26:55:00]</span> toh hume kuch karna padega.</p>
+            <p class="transcript-line"><span class="timestamp">[26:59:18]</span> Hume koi cheez chahiye,</p>
+            <p class="transcript-line"><span class="timestamp">[27:01:41]</span> woh milegi toh hume khushi milegi.</p>
+            <p class="transcript-line"><span class="timestamp">[27:04:18]</span> Koi insaan agar hume mil gaya toh hume khushi mil jayegi.</p>
+            <p class="transcript-line"><span class="timestamp">[27:09:47]</span> Yeh sab causes ho gaye na aapki khushi ke?</p>
+            <p class="transcript-line"><span class="timestamp">[27:11:64]</span> Causes ho gaye. Matlab aap hamesha kisi na kisi external cheez pe depend karoge khushi ke liye.</p>
+            <p class="transcript-line"><span class="timestamp">[27:17:69]</span> Aapko koi cheez mili,</p>
+            <p class="transcript-line"><span class="timestamp">[27:19:00]</span> aapko lag raha hai ki "haan isse khushi milegi," but kitne time tak? Na toh woh cheez hamesha ke liye rehne wali hai, na usse jo aapko khushi mil rahi hai, woh hamesha ke liye rehne wali hai.</p>
+            <p class="transcript-line"><span class="timestamp">[27:25:70]</span> Toh sab kuch temporary hai yahan par.</p>
+            <p class="transcript-line"><span class="timestamp">[27:27:85]</span> Toh andar jaa kar ke ek causeless happiness naam ki cheez hai.</p>
+            <p class="transcript-line"><span class="timestamp">[27:31:85]</span> Hai ek aisi duniya,</p>
+            <p class="transcript-line"><span class="timestamp">[27:33:43]</span> at an experiential level.</p>
+            <p class="transcript-line"><span class="timestamp">[27:35:14]</span> Jo bahut aasan hai wahan tak pahuchna.</p>
+            <p class="transcript-line"><span class="timestamp">[27:37:37]</span> Sirf present moment mein baith kar ke aaram se,</p>
+            <p class="transcript-line"><span class="timestamp">[27:42:07]</span> dekhna hai aur sunna hai,</p>
+            <p class="transcript-line"><span class="timestamp">[27:44:09]</span> ki hamare aas-paas mein ho kya raha hai.</p>
+            <p class="transcript-line"><span class="timestamp">[27:47:71]</span> Abhi is waqt aapke paas mein,</p>
+            <p class="transcript-line"><span class="timestamp">[27:50:35]</span> kuch hai.</p>
+            <p class="transcript-line"><span class="timestamp">[27:53:30]</span> Kuch hai.</p>
+            <p class="transcript-line"><span class="timestamp">[27:55:82]</span> Matlab aapko kuch milna nahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[27:58:39]</span> Hai!</p>
+            <p class="transcript-line"><span class="timestamp">[28:00:19]</span> Aapka dhyan kahin aur hai,</p>
+            <p class="transcript-line"><span class="timestamp">[28:02:44]</span> yahan nahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[28:04:47]</span> Jaise hi yahan aaya,</p>
+            <p class="transcript-line"><span class="timestamp">[28:06:95]</span> feel kar loge.</p>
+            <p class="transcript-line"><span class="timestamp">[28:08:44]</span> Uss cheez ko.</p>
+            <p class="transcript-line"><span class="timestamp">[28:09:47]</span> Pata lag jayega.</p>
+            <p class="transcript-line"><span class="timestamp">[28:11:47]</span> Andar hi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[28:12:87]</span> Ek second mein.</p>
+            <p class="transcript-line"><span class="timestamp">[28:14:14]</span> Koi der nahi lagegi.</p>
+            <p class="transcript-line"><span class="timestamp">[28:17:69]</span> Jahan aapka dhyan wahan gaya,</p>
+            <p class="transcript-line"><span class="timestamp">[28:20:47]</span> jahan aap usse jude,</p>
+            <p class="transcript-line"><span class="timestamp">[28:21:99]</span> woh aapse juda,</p>
+            <p class="transcript-line"><span class="timestamp">[28:24:29]</span> khel shuru.</p>
+            <p class="transcript-line"><span class="timestamp">[28:31:00]</span> Aur uske baad mein jo cheez hogi, usko kehte hain causeless happiness.</p>
+            <p class="transcript-line"><span class="timestamp">[28:41:40]</span> 24 ghante ke liye aap jud gaye uske saath mein.</p>
+            <p class="transcript-line"><span class="timestamp">[28:47:33]</span> Chah kar ke bhi alag nahi ho sakte.</p>
+            <p class="transcript-line"><span class="timestamp">[28:49:73]</span> No way out.</p>
+            <p class="transcript-line"><span class="timestamp">[28:51:71]</span> Chah kar ke bhi apne mind ko,</p>
+            <p class="transcript-line"><span class="timestamp">[28:54:36]</span> zyada der tak past mein ya future mein</p>
+            <p class="transcript-line"><span class="timestamp">[28:56:49]</span> nahi rok sakte.</p>
+            <p class="transcript-line"><span class="timestamp">[29:02:64]</span> Present moment mein rahoge.</p>
+            <p class="transcript-line"><span class="timestamp">[29:04:36]</span> Ho sakta hai,</p>
+            <p class="transcript-line"><span class="timestamp">[29:05:68]</span> possible hai.</p>
+            <p class="transcript-line"><span class="timestamp">[29:07:05]</span> Uske baad kya hoga?</p>
+            <p class="transcript-line"><span class="timestamp">[29:08:44]</span> Log yeh samajhte hain,</p>
+            <p class="transcript-line"><span class="timestamp">[29:10:07]</span> pyaar khatam ho jayega. Are na bhai!</p>
+            <p class="transcript-line"><span class="timestamp">[29:11:64]</span> Pyaar badh jayega, attachment khatam ho jayegi.</p>
+            <p class="transcript-line"><span class="timestamp">[29:13:95]</span> Uske baad mein kya hoga?</p>
+            <p class="transcript-line"><span class="timestamp">[29:15:36]</span> Puri ki puri yeh jo duniya hai, yeh bhaag rahi hai,</p>
+            <p class="transcript-line"><span class="timestamp">[29:18:39]</span> kisi cheez ke peeche, kisi insaan ke peeche, kisi kaam ke peeche, kyunki unko yeh galatfehmi ho gayi hai ki usme se unko khushi milne wali hai.</p>
+            <p class="transcript-line"><span class="timestamp">[29:24:29]</span> Jabki wahan par khushi nahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[29:26:49]</span> Toh hoga kya?</p>
+            <p class="transcript-line"><span class="timestamp">[29:27:69]</span> Jaise hi aap,</p>
+            <p class="transcript-line"><span class="timestamp">[29:29:48]</span> uss jagah par ja kar ke gad gaye, jis cheez ki main baat kar raha hu, which is beyond words and beyond silence.</p>
+            <p class="transcript-line"><span class="timestamp">[29:36:20]</span> That is not silence.</p>
+            <p class="transcript-line"><span class="timestamp">[29:38:40]</span> Beyond silence.</p>
+            <p class="transcript-line"><span class="timestamp">[29:41:20]</span> Kaise jaoge? Abhi aap words ko sun rahe ho.</p>
+            <p class="transcript-line"><span class="timestamp">[29:44:29]</span> Silence ko suno.</p>
+            <p class="transcript-line"><span class="timestamp">[29:48:65]</span> Ek screen pe picture chalti hui dekh rahe ho.</p>
+            <p class="transcript-line"><span class="timestamp">[29:51:71]</span> Maan lo yeh screen hai, ek 3D film chal rahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[29:55:00]</span> This is like a 3D film.</p>
+            <p class="transcript-line"><span class="timestamp">[29:57:42]</span> Toh is film mein jo dikh raha hai, usko toh aap dekh rahe ho.</p>
+            <p class="transcript-line"><span class="timestamp">[30:00:81]</span> Main dikha, is film ke andar.</p>
+            <p class="transcript-line"><span class="timestamp">[30:02:64]</span> Log dikhe, woh sab dikha.</p>
+            <p class="transcript-line"><span class="timestamp">[30:04:88]</span> Lekin jis screen ke upar yeh film chal rahi hai, matlab ki aapke aur mere beech mein jo space hai,</p>
+            <p class="transcript-line"><span class="timestamp">[30:10:48]</span> usko dekh rahe ho?</p>
+            <p class="transcript-line"><span class="timestamp">[30:12:76]</span> Koi nahi dekh raha.</p>
+            <p class="transcript-line"><span class="timestamp">[30:14:60]</span> Abhi aap mujhe dekh rahe ho,</p>
+            <p class="transcript-line"><span class="timestamp">[30:16:49]</span> apni aankhon ko dekho.</p>
+            <p class="transcript-line"><span class="timestamp">[30:20:96]</span> Apni aankhon ko dekho.</p>
+            <p class="transcript-line"><span class="timestamp">[30:24:29]</span> Mind blank ho gaya?</p>
+            <p class="transcript-line"><span class="timestamp">[30:26:69]</span> The moment you look at your eyes, the moment you look at space, mujhe dekhoge toh mind chal raha hai.</p>
+            <p class="transcript-line"><span class="timestamp">[30:31:85]</span> Jaise hi aapne space ko dekha,</p>
+            <p class="transcript-line"><span class="timestamp">[30:34:09]</span> mere aur aapke beech mein jo space hai, uss space ko dekhna shuru kiya,</p>
+            <p class="transcript-line"><span class="timestamp">[30:39:42]</span> mind blank.</p>
+            <p class="transcript-line"><span class="timestamp">[30:41:64]</span> Mujhe dekhoge toh baar-baar thought aayega.</p>
+            <p class="transcript-line"><span class="timestamp">[30:43:57]</span> "Accha hai."</p>
+            <p class="transcript-line"><span class="timestamp">[30:44:60]</span> "Are nahi, isme utna maza nahi aa raha."</p>
+            <p class="transcript-line"><span class="timestamp">[30:46:89]</span> "Yeh re yeh, maza aaya. Yeh kya baat kahi hai." Tar-tar-tar-tar-tar.</p>
+            <p class="transcript-line"><span class="timestamp">[30:49:18]</span> "Yeh boring hai."</p>
+            <p class="transcript-line"><span class="timestamp">[30:51:39]</span> Mind aise hi bhagta rahega.</p>
+            <p class="transcript-line"><span class="timestamp">[30:53:30]</span> Jahan aapne mujhe dekhna band kiya,</p>
+            <p class="transcript-line"><span class="timestamp">[30:55:40]</span> mujhse hate, beech mein jo hamara space hai, uss space ko dekhna shuru kiya,</p>
+            <p class="transcript-line"><span class="timestamp">[30:59:71]</span> mind blank.</p>
+            <p class="transcript-line"><span class="timestamp">[31:01:39]</span> Yeh hai tareeka restart karne ka.</p>
+            <p class="transcript-line"><span class="timestamp">[31:03:97]</span> Ki beech-beech mein kuch der ke liye, jo mind ko aadat padi hui hai, usse alag bhi kuch mind ko de do karne ke liye.</p>
+            <p class="transcript-line"><span class="timestamp">[31:11:80]</span> Beech ki space ko dekho.</p>
+            <p class="transcript-line"><span class="timestamp">[31:13:64]</span> Sound ko bahut suna hai, kabhi baith kar ke silence ko suno.</p>
+            <p class="transcript-line"><span class="timestamp">[31:18:49]</span> Do awazon ke beech mein jo silence hoti hai, usko sunne ki koshish karo.</p>
+            <p class="transcript-line"><span class="timestamp">[31:22:48]</span> The moment you do that, mind will be blank.</p>
+            <p class="transcript-line"><span class="timestamp">[31:25:46]</span> Jahan mind ne kaam karna band kiya,</p>
+            <p class="transcript-line"><span class="timestamp">[31:28:44]</span> toh jo mind ke beyond hai, woh nikal kar ke aapke saamne aaya,</p>
+            <p class="transcript-line"><span class="timestamp">[31:31:85]</span> ek second bhi nahi laga,</p>
+            <p class="transcript-line"><span class="timestamp">[31:33:43]</span> and that is self-realization.</p>
+            <p class="transcript-line"><span class="timestamp">[31:36:04]</span> Mind ne ek parat jamayi hui hai poore tareeke se, jiski wajah se kuch dikh nahi raha hai.</p>
+            <p class="transcript-line"><span class="timestamp">[31:39:69]</span> Woh parat hati, woh saamne aaya.</p>
+            <p class="transcript-line"><span class="timestamp">[31:42:87]</span> Toh kya hoga? You will be there in a state of causeless happiness.</p>
+            <p class="transcript-line"><span class="timestamp">[31:47:64]</span> Uske baad mein aap isliye kaam nahi karoge ki kaam karne se jo cheez milegi usse kuch khushi milegi, ya kaam karne se mujhe khushi milegi,</p>
+            <p class="transcript-line"><span class="timestamp">[31:54:68]</span> kyunki aap chahe kuch karo ya na karo, uske baad mein koi fark nahi padne wala.</p>
+            <p class="transcript-line"><span class="timestamp">[31:58:80]</span> Aap baithe raho ek jagah par aaram se,</p>
+            <p class="transcript-line"><span class="timestamp">[32:02:44]</span> 10 ghante ke liye,</p>
+            <p class="transcript-line"><span class="timestamp">[32:04:48]</span> koi fark nahi padne wala.</p>
+            <p class="transcript-line"><span class="timestamp">[32:06:04]</span> Kuch karte raho, koi fark nahi padne wala.</p>
+            <p class="transcript-line"><span class="timestamp">[32:09:47]</span> Hill station pe baithe hue ho ya traffic signal pe ho,</p>
+            <p class="transcript-line"><span class="timestamp">[32:12:35]</span> buri halat hai, chaaron taraf shor hi shor hai,</p>
+            <p class="transcript-line"><span class="timestamp">[32:14:48]</span> koi fark nahi padne wala.</p>
+            <p class="transcript-line"><span class="timestamp">[32:16:04]</span> Will not make any difference.</p>
+            <p class="transcript-line"><span class="timestamp">[32:18:18]</span> Toh sawal yeh uthta hai ki uske baad mein fir aap kaam karoge kyon?</p>
+            <p class="transcript-line"><span class="timestamp">[32:23:44]</span> Karoge kyon?</p>
+            <p class="transcript-line"><span class="timestamp">[32:27:42]</span> Poochne hain, is tarah ke sawal poochne hain. Jo bhi kuch main bol raha hu,</p>
+            <p class="transcript-line"><span class="timestamp">[32:31:39]</span> us pe ja kar ke question mark lagana hai.</p>
+            <p class="transcript-line"><span class="timestamp">[32:33:43]</span> Doubt karna hai meri har ek baat ko.</p>
+            <p class="transcript-line"><span class="timestamp">[32:36:38]</span> We need to have scientific minds.</p>
+            <p class="transcript-line"><span class="timestamp">[32:39:69]</span> Wohi realize kar sakte hain</p>
+            <p class="transcript-line"><span class="timestamp">[32:41:64]</span> cheezon ko. Aur wohi jab realize kar lenge toh fearlessly aage aa kar ke kuch cheezon ko badal sakte hain.</p>
+            <p class="transcript-line"><span class="timestamp">[32:47:05]</span> Nahi toh kahin kuch nahi badalne wala.</p>
+            <p class="transcript-line"><span class="timestamp">[32:50:35]</span> We need to have a scientific mind. Toh doubt karo har ek cheez ko. Dekho kya hua, ki uske baad mein fir aap karoge kyon?</p>
+            <p class="transcript-line"><span class="timestamp">[32:55:60]</span> Aap kahoge ki "kya zaroorat hai? Pahad pe ja kar ke baith jao."</p>
+            <p class="transcript-line"><span class="timestamp">[32:58:65]</span> Lekin jab pahad pe jaane mein,</p>
+            <p class="transcript-line"><span class="timestamp">[33:00:41]</span> aur shehar mein rehne mein koi fark hi nahi hai, toh pahad pe kyon jaana hai?</p>
+            <p class="transcript-line"><span class="timestamp">[33:03:77]</span> Socho. Agar koi keh raha hai ki "main pahad pe ja kar ke baithunga mujhe khushi milegi," iska matlab</p>
+            <p class="transcript-line"><span class="timestamp">[33:10:84]</span> ki abhi woh doosre level pe hai.</p>
+            <p class="transcript-line"><span class="timestamp">[33:12:76]</span> Pehla level kya hai? Shor.</p>
+            <p class="transcript-line"><span class="timestamp">[33:15:93]</span> Is poori duniya ka shor.</p>
+            <p class="transcript-line"><span class="timestamp">[33:17:69]</span> Doosra level kya hai? Silence.</p>
+            <p class="transcript-line"><span class="timestamp">[33:21:49]</span> Kya hai silence mein? Are kuch nahi hai. Silence ke aage badho.</p>
+            <p class="transcript-line"><span class="timestamp">[33:24:87]</span> Dekho.</p>
+            <p class="transcript-line"><span class="timestamp">[33:26:24]</span> Jo silence mein hai, wohi sound mein hai.</p>
+            <p class="transcript-line"><span class="timestamp">[33:31:09]</span> Jo forms mein hai, wohi formless mein hai.</p>
+            <p class="transcript-line"><span class="timestamp">[33:38:39]</span> Jo dikh raha hai, usme hai na,</p>
+            <p class="transcript-line"><span class="timestamp">[33:40:48]</span> wohi usme hai jo nahi dikh raha hai.</p>
+            <p class="transcript-line"><span class="timestamp">[33:44:48]</span> Jahan aap uske saath mein ja kar ke jude, ab kya fark padega?</p>
+            <p class="transcript-line"><span class="timestamp">[33:48:80]</span> Then you will be absolutely fearless. Fearless of what?</p>
+            <p class="transcript-line"><span class="timestamp">[33:53:80]</span> Fearless of everything.</p>
+            <p class="transcript-line"><span class="timestamp">[33:56:49]</span> Everything.</p>
+            <p class="transcript-line"><span class="timestamp">[33:57:95]</span> Ab aapko le ja kar ke kahin bhi baitha do.</p>
+            <p class="transcript-line"><span class="timestamp">[34:00:81]</span> Aapko le ja kar ke office mein baitha diya jaaye 12 ghante ke liye,</p>
+            <p class="transcript-line"><span class="timestamp">[34:03:77]</span> aapko le ja kar ke ghar mein baitha diya jaaye,</p>
+            <p class="transcript-line"><span class="timestamp">[34:05:46]</span> aapko le ja kar ke ek ladai ke maidan mein baitha diya jaaye,</p>
+            <p class="transcript-line"><span class="timestamp">[34:08:92]</span> aapko le ja kar ke kahin par bhi baitha diya jaaye,</p>
+            <p class="transcript-line"><span class="timestamp">[34:11:47]</span> does not make any difference.</p>
+            <p class="transcript-line"><span class="timestamp">[34:16:04]</span> Does not make any difference.</p>
+            <p class="transcript-line"><span class="timestamp">[34:19:34]</span> Sab mein wohi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[34:20:96]</span> Toh kisko pakdoge, kisko chhodoge?</p>
+            <p class="transcript-line"><span class="timestamp">[34:21:83]</span> Jo pakadne aur chhodne ka khel khel rahe hain na,</p>
+            <p class="transcript-line"><span class="timestamp">[34:24:29]</span> atke hue hain, gadbad mein hain.</p>
+            <p class="transcript-line"><span class="timestamp">[34:26:49]</span> Main isliye sab cheezein clear kar raha hu,</p>
+            <p class="transcript-line"><span class="timestamp">[34:28:32]</span> because ab dheere-dheere jo meri direction ja rahi hai,</p>
+            <p class="transcript-line"><span class="timestamp">[34:31:09]</span> bahut basic level se mere sessions shuru hue the. Ab agar aap dekhoge dhyan se,</p>
+            <p class="transcript-line"><span class="timestamp">[34:34:60]</span> toh woh deep hote chale ja rahe hain, gehre ho rahe hain.</p>
+            <p class="transcript-line"><span class="timestamp">[34:37:37]</span> Jaise jaise woh deep hote chale jayenge,</p>
+            <p class="transcript-line"><span class="timestamp">[34:39:69]</span> log, there is a strong possibility ki usko misinterpret kar ke</p>
+            <p class="transcript-line"><span class="timestamp">[34:43:43]</span> kuch galat track par niklenge.</p>
+            <p class="transcript-line"><span class="timestamp">[34:47:05]</span> Woh woh karna chahenge jo main kar raha hu, bina yeh samjhe</p>
+            <p class="transcript-line"><span class="timestamp">[34:50:81]</span> ki main kar kya raha hu.</p>
+            <p class="transcript-line"><span class="timestamp">[34:52:85]</span> Kuch bhi nahi chhodna.</p>
+            <p class="transcript-line"><span class="timestamp">[34:56:49]</span> Mahabharat jo hai na, yeh jo kahani hai poori ki poori, yeh yudh,</p>
+            <p class="transcript-line"><span class="timestamp">[34:59:62]</span> yeh jis jagah par ho raha hai,</p>
+            <p class="transcript-line"><span class="timestamp">[35:02:16]</span> Kurukshetra,</p>
+            <p class="transcript-line"><span class="timestamp">[35:03:41]</span> yeh kahin bahar nahi hai, yehi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[35:05:90]</span> Isko chhod kar ke nahi bhagna hai.</p>
+            <p class="transcript-line"><span class="timestamp">[35:07:95]</span> Isko face karna hai.</p>
+            <p class="transcript-line"><span class="timestamp">[35:10:48]</span> Isme reh kar ke bahar nikalna hai.</p>
+            <p class="transcript-line"><span class="timestamp">[35:14:87]</span> Jaise</p>
+            <p class="transcript-line"><span class="timestamp">[35:15:93]</span> keechad hai. Keechad mein se kamal khilta hai na,</p>
+            <p class="transcript-line"><span class="timestamp">[35:19:34]</span> aise banna hai.</p>
+            <p class="transcript-line"><span class="timestamp">[35:21:49]</span> Usme rehte hue.</p>
+            <p class="transcript-line"><span class="timestamp">[35:31:09]</span> Baat beech mein reh gayi, main puri khatam karta hu isko, baat ko.</p>
+            <p class="transcript-line"><span class="timestamp">[35:32:85]</span> Ek hai restart karna. Restart sabko samajh aa gaya kaise kara jata hai?</p>
+            <p class="transcript-line"><span class="timestamp">[35:37:37]</span> Neutral cheez ko dekho. Koi bhi neutral cheez.</p>
+            <p class="transcript-line"><span class="timestamp">[35:41:09]</span> Neutral cheez kya hai? Ped hai,</p>
+            <p class="transcript-line"><span class="timestamp">[35:42:68]</span> aapke liye.</p>
+            <p class="transcript-line"><span class="timestamp">[35:43:71]</span> Ped se related koi sukh-dukh nahi hai mind mein.</p>
+            <p class="transcript-line"><span class="timestamp">[35:45:76]</span> Agar ho, toh mat dekhna.</p>
+            <p class="transcript-line"><span class="timestamp">[35:48:32]</span> Supposingly ped pe latak kar ke kisi ne phansi li ho aur aapne dekha ho,</p>
+            <p class="transcript-line"><span class="timestamp">[35:51:64]</span> toh ped ko mat dekhna.</p>
+            <p class="transcript-line"><span class="timestamp">[35:53:43]</span> Mind activate ho jayega.</p>
+            <p class="transcript-line"><span class="timestamp">[35:58:65]</span> Aasmaan ko dekho, agar usse related kuch nahi hai toh.</p>
+            <p class="transcript-line"><span class="timestamp">[36:01:41]</span> Lekin haan, agar aap aasmaan mein taaron ki taraf dekh rahe ho aur apne bachpan ko yaad kar rahe ho,</p>
+            <p class="transcript-line"><span class="timestamp">[36:05:46]</span> ki "main chatt pe sota tha aur raat ko taare ginta tha,</p>
+            <p class="transcript-line"><span class="timestamp">[36:07:42]</span> bada maza aa raha hai," toh aap bachpan mein chale gaye. Aapne present moment ko chhod diya.</p>
+            <p class="transcript-line"><span class="timestamp">[36:10:96]</span> Toh aapne kya kiya, mind ko restart karne ke liye,</p>
+            <p class="transcript-line"><span class="timestamp">[36:13:95]</span> ab yeh main aapko sirf formula bata raha hu. Is formula ko aapko kaise use karna hai, woh aapke upar hai.</p>
+            <p class="transcript-line"><span class="timestamp">[36:18:61]</span> Don't blindly follow me.</p>
+            <p class="transcript-line"><span class="timestamp">[36:21:49]</span> Aankh band kar ke follow nahi karna ki unhone yeh kaha hai toh yehi dekhna hai.</p>
+            <p class="transcript-line"><span class="timestamp">[36:23:71]</span> Yeh kaha hai toh yehi karna hai. Isiliye log phase pade hain.</p>
+            <p class="transcript-line"><span class="timestamp">[36:26:49]</span> Question karte chale jao.</p>
+            <p class="transcript-line"><span class="timestamp">[36:28:32]</span> Dukh kyon hota hai?</p>
+            <p class="transcript-line"><span class="timestamp">[36:29:81]</span> Sukh kya hai?</p>
+            <p class="transcript-line"><span class="timestamp">[36:31:39]</span> Yeh state kya hai? Yeh baatein kya hain jinki main baatein kar raha hu?</p>
+            <p class="transcript-line"><span class="timestamp">[36:34:09]</span> Kya yeh possible hai?</p>
+            <p class="transcript-line"><span class="timestamp">[36:35:86]</span> Hai toh kaise hai?</p>
+            <p class="transcript-line"><span class="timestamp">[36:37:37]</span> Achha yeh raasta hai, kya agar main is pe chalunga toh yeh hoga? Yeh hoga? Iske kya plus-minus hain, yeh hai? Karte-karte-karte aap ek din aise level pe pahunch jaoge,</p>
+            <p class="transcript-line"><span class="timestamp">[36:44:09]</span> jahan par kuch samajh aayega.</p>
+            <p class="transcript-line"><span class="timestamp">[36:46:17]</span> Yeh aa gaya ek step. Yeh hai restart.</p>
+            <p class="transcript-line"><span class="timestamp">[36:48:47]</span> Ab baat karte hain un windows ko band kaise kiya jaye?</p>
+            <p class="transcript-line"><span class="timestamp">[36:51:99]</span> Bahut short mein,</p>
+            <p class="transcript-line"><span class="timestamp">[36:53:14]</span> simple tareeke se,</p>
+            <p class="transcript-line"><span class="timestamp">[36:54:36]</span> applications khuli hui hain.</p>
+            <p class="transcript-line"><span class="timestamp">[36:56:04]</span> Problematic applications hain.</p>
+            <p class="transcript-line"><span class="timestamp">[36:58:65]</span> Haan?</p>
+            <p class="transcript-line"><span class="timestamp">[36:59:62]</span> For example, breakup hua hai.</p>
+            <p class="transcript-line"><span class="timestamp">[37:02:64]</span> Yeh bahut badi problem hai. Yeh aisi problem hai jo sabko aa rahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[37:05:46]</span> Aur pata nahi kitni baar aa rahi hai. Aur breakup ke saath mein kai baar toh complicated breakups hote hain.</p>
+            <p class="transcript-line"><span class="timestamp">[37:09:47]</span> Kuch hote hain jo simple breakups hote hain.</p>
+            <p class="transcript-line"><span class="timestamp">[37:11:32]</span> Kuch bade complicated hote hain.</p>
+            <p class="transcript-line"><span class="timestamp">[37:13:02]</span> Ki "accha usne mere ko meri best friend ki wajah se chhod diya."</p>
+            <p class="transcript-line"><span class="timestamp">[37:15:93]</span> Toh woh aur complicated ho gaya.</p>
+            <p class="transcript-line"><span class="timestamp">[37:18:90]</span> Hai na?</p>
+            <p class="transcript-line"><span class="timestamp">[37:19:92]</span> "Yaar accha maine hi milwaya tha aur woh dono ek ho gaye aur mujhe hi side mein kar diya.</p>
+            <p class="transcript-line"><span class="timestamp">[37:23:30]</span> Waah beta waah!"</p>
+            <p class="transcript-line"><span class="timestamp">[37:28:60]</span> Toh situation jitni complex hoti chali jayegi,</p>
+            <p class="transcript-line"><span class="timestamp">[37:31:39]</span> aapka dard utna hi badhta chala jayega.</p>
+            <p class="transcript-line"><span class="timestamp">[37:33:64]</span> Ab in windows ko band kaise kiya jaye?</p>
+            <p class="transcript-line"><span class="timestamp">[37:36:95]</span> Jab bhi aise kuch thoughts chal rahe hain aapke mind mein,</p>
+            <p class="transcript-line"><span class="timestamp">[37:39:69]</span> usko dekhte raho.</p>
+            <p class="transcript-line"><span class="timestamp">[37:41:09]</span> Jo bhi mind mein imaginations chal rahi hain,</p>
+            <p class="transcript-line"><span class="timestamp">[37:43:14]</span> bhagna nahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[37:44:31]</span> Darna nahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[37:46:17]</span> Inse ladna nahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[37:47:71]</span> Baith kar ke,</p>
+            <p class="transcript-line"><span class="timestamp">[37:48:65]</span> aaram se,</p>
+            <p class="transcript-line"><span class="timestamp">[37:50:35]</span> bade thande dimag se,</p>
+            <p class="transcript-line"><span class="timestamp">[37:51:71]</span> apne mind mein dekhna hai ki kahan ja raha hai?</p>
+            <p class="transcript-line"><span class="timestamp">[37:54:36]</span> Jaane do.</p>
+            <p class="transcript-line"><span class="timestamp">[37:55:18]</span> Ek film ki tarah.</p>
+            <p class="transcript-line"><span class="timestamp">[37:57:33]</span> Film dekhne mein hum sabko maza aata hai.</p>
+            <p class="transcript-line"><span class="timestamp">[37:59:62]</span> Film dekhna hum sabko aata hai.</p>
+            <p class="transcript-line"><span class="timestamp">[38:02:16]</span> Koi hai jisko film dekhna nahi aata?</p>
+            <p class="transcript-line"><span class="timestamp">[38:05:46]</span> Duniya ki sabse interesting film dekhni hai?</p>
+            <p class="transcript-line"><span class="timestamp">[38:08:39]</span> Apne mind ko dekho.</p>
+            <p class="transcript-line"><span class="timestamp">[38:10:48]</span> Bada maza aayega.</p>
+            <p class="transcript-line"><span class="timestamp">[38:12:35]</span> Detached ho kar ke apne mind ko dekho.</p>
+            <p class="transcript-line"><span class="timestamp">[38:14:87]</span> Apni kahani ko dekho,</p>
+            <p class="transcript-line"><span class="timestamp">[38:16:85]</span> jo mind mein kahani chal rahi hai.</p>
+            <p class="transcript-line"><span class="timestamp">[38:18:61]</span> Aap dekhte ja rahe ho, dekhte ja rahe ho, dekhte ja rahe ho. "Accha, aisa hua, aisa hua, aisa hua, aisa hua, aisa hua.</p>
+            <p class="transcript-line"><span class="timestamp">[38:24:60]</span> Yeh ho gaya, woh ho gaya, woh ho gaya."</p>
+            <p class="transcript-line"><span class="timestamp">[38:26:49]</span> Chal chhod, ab jo ho gaya so ho gaya. Ab kya karna hai?</p>
+            <p class="transcript-line"><span class="timestamp">[38:29:68]</span> You will immediately come on to that particular point, aur aapki intelligence beech mein aa jayegi.</p>
+            <p class="transcript-line"><span class="timestamp">[38:34:60]</span> Ki bas bahut hua.</p>
+            <p class="transcript-line"><span class="timestamp">[38:35:64]</span> Ab aage badhta hu life mein.</p>
+            <p class="transcript-line"><span class="timestamp">[38:37:37]</span> Kuch bhi aaye, kuch bhi na aaye,</p>
+            <p class="transcript-line"><span class="timestamp">[38:39:42]</span> ek baat pakki hai,</p>
+            <p class="transcript-line"><span class="timestamp">[38:40:48]</span> ki aap us situation se bahar aa jaoge.</p>
+            <p class="transcript-line"><span class="timestamp">[38:42:68]</span> Aur agar aapne yeh nahi kiya,</p>
+            <p class="transcript-line"><span class="timestamp">[38:44:18]</span> baith kar ke usko nahi dekha, toh zindagi bhar yeh jo, yeh jo cheez hai na, yeh aapke andar panapti rahegi.</p>
+            <p class="transcript-line"><span class="timestamp">[38:50:35]</span> Aur yeh cheezein aur jagah par bhi reflect hone lag jayengi.</p>
+            <p class="transcript-line"><span class="timestamp">[38:53:71]</span> Ki agar ek dard aapke andar pada hua hai, jisko hum avoid karne ki koshish kar rahe hain, woh andar hai.</p>
+            <p class="transcript-line"><span class="timestamp">[38:59:18]</span> Lekin woh frustration,</p>
+            <p class="transcript-line"><span class="timestamp">[39:00:81]</span> woh cheezein, woh kahin aur niklengi.</p>
+            <p class="transcript-line"><span class="timestamp">[39:03:77]</span> Aur agar aapne ek baar puri tarah se, apni puri energy ke saath dekh liya usko,</p>
+            <p class="transcript-line"><span class="timestamp">[39:08:60]</span> ki "accha, yeh hai,"</p>
+            <p class="transcript-line"><span class="timestamp">[39:11:47]</span> toh aap kahoge, "koi baat nahi."</p>
+            <p class="transcript-line"><span class="timestamp">[39:14:36]</span> Koi baat nahi.</p>
+            <p class="transcript-line"><span class="timestamp">[39:15:68]</span> Dheere-dheere, dheere-dheere aur gehrai mein jaoge, aur gehrai mein, aur gehrai mein, aur gehrai mein.</p>
+            <p class="transcript-line"><span class="timestamp">[39:22:68]</span> Aur cheezein aur dhang se samajh aati chali jayengi.</p>
+            <p class="transcript-line"><span class="timestamp">[39:27:69]</span> Aapko samajh aayega, jaise-jaise aap andar jaoge aur apne aap se sawal puchoge,</p>
+            <p class="transcript-line"><span class="timestamp">[39:31:39]</span> ki "dukh ho kisko raha hai?"</p>
+            <p class="transcript-line"><span class="timestamp">[39:33:64]</span> Haan? Kisko ho raha hai dukh?</p>
+            <p class="transcript-line"><span class="timestamp">[39:35:46]</span> Toh aap note karoge, ek badi interesting cheez yahan par.</p>
+            <p class="transcript-line"><span class="timestamp">[39:38:40]</span> Thoda sa technical hai, do you want me to go in it? Haan?</p>
+            <p class="transcript-line"><span class="timestamp">[39:41:40]</span> Haan, okay.</p>
+            <p class="transcript-line"><span class="timestamp">[39:42:87]</span> Dekho kya hai,</p>
+            <p class="transcript-line"><span class="timestamp">[39:44:31]</span> ab yeh cheezein aapko kahin nahi milengi. Kahin likhi hui nahi milengi. Isko aapko observe karna hoga. Aur jo main bol raha hu, woh bhi aapke kisi kaam ka nahi hai,</p>
+            <p class="transcript-line"><span class="timestamp">[39:49:88]</span> unless and until aap khud is cheez ko observe na kar lo.</p>
+            <p class="transcript-line"><span class="timestamp">[39:52:16]</span> Jab tak yeh experience jo mera hai, yeh aapka na ban jaye.</p>
+            <p class="transcript-line"><span class="timestamp">[39:55:60]</span> Kya ho raha hai?</p>
+            <p class="transcript-line"><span class="timestamp">[39:56:88]</span> Aapko yeh lag raha hai aapke paas mein ek mind hai.</p>
+            <p class="transcript-line"><span class="timestamp">[39:58:39]</span> Na.</p>
+            <p class="transcript-line"><span class="timestamp">[40:00:32]</span> Na.</p>
+            <p class="transcript-line"><span class="timestamp">[40:01:41]</span> Dhyan se dekho.</p>
+            <p class="transcript-line"><span class="timestamp">[40:02:81]</span> Dhyan se dekho kya ho raha hai.</p>
+            <p class="transcript-line"><span class="timestamp">[40:06:17]</span> Aapke alag-alag roles ke according,</p>
+            <p class="transcript-line"><span class="timestamp">[40:10:32]</span> alag-alag mind kaam kar rahe hain.</p>
+            <p class="transcript-line"><span class="timestamp">[40:12:35]</span> Aur aap ek mind se nikal kar ke doosre mind mein ja rahe ho.</p>
+            <p class="transcript-line"><span class="timestamp">[40:15:36]</span> For example,</p>
+            <p class="transcript-line"><span class="timestamp">[40:17:15]</span> aap ek taraf se kisi ke pita ho,</p>
+            <p class="transcript-line"><span class="timestamp">[40:20:10]</span> doosri taraf se kisi ke bete ho,</p>
+            <p class="transcript-line"><span class="timestamp">[40:22:48]</span> teesri taraf se kisi ke pati ho,</p>
+            <p class="transcript-line"><span class="timestamp">[40:24:60]</span> husband.</p>
+            <p class="transcript-line"><span class="timestamp">[40:25:68]</span> Yeh teen alag-alag roles hain.</p>
+            <p class="transcript-line"><span class="timestamp">[40:27:33]</span> Kya lagta hai,</p>
+            <p class="transcript-line"><span class="timestamp">[40:28:92]</span> in teeno ka ek mind hai ya teeno ka mind alag-alag hai?</p>
+            <p class="transcript-line"><span class="timestamp">[40:32:00]</span> Dhyan se observe karna life ko, aapko samajh aa jayega abhi main kya keh raha hu.</p>
+            <p class="transcript-line"><span class="timestamp">[40:37:69]</span> Aur aap transmigrate karte chale ja rahe ho. Yahan se yahan, yahan se yahan, yahan se yahan.</p>
+            <p class="transcript-line"><span class="timestamp">[40:41:40]</span> Seconds mein ho raha hai yeh kaam.</p>
+            <p class="transcript-line"><span class="timestamp">[40:43:83]</span> Aur yeh paida kab hota hai aur marta kab hai?</p>
+            <p class="transcript-line"><span class="timestamp">[40:46:01]</span> Ek baap kab paida hota hai?</p>
+            <p class="transcript-line"><span class="timestamp">[40:48:32]</span> Jaise hi aapne bacche ko dekha,</p>
+            <p class="transcript-line"><span class="timestamp">[40:50:47]</span> tab ek baap paida hua.</p>
+            <p class="transcript-line"><span class="timestamp">[40:52:16]</span> Aur baap ke saath hi ek pura ka pura us baap ka mind paida ho gaya.</p>
+            <p class="transcript-line"><span class="timestamp">[40:56:49]</span> Jis waqt aap baap hote ho,</p>
+            <p class="transcript-line"><span class="timestamp">[40:58:39]</span> aapki feelings, apni beti ko le kar ke,</p>
+            <p class="transcript-line"><span class="timestamp">[41:01:41]</span> apne bete ko le kar ke,</p>
+            <p class="transcript-line"><span class="timestamp">[41:03:68]</span> aapke thoughts,</p>
+            <p class="transcript-line"><span class="timestamp">[41:05:35]</span> aapke emotions,</p>
+            <p class="transcript-line"><span class="timestamp">[41:07:05]</span> aapki yaadein,</p>
+            <p class="transcript-line"><span class="timestamp">[41:09:47]</span> aapka future ka plan,</p>
+            <p class="transcript-line"><span class="timestamp">[41:12:16]</span> aapka attachment,</p>
+            <p class="transcript-line"><span class="timestamp">[41:14:87]</span> simple way mein agar bola jaye in sab ko, thoughts.</p>
+            <p class="transcript-line"><span class="timestamp">[41:18:18]</span> "You" as a father ke thoughts,</p>
+            <p class="transcript-line"><span class="timestamp">[41:21:83]</span> bilkul alag hote hain "You" as a son ke thoughts se.</p>
+            <p class="transcript-line"><span class="timestamp">[41:27:33]</span> Bilkul alag.</p>
+            <p class="transcript-line"><span class="timestamp">[41:34:09]</span> Aap apni beti ko dekhte ho, aapke andar alag tarah ke thoughts aate hain.</p>
+            <p class="transcript-line"><span class="timestamp">[41:39:18]</span> Aapka ek alag mind activate ho gaya hai.</p>
+            <p class="transcript-line"><span class="timestamp">[41:41:40]</span> What is mind? That is just a thought.</p>
+            <p class="transcript-line"><span class="timestamp">[41:43:30]</span> Ek alag thought process activate ho gayi hai, ek alag window khul gayi hai puri ki puri.</p>
+            <p class="transcript-line"><span class="timestamp">[41:47:42]</span> Which is completely different from a window jo ek pati ki window hai.</p>
+            <p class="transcript-line"><span class="timestamp">[41:53:41]</span> Jaise hi, aur ek pati paida kab hota hai?</p>
+            <p class="transcript-line"><span class="timestamp">[41:55:68]</span> Jaise hi aapne apni wife ke baare mein socha,</p>
+            <p class="transcript-line"><span class="timestamp">[41:59:18]</span> ya apni wife ko dekha,</p>
+            <p class="transcript-line"><span class="timestamp">[42:03:00]</span> ya uski awaz ko suna,</p>
+            <p class="transcript-line"><span class="timestamp">[42:05:46]</span> toh pati paida ho jata hai.</p>
+            <p class="transcript-line"><span class="timestamp
