@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apna Sawari Tours & Travels | Local Transportation Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #e67e22;
+            --secondary: #2980b9;
+            --accent: #27ae60;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --danger: #e74c3c;
+            --warning: #f39c12;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--dark), var(--secondary));
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .contact-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-header a {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-header a:hover {
+            background-color: #d35400;
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .guarantee-badge {
+            background-color: var(--accent);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .booking-form {
+            background-color: rgba(255,255,255,0.9);
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .form-title {
+            color: var(--dark);
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--secondary);
+            outline: none;
+        }
+        
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn:hover {
+            background-color: #d35400;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            height: 150px;
+            background-color: var(--secondary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+            color: white;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .service-content ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .service-content ul li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .service-content ul li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Vehicle Safety Section */
+        .safety {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .safety-header {
+            text-align: center;
+            background: linear-gradient(to right, var(--secondary), var(--secondary));
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .safety-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .vehicles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .vehicle-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+        
+        .vehicle-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .vehicle-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .vehicle-plate {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .vehicle-details {
+            padding: 20px;
+        }
+        
+        .vehicle-details h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .vehicle-specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .spec {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--light);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .speed-limit {
+            background-color: rgba(39, 174, 96, 0.2);
+            color: var(--accent);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .drivers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .driver-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+        
+        .driver-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .driver-photo {
+            width: 120px;
+            background-color: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            color: #999;
+        }
+        
+        .driver-info {
+            padding: 20px;
+            flex: 1;
+        }
+        
+        .driver-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .driver-id {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .driver-stats {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 8px 15px;
+            background-color: var(--light);
+            border-radius: 8px;
+        }
+        
+        .stat-value {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--secondary);
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .driver-pledge {
+            background-color: rgba(231, 126, 34, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 5px 15px;
+            font-style: italic;
+            color: #555;
+        }
+        
+        /* Guarantee Section */
+        .guarantee {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--secondary), var(--dark));
+            color: white;
+        }
+        
+        .guarantee-content {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .guarantee-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .guarantee-content p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.2rem;
+        }
+        
+        .guarantee-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 300px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .tracking {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .tracking h3 {
+            text-align: center;
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .tracking-map {
+            height: 300px;
+            background-color: #eee;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            color: #666;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tracking-stats {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .tracking-stat {
+            text-align: center;
+            padding: 15px;
+            background-color: var(--light);
+            border-radius: 8px;
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .tracking-stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+        
+        .tracking-stat-label {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        /* WhatsApp Section */
+        .whatsapp-section {
+            padding: 80px 0;
+            background-color: #25D366;
+            color: white;
+            text-align: center;
+        }
+        
+        .whatsapp-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .whatsapp-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        .whatsapp-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .whatsapp-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .whatsapp-btn {
+            background-color: white;
+            color: #25D366;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+            background-color: #f0f0f0;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .guarantee-content h2 {
+                font-size: 2rem;
+            }
+            
+            .tracking-stats {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+            
+            nav ul {
+                gap: 10px;
+            }
+            
+            nav a {
+                font-size: 0.9rem;
+            }
+
+hero h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <h1>Apna <span>Sawari</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-car"></i> Vehicles</a></li>
+                    <li><a href="#"><i class="fas fa-route"></i> Services</a></li>
+                    <li><a href="#"><i class="fas fa-shield-alt"></i> Safety</a></li>
+                    <li><a href="#"><i class="fas fa-phone"></i> Contact</a></li>
+                </ul>
+            </nav>
+            <div class="contact-header">
+                <a href="tel:+91XXXXXXXXXX"><i class="fas fa-phone"></i> Call Now</a>
+                <a href="https://wa.me/91XXXXXXXXXX"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h2>Your Trusted Ride for Temples, Weddings & Local Deliveries</h2>
+            <p>Reliable, safe, and comfortable transportation services in your town. Book now and experience the Apna Sawari difference!</p>
+            
+            <div class="guarantee-badge">
+                <i class="fas fa-clock"></i>
+                Same-Day Booking Guaranteed! Arrival within 45 minutes or money back!
+            </div>
+            
+            <div class="booking-form">
+                <h3 class="form-title">Book Your Ride Now</h3>
+                <div class="form-group">
+                    <label for="pickup">Pickup Location</label>
+                    <input type="text" id="pickup" placeholder="Enter your pickup location">
+                </div>
+                <div class="form-group">
+                    <label for="destination">Destination</label>
+                    <input type="text" id="destination" placeholder="Enter your destination">
+                </div>
+                <div class="form-group">
+                    <label for="service">Service Type</label>
+                    <select id="service">
+                        <option value="">Select Service Type</option>
+                        <option value="temple">Temple Visit</option>
+                        <option value="wedding">Wedding Transport</option>
+                        <option value="delivery">Local Delivery</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <button class="btn">
+                    <i class="fab fa-whatsapp"></i> Book via WhatsApp
+                </button>
+            </div>
+        </div>
+    </section>
+"-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We provide specialized transportation services tailored to your needs</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon" style="background-color: #e67e22;">
+                        <i class="fas fa-temple"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Temple Trips</h3>
+                        <p>Safe and comfortable rides to religious sites and temples</p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> On-time for puja ceremonies</li>
+                            <li><i class="fas fa-check-circle"></i> Prasad transport service</li>
+                            <li><i class="fas fa-check-circle"></i> Experienced drivers familiar with routes</li>
+                            <li><i class="fas fa-check-circle"></i> Special pooja samagri pickup</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon" style="background-color: #9b59b6;">
+                        <i class="fas fa-rings-wedding"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Wedding Transport</h3>
+                        <p>Complete transportation solutions for your special day</p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Wedding card delivery service</li>
+                            <li><i class="fas fa-check-circle"></i> Bridal party transport</li>
+                            <li><i class="fas fa-check-circle"></i> Guest pickup and drop</li>
+                            <li><i class="fas fa-check-circle"></i> Decor and gift transport</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon" style="background-color: #27ae60;">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Local Delivery</h3>
+                        <p>Fast and reliable delivery services within the town</p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Same-day delivery guarantee</li>
+                            <li><i class="fas fa-check-circle"></i> Document and parcel delivery</li>
+                            <li><i class="fas fa-check-circle"></i> Shop-to-home delivery</li>
+                            <li><i class="fas fa-check-circle"></i> Real-time tracking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+"
+ "<!-- Vehicle Safety Section -->
+    <section class="safety">
+        <div class="container">
+            <div class="safety-header">
+                <h2>Your Safety is Our Priority</h2>
+                <p>Verified vehicles, trained drivers, and real-time tracking</p>
+            </div>
+            
+            <h3 style="text-align: center; margin-bottom: 30px; font-size: 1.8rem; color: var(--dark);">Our Vehicles</h3>
+            <div class="vehicles-grid">
+                <div class="vehicle-card">
+                    <div class="vehicle-image" style="background-image: url('https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                        <div class="vehicle-plate">RJ-14-AB-1234</div>
+                    </div>
+                    <div class="vehicle-details">
+                        <h3>Tata Winger Cargo</h3>
+                        <div class="vehicle-specs">
+                            <div class="spec"><i class="fas fa-users"></i> 8 Seats</div>
+                            <div class="spec"><i class="fas fa-snowflake"></i> AC</div>
+                            <div class="spec"><i class="fas fa-suitcase"></i> Luggage</div>
+                        </div>
+                        <div class="speed-limit">
+                            <i class="fas fa-tachometer-alt"></i> Speed Limit: 60 km/h
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="vehicle-card">
+                    <div class="vehicle-image" style="background-image: url('https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80');">
+                        <div class="vehicle-plate">RJ-14-CD-5678</div>
+                    </div>
+                    <div class="vehicle-details">
+                        <h3>Maruti Eeco</h3>
+                        <div class="vehicle-specs">
+                            <div class="spec"><i class="fas fa-users"></i> 6 Seats</div>
+                            <div class="spec"><i class="fas fa-snowflake"></i> AC</div>
+                            <div class="spec"><i class="fas fa-suitcase"></i> Luggage</div>
+                        </div>
+                        <div class="speed-limit">
+                            <i class="fas fa-tachometer-alt"></i> Speed Limit: 60 km/h
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="vehicle-card">
+                    <div class="vehicle-image" style="background-image: url('https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80');">
+                        <div class="vehicle-plate">RJ-14-EF-9012</div>
+                    </div>
+                    <div class="vehicle-details">
+                        <h3>Mahindra Bolero</h3>
+                        <div class="vehicle-specs">
+                            <div class="spec"><i class="fas fa-users"></i> 7 Seats</div>
+                            <div class="spec"><i class="fas fa-snowflake"></i> AC</div>
+                            <div class="spec"><i class="fas fa-suitcase"></i> Luggage</div>
+                        </div>
+                        <div class="speed-limit">
+                            <i class="fas fa-tachometer-alt"></i> Speed Limit: 60 km/h
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 style="text-align: center; margin: 30px 0; font-size: 1.8rem; color: var(--dark);">Our Drivers</h3>
+            <div class="drivers-grid">
+                <div class="driver-card">
+                    <div class="driver-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="driver-info">
+                        <h>
+3>Rajesh Sharma</h3>
+                        <div class="driver-id">DL: RJ-123456789</div>
+              "
+ https://novita.ai/llm/deepseek-deepseek-r1-0528#:~:text=%3C!%2D%2D%20Vehicle%20Safety%20Section,980 it
+
+<!-- Guarantee Section -->
+<section class="guarantee">
+    <div class="container guarantee-content">
+        <h2>Our 45-Minute Guarantee</h2>
+        <p>Book same-day and we'll reach you within 45 minutes. If we're late, you'll get refunded automatically!</p>
+        
+        <div class="guarantee-features">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>45-Minute Promise</h3>
+                <p>From booking to arrival at your location - guaranteed within 45 minutes or money back</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>Real-Time GPS</h3>
+                <p>Track your driver's location in real-time through WhatsApp</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <h3>Auto Refund</h3>
+                <p>Late by 45+ minutes? Automatic refund processed through our system</p>
+            </div>
+        </div>
+        
+        <div class="tracking">
+            <h3>Live Tracking System</h3>
+            <div class="tracking-map">
+                <i class="fas fa-map-marked-alt"></i>
+                Real-time GPS tracking map
+            </div>
+            <div class="tracking-stats">
+                <div class="tracking-stat">
+                    <div class="tracking-stat-value">45</div>
+                    <div class="tracking-stat-label">Minute Guarantee</div>
+                </div>
+                <div class="tracking-stat">
+                    <div class="tracking-stat-value">98.9%</div>
+                    <div class="tracking-stat-label">On-Time Rate</div>
+                </div>
+                <div class="tracking-stat">
+                    <div class="tracking-stat-value">₹50</div>
+                    <div class="tracking-stat-label">Per Minute Refund</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WhatsApp Section -->
+<section class="whatsapp-section">
+    <div class="container">
+        <div class="whatsapp-content">
+            <div class="whatsapp-icon">
+                <i class="fab fa-whatsapp"></i>
+            </div>
+            <h2>Book via WhatsApp</h2>
+            <p>Our automated WhatsApp system makes booking easy and fast. Get instant confirmation and real-time tracking!</p>
+            <a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> Start Chat Now
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Apna Sawari</h3>
+                <p>Your reliable local transportation service for temples, weddings, and deliveries.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Our Vehicles</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Safety Features</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Our Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Temple Trips</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Wedding Transport</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Card Delivery</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Local Goods Delivery</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Urgent Parcel Service</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Main Street, Your Town, India</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 XXXXXXXXXX</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+91 XXXXXXXXXX</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@apnasawari.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2023 Apna Sawari Tours & Travels. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Simple JavaScript for interactive elements
+    document.addEventListener('DOMContentLoaded', function() {
+        // Booking form submission
+        const bookingForm = document.querySelector('.booking-form');
+        if (bookingForm) {
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('We are redirecting you to WhatsApp to complete your booking!');
+                window.location.href = 'https://wa.me/91XXXXXXXXXX';
+            });
+        }
+        
+        // WhatsApp button functionality
+        const whatsappBtn = document.querySelector('.whatsapp-btn');
+        if (whatsappBtn) {
+            whatsappBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Opening WhatsApp chat window...');
+                window.location.href = 'https://wa.me/91XXXXXXXXXX';
+            });
+        }
+        
+        // Driver card hover effect enhancement
+        const driverCards = document.querySelectorAll('.driver-card');
+        driverCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+                this.style.boxShadow = '0 15px 30px rgba(0,0,0,0.2)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+            });
+        });
+        
+        // Vehicle card hover effect
+        const vehicleCards = document.querySelectorAll('.vehicle-card');
+        vehicleCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.03)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    });
+</script>
+</body>
+</html>
