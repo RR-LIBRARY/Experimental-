@@ -1275,7 +1275,194 @@
                         बिल्डिंग नं. 163, बंदीपट्टी, पोस्ट रामापुर (निकट ज्ञानपुर)<br>
                         <span>Landmark: अभय जनरल स्टोर के Just बगल में, प्राथमिक विद्यालय बंदीपट्टी के पास</span><br>
                         ज्ञानपुर, भदोही, उत्तर प्रदेश - 221304
-                     </p>
+                     <p>
                      <div class="text-center" data-animate="scale-up" style="transition-delay: 0.2s;">
                          <a href="https://maps.app.goo.gl/2LMBrHJzoaCYkeaK7" target="_blank" rel="noopener" class="map-link-button">
-                    
+                            <i class="fa-solid fa-diamond-turn-right" aria-hidden="true"></i> <span class="hinglish-text">गूगल मैप्स पर देखें</span>
+                         </a>
+                     </div>
+                </section>
+            </main> <!-- End of main content -->
+        </div> <!-- End of .library-container -->
+
+        <!-- Footer Section -->
+        <footer class="library-footer" data-animate="fade-in">
+            <div class="footer-grid">
+                <div class="footer-column footer-contact-prompt" data-animate="fade-in-up" style="transition-delay: 0.1s;">
+                    <h4><i class="fa-solid fa-headset" aria-hidden="true"></i> Get In Touch</h4>
+                    <p class="hinglish-text">
+                         <strong>Ready to Join?</strong> Visit Karein ya abhi call karein:
+                    </p>
+                    <p>
+                         <a href="tel:+919118329760" class="footer-phone-link" aria-label="Call R.R. Digital Library at 9118329760">
+                            <i class="fa-solid fa-phone-volume" aria-hidden="true"></i> 9118329760
+                        </a>
+                    </p>
+                    <p class="footer-owner-name">OWNER: <span>RAJVEER YADAV</span></p>
+                </div>
+                <div class="footer-column footer-support-email" data-animate="fade-in-up" style="transition-delay: 0.2s;">
+                    <h4><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Support & Feedback</h4>
+                    <p class="hindi-text">
+                        Support, Complain या Kisi Ke Bad Behaviour की शिकायत के लिए, हमें ईमेल करें:
+                    </p>
+                     <p>
+                         <i class="fa-solid fa-envelope-open-text" aria-hidden="true"></i>
+                         <a href="mailto:rr.digital.library@gmail.com">rr.digital.library@gmail.com</a>
+                     </p>
+                      <p style="margin-top: var(--space-md);"> <!-- Add Important Links here too -->
+                         <i class="fa-solid fa-link" aria-hidden="true"></i>
+                         <a href="https://linktr.ee/RRLIBRARY" target="_blank" rel="noopener" style="border-bottom: 1px dotted var(--footer-text);">सभी महत्वपूर्ण लिंक (Linktree)</a>
+                     </p>
+                </div>
+                <div class="footer-column footer-seva-section" data-animate="fade-in-up" style="transition-delay: 0.3s;">
+                    <h4><i class="fa-solid fa-store" aria-hidden="true"></i> सहयोगी केंद्र</h4>
+                    <ul>
+                        <li>अभय जनरल स्टोर</li>
+                        <li>सत्य प्रकाश (मुलायम) सहज जन सेवा केंद्र</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom-bar">
+                <p class="footer-thank-you">Thank you for visiting! Have a productive day! <span aria-hidden="true">👍</span></p>
+                <p>© <span id="current-year"></span> R.R. Digital Library, Bandipatti. सर्वाधिकार सुरक्षित।</p>
+                <p class="hinglish-text">Bandipatti, Bhadohi का <span style="color: var(--footer-highlight); font-weight: 600;">#1 Rated</span> Study Destination.</p>
+
+                <!-- Website Credits -->
+                <div class="footer-credits" data-animate="fade-in-up" style="transition-delay: 0.4s;">
+                    <p style="margin-bottom: 0;">
+                        Website Created by: <a href="#" target="_blank" rel="noopener" title="Visit अनुज यादव's Portfolio"><strong>अनुज यादव (छात्र नेता)</strong></a>
+                    </p>
+                    <img src="website_creator_photo.jpg" alt="Website Creator - अनुज यादव (छात्र नेता)" class="creator-photo">
+                </div>
+            </div>
+        </footer>
+    </div> <!-- End of .library-container-wrapper -->
+
+    <!-- V8.9 ADVANCED JS (Unchanged from V8.8) -->
+    <script>
+        (function() {
+            'use strict';
+
+            // --- Set Current Year ---
+            try {
+                const yearElement = document.getElementById('current-year');
+                if (yearElement) { yearElement.textContent = new Date().getFullYear(); }
+                else { console.warn("Element with ID 'current-year' not found."); }
+            } catch (e) { console.error("JS Error: Setting year failed.", e); }
+
+            // --- Table Scroll Hint Logic ---
+            const tableWrapper = document.querySelector('.table-wrapper');
+            if (tableWrapper) {
+                const scrollContainer = tableWrapper.querySelector('.table-scroll-container');
+                if (scrollContainer) {
+                     try {
+                        const table = scrollContainer.querySelector('table');
+                        if (!table) throw new Error("Table element not found within scroll container.");
+
+                        let scrollDebounceTimer;
+                        const checkScrollable = () => {
+                            clearTimeout(scrollDebounceTimer);
+                            scrollDebounceTimer = setTimeout(() => {
+                                const scrollTolerance = 5;
+                                const canScroll = table.offsetWidth > scrollContainer.offsetWidth + scrollTolerance;
+                                tableWrapper.classList.toggle('is-scrolling', canScroll);
+
+                                if (canScroll) {
+                                    const currentScrollLeft = Math.round(scrollContainer.scrollLeft);
+                                    const maxScrollLeft = Math.round(scrollContainer.scrollWidth - scrollContainer.clientWidth);
+                                    tableWrapper.style.setProperty('--scrollable-start', currentScrollLeft > scrollTolerance ? 1 : 0);
+                                    tableWrapper.style.setProperty('--scrollable-end', currentScrollLeft < (maxScrollLeft - scrollTolerance) ? 1 : 0);
+                                } else {
+                                    tableWrapper.style.setProperty('--scrollable-start', 0);
+                                    tableWrapper.style.setProperty('--scrollable-end', 0);
+                                }
+                            }, 50);
+                        };
+
+                        checkScrollable();
+                        scrollContainer.addEventListener('scroll', checkScrollable, { passive: true });
+
+                        if ('ResizeObserver' in window) {
+                            const resizeObserver = new ResizeObserver(checkScrollable);
+                            resizeObserver.observe(scrollContainer);
+                            resizeObserver.observe(table);
+                        } else {
+                            window.addEventListener('resize', checkScrollable);
+                        }
+
+                    } catch (e) { console.error("JS Error: Table scroll hint setup failed.", e); }
+                 } else { console.warn("Table scroll container element not found."); }
+            } else { console.warn("Table wrapper element not found."); }
+
+            // --- Intersection Observer for Scroll Animations ---
+            try {
+                const animatedElements = document.querySelectorAll('[data-animate]');
+                if ('IntersectionObserver' in window && animatedElements.length > 0) {
+                    const observerOptions = {
+                        root: null,
+                        rootMargin: '0px 0px -10% 0px',
+                        threshold: 0.1
+                    };
+
+                    const observerCallback = (entries, observer) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('is-visible');
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    };
+
+                    const animationObserver = new IntersectionObserver(observerCallback, observerOptions);
+                    animatedElements.forEach(el => animationObserver.observe(el));
+
+                } else if (animatedElements.length > 0) {
+                    console.warn("JS Warning: IntersectionObserver not supported, showing all animations immediately.");
+                    animatedElements.forEach(el => el.classList.add('is-visible'));
+                }
+            } catch (e) { console.error("JS Error: IntersectionObserver setup failed.", e); }
+
+             // --- Track Scroll, Mouse & Viewport Height ---
+             try {
+                 const root = document.documentElement;
+                 if (root) {
+                     let ticking = false;
+
+                     const updateGlobals = () => {
+                         const scrollTop = window.pageYOffset || root.scrollTop;
+                         root.style.setProperty('--scroll-top', Math.round(scrollTop) + 'px');
+                         const viewportHeight = window.innerHeight;
+                         root.style.setProperty('--viewport-height', viewportHeight + 'px');
+                         ticking = false;
+                     };
+
+                     const requestTick = () => {
+                         if (!ticking) {
+                             window.requestAnimationFrame(updateGlobals);
+                             ticking = true;
+                         }
+                     };
+
+                     window.addEventListener('scroll', requestTick, { passive: true });
+                     window.addEventListener('resize', requestTick, { passive: true });
+                     updateGlobals(); // Initial call
+
+                 } else { throw new Error("Document element (root) not found."); }
+             } catch(e) { console.error("JS Error: Global tracking setup failed.", e); }
+
+        })();
+    </script>
+    
+    <!-- =================================================================== -->
+    <!-- ============== START: FLOATING CHATBOT BUTTON CODE ================ -->
+    <!-- =================================================================== -->
+    <a href="https://mranujyadav.netlify.app/" target="_blank" rel="noopener noreferrer" class="floating-chatbot-button" aria-label="Open Chatbot for doubts" title="Ask a Doubt">
+        <i class="fa-solid fa-robot"></i>
+    </a>
+    <!-- =================================================================== -->
+    <!-- =============== END: FLOATING CHATBOT BUTTON CODE ================= -->
+    <!-- =================================================================== -->
+
+</body>
+</html>
+```
