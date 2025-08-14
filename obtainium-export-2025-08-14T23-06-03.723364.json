@@ -1,0 +1,151 @@
+{
+    "apps": [
+        {
+            "id": "app.dwrv.android.youtube",
+            "url": "https://github.com/driftywinds/YT-builds",
+            "author": "driftywinds",
+            "name": "YT (drifty)",
+            "installedVersion": "v20.25.37",
+            "latestVersion": "v20.25.37",
+            "apkUrls": "[[\"drifty.s.RVX.anddea.v20.25.37-patches_v3.10.0-dev.5.apk\",\"https://api.github.com/repos/driftywinds/YT-builds/releases/assets/270625225\"]]",
+            "otherAssetUrls": "[[\"v20.25.37.tar.gz\",\"https://api.github.com/repos/driftywinds/YT-builds/tarball/v20.25.37\"],[\"v20.25.37.zip\",\"https://api.github.com/repos/driftywinds/YT-builds/zipball/v20.25.37\"]]",
+            "preferredApkIndex": 0,
+            "additionalSettings": "{\"includePrereleases\":false,\"fallbackToOlderReleases\":true,\"filterReleaseTitlesByRegEx\":\"\",\"filterReleaseNotesByRegEx\":\"\",\"verifyLatestTag\":false,\"sortMethodChoice\":\"date\",\"useLatestAssetDateAsReleaseDate\":false,\"releaseTitleAsVersion\":false,\"trackOnly\":false,\"versionExtractionRegEx\":\"\",\"matchGroupToUse\":\"\",\"versionDetection\":true,\"releaseDateAsVersion\":false,\"useVersionCodeAsOSVersion\":false,\"apkFilterRegEx\":\"\",\"invertAPKFilter\":false,\"autoApkFilterByArch\":true,\"appName\":\"\",\"appAuthor\":\"\",\"shizukuPretendToBeGooglePlay\":false,\"allowInsecure\":false,\"exemptFromBackgroundUpdates\":false,\"skipUpdateNotifications\":false,\"about\":\"\",\"refreshBeforeDownload\":false}",
+            "lastUpdateCheck": 1755181080886744,
+            "pinned": false,
+            "categories": [
+                "YouTube "
+            ],
+            "releaseDate": 1751874119000000,
+            "changeLog": "- Patch \"Shorts components\" excluded because failing = no change in daily usage, shorts cannot be disabled\r\n- **Everything works normally, Sponsorblock, RYTD, no ads etc.**",
+            "overrideSource": null,
+            "allowIdChange": false
+        },
+        {
+            "id": "com.spotify.music",
+            "url": "https://github.com/driftywinds/spotify-builds",
+            "author": "driftywinds",
+            "name": "Spotify",
+            "installedVersion": null,
+            "latestVersion": "v9.0.62.603",
+            "apkUrls": "[[\"spotify-revanced_v9.0.62.603-patches_v5.31.1.apk\",\"https://api.github.com/repos/driftywinds/spotify-builds/releases/assets/272185085\"]]",
+            "otherAssetUrls": "[[\"v9.0.62.603.tar.gz\",\"https://api.github.com/repos/driftywinds/spotify-builds/tarball/v9.0.62.603\"],[\"v9.0.62.603.zip\",\"https://api.github.com/repos/driftywinds/spotify-builds/zipball/v9.0.62.603\"]]",
+            "preferredApkIndex": 0,
+            "additionalSettings": "{\"includePrereleases\":false,\"fallbackToOlderReleases\":true,\"filterReleaseTitlesByRegEx\":\"\",\"filterReleaseNotesByRegEx\":\"\",\"verifyLatestTag\":false,\"sortMethodChoice\":\"date\",\"useLatestAssetDateAsReleaseDate\":false,\"releaseTitleAsVersion\":false,\"trackOnly\":false,\"versionExtractionRegEx\":\"\",\"matchGroupToUse\":\"\",\"versionDetection\":true,\"releaseDateAsVersion\":false,\"useVersionCodeAsOSVersion\":false,\"apkFilterRegEx\":\"\",\"invertAPKFilter\":false,\"autoApkFilterByArch\":true,\"appName\":\"\",\"appAuthor\":\"\",\"shizukuPretendToBeGooglePlay\":false,\"allowInsecure\":false,\"exemptFromBackgroundUpdates\":false,\"skipUpdateNotifications\":false,\"about\":\"\",\"refreshBeforeDownload\":false}",
+            "lastUpdateCheck": 1755181079510332,
+            "pinned": false,
+            "categories": [
+                "PODCASTS "
+            ],
+            "releaseDate": 1752286975000000,
+            "changeLog": "- using patches v5.31.1\r\n- song skipping should be fixed",
+            "overrideSource": null,
+            "allowIdChange": false
+        },
+        {
+            "id": "com.mixplorer",
+            "url": "https://github.com/driftywinds/mixplorer-releases",
+            "author": "driftywinds",
+            "name": "MiXplorer",
+            "installedVersion": null,
+            "latestVersion": "v6.68.4_B24112320",
+            "apkUrls": "[[\"MiXplorer_v6.68.4_B24112320.apk\",\"https://api.github.com/repos/driftywinds/mixplorer-releases/releases/assets/208711251\"]]",
+            "otherAssetUrls": "[[\"v6.68.4_B24112320.tar.gz\",\"https://api.github.com/repos/driftywinds/mixplorer-releases/tarball/v6.68.4_B24112320\"],[\"v6.68.4_B24112320.zip\",\"https://api.github.com/repos/driftywinds/mixplorer-releases/zipball/v6.68.4_B24112320\"]]",
+            "preferredApkIndex": 0,
+            "additionalSettings": "{\"includePrereleases\":false,\"fallbackToOlderReleases\":true,\"filterReleaseTitlesByRegEx\":\"\",\"filterReleaseNotesByRegEx\":\"\",\"verifyLatestTag\":false,\"sortMethodChoice\":\"date\",\"useLatestAssetDateAsReleaseDate\":false,\"releaseTitleAsVersion\":false,\"trackOnly\":false,\"versionExtractionRegEx\":\"\",\"matchGroupToUse\":\"\",\"versionDetection\":true,\"releaseDateAsVersion\":false,\"useVersionCodeAsOSVersion\":false,\"apkFilterRegEx\":\"\",\"invertAPKFilter\":false,\"autoApkFilterByArch\":true,\"appName\":\"\",\"appAuthor\":\"\",\"shizukuPretendToBeGooglePlay\":false,\"allowInsecure\":false,\"exemptFromBackgroundUpdates\":false,\"skipUpdateNotifications\":false,\"about\":\"\",\"refreshBeforeDownload\":false}",
+            "lastUpdateCheck": 1755181079733820,
+            "pinned": false,
+            "categories": [
+                "File Manager "
+            ],
+            "releaseDate": 1732449444000000,
+            "changeLog": null,
+            "overrideSource": null,
+            "allowIdChange": false
+        },
+        {
+            "id": "app.dwrv.android.apps.youtube.music",
+            "url": "https://github.com/driftywinds/YTM-builds",
+            "author": "driftywinds",
+            "name": "YTM-builds",
+            "installedVersion": null,
+            "latestVersion": "v8.26.51",
+            "apkUrls": "[[\"drifty.s.RVX.Music.anddea.v8.26.51-patches_v3.10.0-dev.5.apk\",\"https://api.github.com/repos/driftywinds/YTM-builds/releases/assets/270179731\"]]",
+            "otherAssetUrls": "[[\"v8.26.51.tar.gz\",\"https://api.github.com/repos/driftywinds/YTM-builds/tarball/v8.26.51\"],[\"v8.26.51.zip\",\"https://api.github.com/repos/driftywinds/YTM-builds/zipball/v8.26.51\"]]",
+            "preferredApkIndex": 0,
+            "additionalSettings": "{\"includePrereleases\":false,\"fallbackToOlderReleases\":true,\"filterReleaseTitlesByRegEx\":\"\",\"filterReleaseNotesByRegEx\":\"\",\"verifyLatestTag\":false,\"sortMethodChoice\":\"date\",\"useLatestAssetDateAsReleaseDate\":false,\"releaseTitleAsVersion\":false,\"trackOnly\":false,\"versionExtractionRegEx\":\"\",\"matchGroupToUse\":\"\",\"versionDetection\":true,\"releaseDateAsVersion\":false,\"useVersionCodeAsOSVersion\":false,\"apkFilterRegEx\":\"\",\"invertAPKFilter\":false,\"autoApkFilterByArch\":true,\"appName\":\"\",\"appAuthor\":\"\",\"shizukuPretendToBeGooglePlay\":false,\"allowInsecure\":false,\"exemptFromBackgroundUpdates\":false,\"skipUpdateNotifications\":false,\"about\":\"\",\"refreshBeforeDownload\":false}",
+            "lastUpdateCheck": 1755181080000255,
+            "pinned": false,
+            "categories": [
+                "YouTube Music"
+            ],
+            "releaseDate": 1751709720000000,
+            "changeLog": "- Cool new icon\r\n- **Everything works normally**",
+            "overrideSource": null,
+            "allowIdChange": false
+        },
+        {
+            "id": "org.schabi.newpipe",
+            "url": "https://github.com/TeamNewPipe/NewPipe",
+            "author": "TeamNewPipe",
+            "name": "NewPipe",
+            "installedVersion": "v0.28.0",
+            "latestVersion": "v0.28.0",
+            "apkUrls": "[[\"NewPipe_v0.28.0.apk\",\"https://api.github.com/repos/TeamNewPipe/NewPipe/releases/assets/278236252\"]]",
+            "otherAssetUrls": "[[\"v0.28.0.tar.gz\",\"https://api.github.com/repos/TeamNewPipe/NewPipe/tarball/v0.28.0\"],[\"v0.28.0.zip\",\"https://api.github.com/repos/TeamNewPipe/NewPipe/zipball/v0.28.0\"]]",
+            "preferredApkIndex": 0,
+            "additionalSettings": "{\"includePrereleases\":false,\"fallbackToOlderReleases\":true,\"filterReleaseTitlesByRegEx\":\"\",\"filterReleaseNotesByRegEx\":\"\",\"verifyLatestTag\":false,\"sortMethodChoice\":\"date\",\"useLatestAssetDateAsReleaseDate\":false,\"releaseTitleAsVersion\":false,\"trackOnly\":false,\"versionExtractionRegEx\":\"\",\"matchGroupToUse\":\"\",\"versionDetection\":true,\"releaseDateAsVersion\":false,\"useVersionCodeAsOSVersion\":false,\"apkFilterRegEx\":\"\",\"invertAPKFilter\":false,\"autoApkFilterByArch\":true,\"appName\":\"\",\"appAuthor\":\"\",\"shizukuPretendToBeGooglePlay\":false,\"allowInsecure\":false,\"exemptFromBackgroundUpdates\":false,\"skipUpdateNotifications\":false,\"about\":\"\",\"refreshBeforeDownload\":false}",
+            "lastUpdateCheck": 1755181082304989,
+            "pinned": false,
+            "categories": [
+                "YouTube "
+            ],
+            "releaseDate": 1754000122000000,
+            "changeLog": "[:arrow_right: :arrow_right: :arrow_right: Read the blog post :arrow_left: :arrow_left: :arrow_left:](https://newpipe.net/blog/pinned/announcement/newpipe-0.28.0-released/)\r\n\r\n### New\r\n- Add support for Android Auto (special thanks to @haggaie!) #9592 #12044  #12416 #12410 #12412\r\n- Add feed groups as main screen tabs #12325 \r\n- [YouTube] Support new kiosks and add migration to change trending kiosk tab #12450 \r\n- [YouTube] Share as YouTube temporary playlist #12065\r\n- [SoundCloud] Add support for likes in channel and feed #12367 \r\n- [SoundCloud] Add support for AAC 160k unprotected stream https://github.com/TeamNewPipe/NewPipeExtractor/pull/1317\r\n\r\n### Improved\r\n- [Android 13+] Support per-app language preferences #12093 #12444 #12470\r\n:information_source: This replaces the in-app setting of the app localization for Android 13+ devices. Your existing in-app preference will be migrated automatically to use Android's per-app language setting.\r\n- Show service name in search bar hint #12258 \r\n- Show download date in Downloads #12117\r\n- Support RTL usernames in comment header #12188\r\n- Disambiguate audio track labels #12089\r\n\r\n### Fixed\r\n- Fix broken text colors in dark mode #12035\r\n- [YouTube] Fix playlists not loading more than 100 items https://github.com/TeamNewPipe/NewPipeExtractor/pull/1301\r\n- [YouTube] Fix missing recommended videos https://github.com/TeamNewPipe/NewPipeExtractor/pull/1320 \r\n- [YouTube] Other miscellaneous fixes, see https://github.com/TeamNewPipe/NewPipeExtractor/releases/tag/v0.24.8\r\n- Fix crashes in History list view (caused by buggy header) #12214\r\n- Fix stream notification grouping when channel URLs differ #12067\r\n- Fix duplicate menu options in `ChannelFragment` #12083\r\n- Fix timestamps not working in comment replies #12202\r\n- Add migration to remove the now-defunct SoundCloud Top 50 kiosk #12438 \r\n- Fix UI crash instead of proper error report if search next page can't be extracted #12408 #12455 \r\n\r\n### Translation / Localization\r\n- Update translations and add 15 new locales to the in-app language chooser #12103 #12476\r\n- Do not capitalize \"page\" for main page content options #12437 \r\n- Add dev and refactor nightly build badges to README #12298 \r\n- Add matrix chat link and dev/refactor nightly badges to all translated READMEs #12302 \r\n- Fix \"Get it on F-Droid\" appearing giant in README #12409 \r\n- Fix new badge links on README being rendered incorrectly #12434 \r\n\r\n### Development\r\n- Disable logs about view animations by default #12043\r\n- Add new Proguard rules for Mozilla Rhino #12104\r\n- Improve extractor Jitpack workaround comment and fix its hash in `build.gradle` file #12256\r\n- [YouTube] Fix accessing poToken challenge data at wrong index in some cases #12150\r\n- Update user agent to Firefox 140 ESR #12472 ",
+            "overrideSource": null,
+            "allowIdChange": true
+        },
+        {
+            "id": "com.deniscerri.ytdl",
+            "url": "https://github.com/deniscerri/ytdlnis",
+            "author": "deniscerri",
+            "name": "YTDLnis",
+            "installedVersion": null,
+            "latestVersion": "v1.8.5",
+            "apkUrls": "[[\"YTDLnis-1.8.5-arm64-v8a-release.apk\",\"https://api.github.com/repos/deniscerri/ytdlnis/releases/assets/277190513\"]]",
+            "otherAssetUrls": "[[\"output-metadata.json\",\"https://github.com/deniscerri/ytdlnis/releases/download/v1.8.5/output-metadata.json\"],[\"YTDLnis-1.8.5-armeabi-v7a-release.apk\",\"https://api.github.com/repos/deniscerri/ytdlnis/releases/assets/277190569\"],[\"YTDLnis-1.8.5-universal-release.apk\",\"https://api.github.com/repos/deniscerri/ytdlnis/releases/assets/277190621\"],[\"YTDLnis-1.8.5-x86_64-release.apk\",\"https://api.github.com/repos/deniscerri/ytdlnis/releases/assets/277190857\"],[\"YTDLnis-1.8.5-x86-release.apk\",\"https://api.github.com/repos/deniscerri/ytdlnis/releases/assets/277190955\"],[\"v1.8.5.tar.gz\",\"https://api.github.com/repos/deniscerri/ytdlnis/tarball/v1.8.5\"],[\"v1.8.5.zip\",\"https://api.github.com/repos/deniscerri/ytdlnis/zipball/v1.8.5\"]]",
+            "preferredApkIndex": 0,
+            "additionalSettings": "{\"includePrereleases\":false,\"fallbackToOlderReleases\":true,\"filterReleaseTitlesByRegEx\":\"\",\"filterReleaseNotesByRegEx\":\"\",\"verifyLatestTag\":false,\"sortMethodChoice\":\"date\",\"useLatestAssetDateAsReleaseDate\":false,\"releaseTitleAsVersion\":false,\"trackOnly\":false,\"versionExtractionRegEx\":\"\",\"matchGroupToUse\":\"\",\"versionDetection\":true,\"releaseDateAsVersion\":false,\"useVersionCodeAsOSVersion\":false,\"apkFilterRegEx\":\"\",\"invertAPKFilter\":false,\"autoApkFilterByArch\":true,\"appName\":\"\",\"appAuthor\":\"\",\"shizukuPretendToBeGooglePlay\":false,\"allowInsecure\":false,\"exemptFromBackgroundUpdates\":false,\"skipUpdateNotifications\":false,\"about\":\"\",\"refreshBeforeDownload\":false}",
+            "lastUpdateCheck": 1755181082936727,
+            "pinned": false,
+            "categories": [
+                "YouTube Downloader"
+            ],
+            "releaseDate": 1753734647000000,
+            "changeLog": "# What's Changed\r\n\r\n## Bulk Edit items in the Multiple Download Card #817\r\n\r\nNow you can select a subset of the items in the multiple download card and apply changes only to them.\r\n- Select items between 2 items\r\n- Write down item indexes to select\r\n- remove items\r\n- Invert selected\r\n- All options in this screen that previously could apply to all items are implemented for this function.\r\n\r\nAlso if you select a sublist and try to update formats and decide to update in the background, the app will remember the other items you didnt select when you return back to it but only the selected items will have their formats updated of course.\r\n\r\n## Other changes:\r\n\r\n- App now can show FFmpeg output in the download card to avoid confusion on cases where it might appear as if the download is stuck but its running a ffmpeg subprocess\r\n- App can now downgrade to stable when in beta. You will get a popup to update to the prev stable release if you installed from github and had use beta disabled\r\n- Fixed app crashing if yt-dlp sources in preferences is badly written\r\n- Fixed app having multiple columns for format items instead of just one #800\r\n- Clear results when changing home recommendation source to avoid confusion\r\n- Fix app passing --cache-dir twice in the command\r\n- Remove buffer time in cut player, could help it load faster\r\n- Fix app not consistently preferring codec in a format\r\n- Prevent app from showing 'null' in author field if its not available #814\r\n- Change text to be Sentence Case #793\r\n- Add feature to convert audio bitrate up to 320kbps. * Even though it doesnt really increase quality many people requested it so here you go\r\n- Added feature to show available subtitles a video has when selecting subtitle languages\r\n- Made default subtitle format default instead of srt\r\n- Fix app not properly putting data fetching extra commands in some cases\r\n- Added \"system\" option in language selection so it follows the system language always\r\n- Fixed app crashing when putting unreal numbers in cut section\r\n- Hid download all and clipboard chip when selecting items to avoid confusion\r\n- Added separate icons for success, running and failed downloads\r\n- Used  ^.*$ for replace-in-metadata\r\n- Groupped finished, running, errored notifications\r\n- Added subs in po token creator screen\r\n- Fix download failing when title has forbidden characters #847\r\n- Fix titles doubling up #835\r\n- Add option to reverse items in the multiple download card\r\n- Made app not restart when restoring backup\r\n- Fix app not removing items that you redownload from cancelled/erroret etc\r\n- Other small stuff i forgor\r\n\r\n\r\n## For advanced users:\r\n\r\nFor anyone who is using intent arguments in YTDLnis for automation, the COMMAND argument has been removed. This is due to a found security vulnerability by SonarPaul where user information and app integrity could be compromised. Read the pdf for more information in the YTDLnis Updates Telegram Channel.\r\n\r\nIf you were using that argument for extra commands with audio/video downloads, you could make a command template about it and use it as extra command and also add a url regex if you want.\r\n\r\n\r\n## Autogenerated Changed\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/766\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/773\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/775\r\n* Disable build on PRs by @madmini in https://github.com/deniscerri/ytdlnis/pull/804\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/802\r\n* Disable cut for live videos by @madmini in https://github.com/deniscerri/ytdlnis/pull/803\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/805\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/806\r\n* style: convert all strings to sentence case per M3 guidelines by @DarkWolf2244 in https://github.com/deniscerri/ytdlnis/pull/808\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/811\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/812\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/815\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/819\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/820\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/822\r\n* Update CONTRIBUTING and README in https://github.com/deniscerri/ytdlnis/pull/828\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/830\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/831\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/834\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/836\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/839\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/841\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/842\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/843\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/845\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/848\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/849\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/850\r\n* Add Romanian README Translation by @Goldpunk in https://github.com/deniscerri/ytdlnis/pull/852\r\n* Update README-ro.md by @Goldpunk in https://github.com/deniscerri/ytdlnis/pull/854\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/856\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/858\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/859\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/860\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/866\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/869\r\n* Translations update from Hosted Weblate by @weblate in https://github.com/deniscerri/ytdlnis/pull/870\r\n\r\n## New Contributors\r\n* @DarkWolf2244 made their first contribution in https://github.com/deniscerri/ytdlnis/pull/808\r\n* @Goldpunk made their first contribution in https://github.com/deniscerri/ytdlnis/pull/852\r\n\r\n**Full Changelog**: https://github.com/deniscerri/ytdlnis/compare/v1.8.4...v1.8.5\r\n",
+            "overrideSource": null,
+            "allowIdChange": true
+        },
+        {
+            "id": "com.kiwibrowser.browser.dev",
+            "url": "https://github.com/kiwibrowser/src.next",
+            "author": "kiwibrowser",
+            "name": "src.next",
+            "installedVersion": null,
+            "latestVersion": "14310011181",
+            "apkUrls": "[[\"com.kiwibrowser.browser-arm-14310011181-github.apk\",\"https://api.github.com/repos/kiwibrowser/src.next/releases/assets/244256719\"],[\"com.kiwibrowser.browser-arm64-14310011181-github.apk\",\"https://api.github.com/repos/kiwibrowser/src.next/releases/assets/244256743\"],[\"com.kiwibrowser.browser-x86-14310011181-github.apk\",\"https://api.github.com/repos/kiwibrowser/src.next/releases/assets/244256768\"],[\"com.kiwibrowser.browser-x64-14310011181-github.apk\",\"https://api.github.com/repos/kiwibrowser/src.next/releases/assets/244256791\"],[\"com.kiwibrowser.browser.dev-arm-14310011181-github.apk\",\"https://api.github.com/repos/kiwibrowser/src.next/releases/assets/244256823\"],[\"com.kiwibrowser.browser.dev-arm64-14310011181-github.apk\",\"https://api.github.com/repos/kiwibrowser/src.next/releases/assets/244256837\"],[\"com.kiwibrowser.browser.dev-x86-14310011181-github.apk\",\"https://api.github.com/repos/kiwibrowser/src.next/releases/assets/244256862\"],[\"com.kiwibrowser.browser.dev-x64-14310011181-github.apk\",\"https://api.github.com/repos/kiwibrowser/src.next/releases/assets/244256896\"]]",
+            "otherAssetUrls": "[[\"14310011181.tar.gz\",\"https://api.github.com/repos/kiwibrowser/src.next/tarball/14310011181\"],[\"14310011181.zip\",\"https://api.github.com/repos/kiwibrowser/src.next/zipball/14310011181\"]]",
+            "preferredApkIndex": 5,
+            "additionalSettings": "{\"includePrereleases\":false,\"fallbackToOlderReleases\":true,\"filterReleaseTitlesByRegEx\":\"\",\"filterReleaseNotesByRegEx\":\"\",\"verifyLatestTag\":false,\"sortMethodChoice\":\"date\",\"useLatestAssetDateAsReleaseDate\":false,\"releaseTitleAsVersion\":false,\"trackOnly\":false,\"versionExtractionRegEx\":\"\",\"matchGroupToUse\":\"\",\"versionDetection\":true,\"releaseDateAsVersion\":false,\"useVersionCodeAsOSVersion\":false,\"apkFilterRegEx\":\"\",\"invertAPKFilter\":false,\"autoApkFilterByArch\":true,\"appName\":\"\",\"appAuthor\":\"\",\"shizukuPretendToBeGooglePlay\":false,\"allowInsecure\":false,\"exemptFromBackgroundUpdates\":false,\"skipUpdateNotifications\":false,\"about\":\"\",\"refreshBeforeDownload\":false}",
+            "lastUpdateCheck": 1755181085354458,
+            "pinned": false,
+            "categories": [
+                "Browser "
+            ],
+            "releaseDate": 1744031771000000,
+            "changeLog": "Version 137.0.7337.0\r\n\r\nUpdated the version (resolves \"App not installed\" during upgrade).\r\n\r\nUpdated the user-agent to a future user-agent to prevent websites from nagging about Chromium version.\r\n\r\nStopped all connections to Kiwi servers (example: to fetch search engines list or settings), except for fetching homepage favicons.\r\n\r\nFixed an issue where the F3 key was accidentally triggering on OnePlus devices.\r\n\r\n-> Kiwi will no longer receive engine updates, so we teamed up with the folks behind Microsoft Edge to create a smoother path forward for users\r\n\r\nIn this version, there is a small easter egg that links to Microsoft Edge in the newsfeed.\r\n\r\nUsing that link will reveal a secret message in Edge Extensions Hub and uNBlock a very useful Manifest V2 extension in Edge.\r\n-> https://edgemobileapp.microsoft.com/?adjustId=1mfkz3u3_1m6jnsdw\r\n\r\nWe chose to recommend Edge because it's one of the few browsers that still supports powerful extensions while remaining secure and stable.\r\n(Plus, the team working on Microsoft Edge for Android is super friendly.)\r\n\r\nThank you for your continued support,\r\nArnaud.\r\n\r\nThis version will replace your currently installed Kiwi Browser (com.kiwibrowser.browser).\r\nIf you have important data, make sure to backup them or save them before upgrading to this version.\r\n\r\nThis release was automatically generated from GitHub refs/heads/kiwi in run ID 14310011181.\r\n\r\nSummary:\r\n  - To install / update Kiwi Browser, use \"com.kiwibrowser.browser-arm64-14310011181-github.apk\".\r\n  If it doesn't work, try again using \"com.kiwibrowser.browser-arm64-14310011181-playstore.apk\" (if it exists).\r\n\r\nDetailed information about the different files:\r\n  - \".map\" files are files that developers can use to investigate crashes (ProGuard mapping files), these files are not needed to run the browser and are for developers only.\r\n  - \".apk\" files are packages that you have to install to use Kiwi Browser.\r\n\r\nThe filenames are in the form \"[PACKAGE_NAME]-[ARCHITECTURE]-[BUILD_VERSION]-[SIGNATURE_TYPE].apk\"\r\n\r\nIf you want to keep the Play Store version installed, and still try the GitHub edition then you can install the APKs starting with \"com.kiwibrowser.browser.dev\" (you will keep all your Play Store bookmarks, settings and passwords, and the GitHub edition will be installed separately).\r\n\r\nBuild version:\r\n - Everytime a change is introduced in Kiwi Browser, a new build version is generated.\r\n\r\nArchitecture:\r\n  - \"-arm64\" is compatible with modern devices and offers the best performance.\r\n  - \"-arm\" is compatible with almost all devices and uses less memory.\r\n  - \"-x86\" and \"-x64\" builds are compatible with emulators and Intel compatible tablets.\r\n\r\nSignature type:\r\n  - On Android, applications have to be signed by a developer before they can be installed.\r\n\r\nKiwi has two types of builds:\r\n\r\nSigned by the developer:\r\n  - \"-github.apk\" are builds signed using the official developer key.\r\nA signed build is a build that comes straight from the GitHub official repository and is always the most updated.\r\n\r\nPlay Certified by Google:\r\n  - Once in a while, we send a \"-github.apk\" build to be reviewed and signed by Google.\r\nGoogle reviews the application, checks that the application is not malicious, adds the \"Google Play Certified\" badge, signs the file and this becomes \"-playstore.apk\".\r\n\r\nWe then distribute \"-playstore.apk\" on Google Play, XDA-Developers, Samsung and other app stores.\r\n \r\nThis process takes some time and is partially manual so not all GitHub builds have a \"-playstore.apk\".\r\n\r\nOn Android, you can install an update to an application only if it was signed by the same developer as the version that you currently have installed:\r\n  - You can install a \"-github.apk\" build on top of a \"-github.apk\" build, and a \"-playstore.apk\" build on top of a \"-playstore.apk\" build.\r\n  - You cannot install a \"-playstore.apk\" build on top of a \"-github.apk\" build.\r\n\r\nEssentially, if you downloaded Kiwi from an app store, you need to use the \"-playstore.apk\" files or uninstall the version of Kiwi you have and start using the \"-github.apk\" version.\r\n",
+            "overrideSource": null,
+            "allowIdChange": false
+        }
+    ]
+}
