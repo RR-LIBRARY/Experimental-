@@ -1,249 +1,176 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Library Receipt</title>
+    <title>Secure Library Admin</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 10px;
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+        
+        /* LOGIN SCREEN */
+        #loginScreen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #2c3e50; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; z-index: 1000;
         }
+        #loginScreen input { padding: 15px; font-size: 18px; border-radius: 5px; border: none; width: 250px; text-align: center; }
+        #loginScreen button { margin-top: 20px; padding: 10px 30px; font-size: 18px; background: #27ae60; color: white; border: none; cursor: pointer; border-radius: 5px; }
 
-        /* Mobile Container Style */
-        .container {
-            max-width: 100%;
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
+        /* MAIN APP */
+        #appContainer { display: none; padding: 15px; max-width: 600px; margin: auto; }
+        
+        .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #2c3e50; margin-top: 0; }
+        
+        label { font-weight: bold; margin-top: 15px; display: block; color: #555; }
+        input, select { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 16px; }
+        
+        .btn-group { display: flex; gap: 10px; margin-top: 25px; }
+        button { flex: 1; padding: 15px; font-size: 16px; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; }
+        .btn-pdf { background: #e74c3c; color: white; }
+        .btn-wa { background: #25D366; color: white; }
 
-        h2, h3 {
-            text-align: center;
-            color: #2c3e50;
-            margin-top: 0;
-        }
-
-        /* Form Elements */
-        label {
-            font-weight: bold;
-            display: block;
-            margin-top: 15px;
-            font-size: 14px;
-            color: #333;
-        }
-
-        input, select, textarea {
-            width: 100%;
-            padding: 12px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-sizing: border-box; /* Fixes width issues */
-            font-size: 16px; /* Better for mobile typing */
-        }
-
-        /* Buttons */
-        button {
-            width: 100%;
-            padding: 15px;
-            background-color: #27ae60;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 25px;
-            cursor: pointer;
-        }
-        button:active { background-color: #219150; }
-
-        /* Settings Toggle */
-        .settings-box {
-            background: #eef2f3;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border: 1px dashed #999;
-        }
-
-        .logo-preview {
-            text-align: center;
-            margin-top: 10px;
-        }
-        .logo-preview img {
-            max-height: 60px;
-        }
+        .status { text-align: center; margin-top: 10px; color: green; font-weight: bold; display: none; }
     </style>
 </head>
 <body>
 
-    <!-- 1. SETTINGS SECTION (Branding) -->
-    <div class="container settings-box">
-        <h3>🛠️ Library Setup</h3>
-        <label>Library Name</label>
-        <input type="text" id="brandName" value="MY CITY LIBRARY">
-        
-        <label>Address & Phone</label>
-        <textarea id="brandAddress" rows="2">Main Market, Delhi. Mob: 98765XXXXX</textarea>
-        
-        <label>Upload Logo (Optional)</label>
-        <input type="file" id="logoInput" accept="image/*" onchange="previewLogo()">
-        <div class="logo-preview" id="logoDisplay"></div>
-    </div>
+<!-- 1. SECURITY LOCK SCREEN -->
+<div id="loginScreen">
+    <h2 style="color:white;">🔒 ADMIN LOGIN</h2>
+    <input type="password" id="password" placeholder="Enter PIN">
+    <button onclick="checkLogin()">UNLOCK</button>
+    <p style="color: #bbb; margin-top: 20px;">Default PIN: 1234</p>
+</div>
 
-    <!-- 2. MAIN FORM SECTION -->
-    <div class="container">
-        <h2>🧾 Receipt Maker</h2>
+<!-- 2. MAIN SOFTWARE -->
+<div id="appContainer">
+    <div class="card">
+        <h2>🏛️ Library Manager</h2>
+        <p style="text-align:center; font-size:12px; color:#777;">Only for Authorized Staff</p>
 
         <label>Student Name</label>
         <input type="text" id="stuName" placeholder="Enter Name">
 
-        <label>Seat Number (1-24)</label>
-        <select id="seatNo">
-            <option value="">-- Choose Seat --</option>
-        </select>
+        <label>Seat Number</label>
+        <select id="seatNo"><option value="">-- Select Seat --</option></select>
 
-        <label>Duration Plan</label>
+        <label>Plan</label>
         <select id="plan" onchange="updatePrice()">
-            <option value="">-- Select Hours --</option>
+            <option value="">-- Select --</option>
             <option value="6 Hours">6 Hours (₹300)</option>
             <option value="12 Hours">12 Hours (₹400)</option>
-            <option value="Full Day">Full Day (Custom)</option>
+            <option value="Full Day">Full Day (₹500)</option>
         </select>
 
-        <label>Amount (₹)</label>
-        <input type="number" id="amount" placeholder="0">
+        <label>Amount Received (₹)</label>
+        <input type="number" id="amount">
 
-        <label>Payment Mode</label>
+        <label>Payment Mode (Check Proof First)</label>
         <select id="payMode">
-            <option value="Cash">Cash</option>
-            <option value="UPI">Online / UPI</option>
+            <option value="Cash">Cash (Collected)</option>
+            <option value="UPI">UPI (Verified in App)</option>
         </select>
 
-        <button onclick="generateInvoice()">DOWNLOAD PDF 📥</button>
+        <div class="status" id="statusMsg">✅ Receipt Generated! Share now.</div>
+
+        <div class="btn-group">
+            <button class="btn-pdf" onclick="generatePDF()">1. SAVE PDF 📥</button>
+            <button class="btn-wa" onclick="shareWhatsApp()">2. SHARE WA 💬</button>
+        </div>
     </div>
+</div>
 
 <script>
-    // --- 1. Auto Fill Seats 1 to 24 ---
-    const seatSelect = document.getElementById('seatNo');
-    for(let i=1; i<=24; i++) {
-        let opt = document.createElement('option');
-        opt.value = i;
-        opt.innerText = "Seat " + i;
-        seatSelect.appendChild(opt);
-    }
-
-    // --- 2. Auto Price Logic ---
-    function updatePrice() {
-        let plan = document.getElementById('plan').value;
-        let priceBox = document.getElementById('amount');
-        if(plan === "6 Hours") priceBox.value = 300;
-        else if(plan === "12 Hours") priceBox.value = 400;
-        else priceBox.value = "";
-    }
-
-    // --- 3. Logo Handling ---
-    let logoData = null;
-    function previewLogo() {
-        const file = document.getElementById('logoInput').files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                logoData = e.target.result;
-                document.getElementById('logoDisplay').innerHTML = `<img src="${logoData}">`;
-            };
-            reader.readAsDataURL(file);
+    // --- SECURITY LOGIC ---
+    function checkLogin() {
+        const pin = document.getElementById('password').value;
+        if(pin === "1234") { // Change this PIN later
+            document.getElementById('loginScreen').style.display = "none";
+            document.getElementById('appContainer').style.display = "block";
+        } else {
+            alert("❌ Wrong PIN! Access Denied.");
         }
     }
 
-    // --- 4. PDF Generation ---
-    async function generateInvoice() {
+    // --- SEAT LOGIC ---
+    const seatSelect = document.getElementById('seatNo');
+    for(let i=1; i<=24; i++) seatSelect.add(new Option(`Seat ${i}`, i));
+
+    function updatePrice() {
+        const p = document.getElementById('plan').value;
+        const a = document.getElementById('amount');
+        if(p.includes("6")) a.value=300;
+        else if(p.includes("12")) a.value=400;
+        else if(p.includes("Full")) a.value=500;
+        else a.value="";
+    }
+
+    // --- GLOBAL VARIABLES FOR SHARING ---
+    let lastReceiptData = {};
+
+    // --- PDF GENERATION ---
+    async function generatePDF() {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
-
-        // Get Values
-        const brand = document.getElementById('brandName').value;
-        const address = document.getElementById('brandAddress').value;
+        
         const name = document.getElementById('stuName').value;
         const seat = document.getElementById('seatNo').value;
         const plan = document.getElementById('plan').value;
         const amount = document.getElementById('amount').value;
         const mode = document.getElementById('payMode').value;
+        
+        if(!name || !amount) { alert("Fill all details!"); return; }
+
+        // Unique ID based on timestamp (Hard to fake)
+        const receiptID = "LIB" + Date.now().toString().slice(-6);
         const date = new Date().toLocaleDateString('en-IN');
         const time = new Date().toLocaleTimeString('en-IN');
 
-        if(!name || !amount || !seat) {
-            alert("⚠️ Name, Seat aur Amount bharna zaroori hai!");
-            return;
-        }
+        // Save data for WhatsApp sharing
+        lastReceiptData = { name, seat, amount, receiptID, date, plan };
 
-        // DESIGN START
-        // Header Blue Box
-        doc.setFillColor(41, 128, 185);
-        doc.rect(0, 0, 210, 40, 'F');
+        // --- PDF DESIGN ---
+        doc.setFillColor(44, 62, 80); doc.rect(0, 0, 210, 40, 'F');
+        doc.setTextColor(255,255,255); doc.setFontSize(22); doc.text("CITY LIBRARY HUB", 105, 25, null, null, "center");
+        
+        doc.setTextColor(0,0,0); doc.setFontSize(10);
+        doc.text(`Receipt #: ${receiptID}`, 150, 50);
+        doc.text(`Date: ${date} ${time}`, 150, 55);
 
-        // Logo
-        if(logoData) {
-            doc.addImage(logoData, 'JPEG', 10, 5, 30, 30);
-        }
+        doc.setFontSize(16); doc.text("OFFICIAL PAYMENT RECEIPT", 15, 65);
+        doc.setLineWidth(0.5); doc.line(15, 68, 90, 68);
 
-        // Library Name
-        doc.setTextColor(255, 255, 255);
-        doc.setFontSize(22);
-        doc.setFont("helvetica", "bold");
-        doc.text(brand, 50, 18);
+        let y = 85;
+        doc.setFontSize(12);
+        doc.text(`Student Name:  ${name}`, 15, y);
+        doc.text(`Seat Number:   ${seat}`, 15, y+10);
+        doc.text(`Duration:      ${plan}`, 15, y+20);
+        doc.text(`Payment Mode:  ${mode}`, 15, y+30);
+        
+        // Amount Box
+        doc.setFillColor(230,230,230); doc.rect(15, y+40, 180, 15, 'F');
+        doc.setFont("helvetica", "bold"); doc.text(`Amount Paid: ₹${amount}/-`, 20, y+50);
 
-        // Address
-        doc.setFontSize(10);
-        doc.setFont("helvetica", "normal");
-        doc.text(address, 50, 26);
+        // Security Footer
+        doc.setFontSize(9); doc.setTextColor(100,100,100);
+        doc.text(`Verified by Admin | ID: ${receiptID}`, 105, 140, null, null, "center");
+        doc.text("NOTE: Keep this digital receipt for entry verification.", 105, 145, null, null, "center");
 
-        // Receipt Details
-        doc.setTextColor(0, 0, 0);
-        doc.text(`Date: ${date}`, 150, 50);
-        doc.text(`Time: ${time}`, 150, 55);
+        doc.save(`${name}_LibraryReceipt.pdf`);
+        
+        document.getElementById('statusMsg').style.display = "block";
+    }
 
-        // Title
-        doc.setFontSize(18);
-        doc.setFont("helvetica", "bold");
-        doc.text("FEE RECEIPT", 15, 60);
-        doc.line(15, 63, 60, 63);
-
-        // Student Details
-        let y = 80;
-        doc.setFontSize(14);
-        doc.setFont("helvetica", "normal");
-
-        doc.text(`Student Name :  ${name}`, 15, y);
-        doc.text(`Seat Number  :  ${seat}`, 15, y+10);
-        doc.text(`Duration Plan:  ${plan}`, 15, y+20);
-        doc.text(`Payment Mode :  ${mode}`, 15, y+30);
-
-        // Total Amount Box
-        doc.setFillColor(230, 230, 230);
-        doc.rect(15, y+45, 180, 15, 'F');
-        doc.setFont("helvetica", "bold");
-        doc.text(`Total Paid: Rs. ${amount}/-`, 20, y+55);
-
-        // Footer / Signature
-        doc.setFontSize(10);
-        doc.setFont("times", "italic");
-        doc.text("Authorized Signature", 150, 160);
-        doc.line(140, 158, 190, 158);
-
-        doc.setFontSize(8);
-        doc.setTextColor(100, 100, 100);
-        doc.text("Computer Generated Receipt", 105, 180, null, null, "center");
-
-        // Save
-        doc.save(`${name}_Receipt.pdf`);
+    // --- WHATSAPP SHARE LOGIC ---
+    function shareWhatsApp() {
+        if(!lastReceiptData.name) { alert("Pehle PDF Generate karein!"); return; }
+        
+        const text = `✅ *Payment Successful*\n\n🏛️ *City Library Hub*\n👤 Student: ${lastReceiptData.name}\n💺 Seat: ${lastReceiptData.seat}\n🕒 Plan: ${lastReceiptData.plan}\n💰 Amount: ₹${lastReceiptData.amount}\n🔢 Receipt ID: ${lastReceiptData.receiptID}\n📅 Date: ${lastReceiptData.date}\n\n_Please show this message at entry._`;
+        
+        const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+        window.open(url, '_blank');
     }
 </script>
 
