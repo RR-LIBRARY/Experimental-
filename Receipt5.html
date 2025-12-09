@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Manager + QR</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; margin: 0; padding: 10px; }
+        
+        /* Card Style */
+        .card { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 15px; }
+        h2 { margin-top: 0; color: #333; font-size: 18px; border-bottom: 2px solid #eee; padding-bottom: 8px; }
+        
+        /* Inputs */
+        input, select { width: 100%; padding: 12px; margin: 5px 0 10px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 16px; }
+        
+        /* Buttons */
+        button { width: 100%; padding: 12px; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 5px; }
+        .btn-green { background: #28a745; color: white; }
+        .btn-blue { background: #007bff; color: white; margin-bottom: 10px; }
+        .btn-red { background: #dc3545; color: white; width: auto; padding: 5px 10px; font-size: 12px; }
+        .btn-grey { background: #6c757d; color: white; width: auto; padding: 5px 10px; font-size: 12px; }
+
+        /* QR Settings Area */
+        .settings-area { background: #e3f2fd; border: 1px dashed #007bff; padding: 10px; border-radius: 8px; text-align: center; }
+        
+        /* List Items */
+        .student-item { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding: 10px 0; }
+        .active { color: green; font-weight: bold; }
+        .expired { color: red; font-weight: bold; }
+
+        /* MODAL (Popup) */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); align-items: center; justify-content: center; z-index: 100; }
+        .modal-content { background: white; padding: 20px; width: 90%; max-width: 350px; border-radius: 10px; text-align: center; }
+        .qr-display-img { width: 250px; height: 250px; object-fit: contain; margin-bottom: 15px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+
+    <!-- 1. SETTINGS: UPLOAD QR CODE -->
+    <div class="card">
+        <h2>⚙️ Payment Setup (One Time)</h2>
+        <div class="settings-area">
+            <p style="margin:5px 0; font-size:14px;">Upload your PhonePe/GPay QR Screenshot here:</p>
+            <input type="file" id="qrInput" accept="image/*" onchange="saveQR()">
+            <small style="color:green; display:none;" id="qrMsg">✅ QR Code Saved!</small>
+        </div>
+    </div>
+
+    <!-- 2. NEW ADMISSION FORM -->
+    <div class="card">
+        <h2>➕ New Admission</h2>
+        <input type="text" id="name" placeholder="Student Name">
+        <input type="number" id="mobile" placeholder="Mobile Number">
+        <select id="seat"><option value="">Select Seat</option></select>
+        
+        <select id="duration" onchange="calcExpiry()">
+            <option value="1">1 Month</option>
+            <option value="3">3 Months</option>
+        </select>
+        <input type="text" id="expiry" placeholder="Valid Upto" readonly style="background:#eee;">
+        
+        <!-- Button to Show QR -->
+        <button class="btn-blue" onclick="showQRModal()">📲 Show QR to Pay</button>
+
+        <input type="number" id="fees" placeholder="Enter Fees Amount (₹)">
+        <button class="btn-green" onclick="addStudent()">💾 SAVE & PRINT SLIP</button>
+    </div>
+
+    <!-- 3. STUDENT LIST -->
+    <div class="card">
+        <h2>📋 Active Students</h2>
+        <input type="text" id="search" placeholder="🔍 Search..." onkeyup="renderList()">
+        <div id="listContainer"></div>
+    </div>
+
+    <!-- 4. QR CODE POPUP MODAL -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content">
+            <h3>Scan to Pay</h3>
+            <img id="displayQR" class="qr-display-img" src="" alt="No QR Uploaded">
+            <p>Show this to student</p>
+            <button class="btn-green" onclick="closeQRModal()">✅ Payment Received</button>
+        </div>
+    </div>
+
+    <!-- 5. RENEWAL POPUP -->
+    <div id="renewModal" class="modal">
+        <div class="modal-content">
+            <h3>Renew Membership</h3>
+            <p id="renewName" style="color:#007bff; font-weight:bold;"></p>
+            <select id="renewMonth"><option value="1">Add 1 Month</option><option value="3">Add 3 Months</option></select>
+            <button class="btn-blue" onclick="showQRModal()">📲 Show QR</button>
+            <input type="number" id="renewFees" placeholder="Fees Amount">
+            <button class="btn-green" onclick="confirmRenew()">CONFIRM RENEW</button>
+            <button style="background:#888; margin-top:10px;" onclick="document.getElementById('renewModal').style.display='none'">Cancel</button>
+        </div>
+    </div>
+
+<script>
+    // --- 1. SETUP & QR LOGIC ---
+    const seatSelect = document.getElementById('seat');
+    for(let i=1; i<=30; i++) seatSelect.add(new Option(`Seat ${i}`, i));
+
+    let students = JSON.parse(localStorage.getItem('libDataQR')) || [];
+    let savedQR = localStorage.getItem('myLibraryQR'); // Get saved QR
+    let currentRenewId = null;
+
+    // Save QR to Browser Memory
+    function saveQR() {
+        const file = document.getElementById('qrInput').files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                localStorage.setItem('myLibraryQR', e.target.result);
+                savedQR = e.target.result;
+                document.getElementById('qrMsg').style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
+    // Show QR Popup
+    function showQRModal() {
+        if(!savedQR) { alert("Please upload a QR Code in settings first!"); return; }
+        document.getElementById('displayQR').src = savedQR;
+        document.getElementById('qrModal').style.display = 'flex';
+    }
+
+    function closeQRModal() {
+        document.getElementById('qrModal').style.display = 'none';
+    }
+
+    // --- 2. DATE LOGIC ---
+    function calcExpiry() {
+        let d = new Date();
+        d.setMonth(d.getMonth() + parseInt(document.getElementById('duration').value));
+        document.getElementById('expiry').value = d.toISOString().split('T')[0];
+    }
+    calcExpiry();
+
+    // --- 3. ADD STUDENT ---
+    function addStudent() {
+        let name = document.getElementById('name').value;
+        let fees = document.getElementById('fees').value;
+        if(!name || !fees) { alert("Details missing!"); return; }
+
+        let s = {
+            id: Date.now(),
+            name, mobile: document.getElementById('mobile').value,
+            seat: document.getElementById('seat').value,
+            expiry: document.getElementById('expiry').value,
+            fees
+        };
+        students.push(s);
+        saveData();
+        
+        // Reset
+        document.getElementById('name').value = '';
+        document.getElementById('fees').value = '';
+        generatePDF(s, "New Admission");
+    }
+
+    // --- 4. RENDER LIST ---
+    function renderList() {
+        let container = document.getElementById('listContainer');
+        container.innerHTML = "";
+        let today = new Date().toISOString().split('T')[0];
+        let filter = document.getElementById('search').value.toLowerCase();
+
+        students.sort((a,b) => (a.expiry > b.expiry ? 1 : -1));
+
+        students.forEach((s, index) => {
+            if(s.name.toLowerCase().includes(filter)) {
+                let isExp = s.expiry < today;
+                let div = document.createElement('div');
+                div.className = 'student-item';
+                div.innerHTML = `
+                    <div>
+                        <strong>${s.name}</strong> (Seat ${s.seat})<br>
+                        <span class="${isExp ? 'expired' : 'active'}">${isExp ? 'EXPIRED' : 'ACTIVE'}</span> 
+                        <small style="color:#666">(${s.expiry})</small>
+                    </div>
+                    <div>
+                        <button class="btn-grey" onclick="openRenew(${s.id})">Renew</button>
+                        <button class="btn-grey" onclick='generatePDF(${JSON.stringify(s)}, "Copy")'>PDF</button>
+                        <button class="btn-red" onclick="del(${index})">X</button>
+                    </div>
+                `;
+                container.appendChild(div);
+            }
+        });
+    }
+
+    // --- 5. RENEWAL LOGIC ---
+    function openRenew(id) {
+        currentRenewId = id;
+        document.getElementById('renewName').innerText = students.find(x => x.id == id).name;
+        document.getElementById('renewModal').style.display = 'flex';
+    }
+
+    function confirmRenew() {
+        let fees = document.getElementById('renewFees').value;
+        if(!fees) { alert("Enter Fees!"); return; }
+
+        let s = students.find(x => x.id == currentRenewId);
+        let today = new Date();
+        let oldExp = new Date(s.expiry);
+        let base = (oldExp > today) ? oldExp : today;
+        
+        base.setMonth(base.getMonth() + parseInt(document.getElementById('renewMonth').value));
+        s.expiry = base.toISOString().split('T')[0];
+        s.fees = fees;
+
+        saveData();
+        document.getElementById('renewModal').style.display = 'none';
+        generatePDF(s, "Renewal Receipt");
+    }
+
+    // --- UTILS ---
+    function del(i) { if(confirm("Delete?")) { students.splice(i, 1); saveData(); } }
+    function saveData() { localStorage.setItem('libDataQR', JSON.stringify(students)); renderList(); }
+
+    // --- PDF ---
+    async function generatePDF(data, type) {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        
+        // Design
+        doc.setFillColor(0, 123, 255); doc.rect(0,0,210,35,'F');
+        doc.setTextColor(255,255,255); doc.setFontSize(20);
+        doc.text("CITY LIBRARY HUB", 105, 22, null, null, "center");
+        
+        doc.setTextColor(0,0,0); doc.setFontSize(14);
+        doc.text(`Receipt: ${type}`, 15, 50);
+        doc.text(`Date: ${new Date().toLocaleDateString()}`, 150, 50);
+        
+        doc.text(`Name: ${data.name}`, 15, 70);
+        doc.text(`Seat: ${data.seat}`, 15, 80);
+        doc.text(`Valid Upto: ${data.expiry}`, 15, 90);
+        
+        doc.setFillColor(230,230,230); doc.rect(15, 100, 180, 15, 'F');
+        doc.text(`Paid: Rs. ${data.fees}/- (Verified)`, 20, 110);
+        
+        doc.save(`${data.name}_Receipt.pdf`);
+    }
+
+    renderList();
+</script>
+
+</body>
+</html>
+```
+
