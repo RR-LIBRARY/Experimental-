@@ -1,13 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Manager Pro</title>
-    <!-- PDF Library -->
+    <!-- PDF Library Link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
     <style>
         :root { --primary: #2c3e50; --secondary: #34495e; --accent: #e67e22; }
         body { font-family: 'Segoe UI', sans-serif; background: #eef2f3; margin: 0; padding: 20px; display: flex; justify-content: center; }
@@ -32,10 +30,6 @@
         .btn-gen { background: var(--primary); color: white; }
         .btn-gen:hover { background: var(--secondary); }
         
-        .seat-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 5px; margin-top: 5px; }
-        .seat-box { padding: 5px; border: 1px solid #ddd; text-align: center; cursor: pointer; font-size: 12px; border-radius: 3px; }
-        .seat-box.selected { background: var(--accent); color: white; border-color: var(--accent); }
-
         .footer-note { font-size: 11px; color: #888; text-align: center; margin-top: 20px; }
     </style>
 </head>
@@ -46,7 +40,7 @@
     <!-- BRAND SETTINGS (Left Side) -->
     <div class="settings-panel">
         <h3>🏢 Library Settings</h3>
-        <p style="font-size: 12px; color: #666;">Setup your brand details here.</p>
+        <p style="font-size: 12px; color: #666;">Yahan apni Library ka naam aur logo daalein.</p>
         
         <label>Brand Name</label>
         <input type="text" id="brandName" value="CITY LIBRARY HUB">
@@ -110,6 +104,140 @@
     function updatePrice() {
         const plan = document.getElementById('plan').value;
         const amountBox = document.getElementById('amount');
+        
+        if(plan === "6 Hours") {
+            amountBox.value = 300;
+        } else if(plan === "12 Hours") {
+            amountBox.value = 400;
+        } else {
+            amountBox.value = ""; // User can type for custom
+        }
+    }
+
+    // 3. Logo Handling
+    let logoData = null;
+    function previewLogo() {
+        const file = document.getElementById('logoInput').files[0];
+        const reader = new FileReader();
+        reader.onloadend = function() {
+            logoData = reader.result;
+            document.getElementById('logoDisplay').innerHTML = `<img src="${logoData}">`;
+        }
+        if(file) reader.readAsDataURL(file);
+    }
+
+    // 4. Generate PDF Logic
+    async function generateInvoice() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        // Get Data
+        const brand = document.getElementById('brandName').value;
+        const address = document.getElementById('brandAddress').value;
+        const name = document.getElementById('stuName').value;
+        const seat = document.getElementById('seatNo').value;
+        const plan = document.getElementById('plan').value;
+        const amount = document.getElementById('amount').value;
+        const mode = document.getElementById('payMode').value;
+        
+        const date = new Date().toLocaleDateString('en-IN');
+        const receiptNo = "LIB-" + Math.floor(Math.random() * 10000);
+
+        if(!name || !amount || !seat) {
+            alert("Please fill Name, Seat No, and Amount!");
+            return;
+        }
+
+        // --- PDF DESIGN START ---
+        
+        // 1. Header Section
+        doc.setFillColor(44, 62, 80); // Dark Blue Header
+        doc.rect(0, 0, 210, 40, 'F');
+        
+        // Logo (if uploaded)
+        if(logoData) {
+            doc.addImage(logoData, 'JPEG', 10, 5, 30, 30);
+        }
+
+        // Brand Name (White text)
+        doc.setTextColor(255, 255, 255);
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(22);
+        doc.text(brand.toUpperCase(), 50, 18);
+        
+        // Address (White small text)
+        doc.setFontSize(10);
+        doc.setFont("helvetica", "normal");
+        doc.text(address, 50, 26);
+
+        // 2. Receipt Info (Right side below header)
+        doc.setTextColor(0, 0, 0);
+        doc.setFontSize(10);
+        doc.text(`Receipt No: ${receiptNo}`, 150, 50);
+        doc.text(`Date: ${date}`, 150, 55);
+
+        // 3. Title
+        doc.setFontSize(16);
+        doc.setFont("helvetica", "bold");
+        doc.text("FEE RECEIPT", 15, 60);
+        doc.setLineWidth(0.5);
+        doc.line(15, 62, 50, 62);
+
+        // 4. Content
+        let startY = 75;
+        
+        doc.setFontSize(12);
+        doc.setFont("helvetica", "normal");
+        
+        doc.text("Student Name:", 15, startY);
+        doc.setFont("helvetica", "bold");
+        doc.text(name, 60, startY);
+        
+        doc.setFont("helvetica", "normal");
+        doc.text("Allocated Seat:", 15, startY + 10);
+        doc.setFont("helvetica", "bold");
+        doc.text(`Seat No. ${seat}`, 60, startY + 10);
+
+        doc.setFont("helvetica", "normal");
+        doc.text("Duration Plan:", 15, startY + 20);
+        doc.text(plan, 60, startY + 20);
+
+        doc.text("Payment Mode:", 15, startY + 30);
+        doc.text(mode, 60, startY + 30);
+
+        // 5. Amount Box
+        doc.setFillColor(230, 230, 230); // Grey box
+        doc.rect(120, 100, 70, 20, 'F');
+        doc.setFontSize(14);
+        doc.setTextColor(0, 0, 0);
+        doc.text("Total Paid:", 125, 113);
+        doc.setFontSize(16);
+        doc.setFont("helvetica", "bold");
+        doc.text(`Rs. ${amount}/-`, 155, 113);
+
+        // 6. Terms
+        doc.setFontSize(9);
+        doc.setTextColor(100, 100, 100);
+        doc.text("Terms: Fees once paid is non-refundable. Maintain silence inside.", 15, 140);
+
+        // 7. Signature
+        doc.setTextColor(0, 0, 0);
+        doc.setFontSize(11);
+        doc.setFont("times", "bold");
+        doc.text("For, " + brand, 150, 150, null, null, "center");
+        
+        doc.setFont("times", "italic");
+        doc.text("Library Authority", 150, 165, null, null, "center");
+        doc.line(130, 160, 170, 160);
+
+        // Save
+        doc.save(`${name}_Receipt.pdf`);
+    }
+</script>
+
+</body>
+</html>
+```        const amountBox = document.getElementById('amount');
         
         if(plan === "6 Hours") {
             amountBox.value = 300;
