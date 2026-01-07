@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RR Library Fee Receipt Generator (Hinglish)</title>
+
+  <!-- PDF Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <style>
+    :root{
+      --bg1:#fff3d6;
+      --bg2:#e7f3ff;
+      --ink:#1b1f2a;
+      --muted:#5a6477;
+      --brand:#6d28d9;
+      --brand2:#f97316;
+      --ok:#16a34a;
+      --paper:#ffffff;
+      --shadow: 0 18px 45px rgba(17, 24, 39, .14);
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 600px at 15% 10%, var(--bg2), transparent 60%),
+        radial-gradient(1000px 600px at 85% 20%, #ffe7f0, transparent 55%),
+        linear-gradient(180deg, var(--bg1), #ffffff 55%, #f6f7fb);
+      min-height:100vh;
+      padding:18px 14px 40px;
+    }
+
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      gap: 16px;
+    }
+
+    .page-title{
+      text-align:center;
+      padding: 10px 10px 0;
+    }
+    .page-title h1{
+      margin: 4px 0 6px;
+      font-size: clamp(20px, 4.5vw, 34px);
+      letter-spacing: .2px;
+      line-height: 1.1;
+      background: linear-gradient(90deg, var(--brand), var(--brand2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 900;
+    }
+    .page-title p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .panel{
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(17,24,39,.08);
+      box-shadow: var(--shadow);
+      border-radius: 18px;
+      overflow: hidden;
+      backdrop-filter: blur(6px);
+    }
+
+    .panel-head{
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(17,24,39,.08);
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content: space-between;
+      background: linear-gradient(90deg, rgba(109,40,217,.09), rgba(249,115,22,.09));
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-weight: 900;
+      color: #2a2d37;
+      letter-spacing: .2px;
+    }
+    .badge .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: conic-gradient(from 0deg, var(--brand), var(--brand2), #22c55e, var(--brand));
+      box-shadow: 0 0 0 4px rgba(109,40,217,.08);
+    }
+
+    .panel-body{ padding: 14px 16px 16px; }
+
+    .form{
+      display:grid;
+      gap: 10px;
+    }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    label{
+      font-size: 12px;
+      font-weight: 900;
+      color: #2f3645;
+      letter-spacing: .25px;
+    }
+
+    input, select{
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(17,24,39,.16);
+      outline: none;
+      font-size: 14px;
+      background: rgba(255,255,255,.9);
+    }
+    input:focus, select:focus{
+      border-color: rgba(109,40,217,.55);
+      box-shadow: 0 0 0 4px rgba(109,40,217,.14);
+    }
+
+    .btn-row{
+      display:flex;
+      gap: 10px;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+    button{
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-weight: 1000;
+      letter-spacing: .25px;
+      cursor: pointer;
+      font-size: 14px;
+      flex: 1;
+      min-width: 140px;
+      transition: transform .06s ease, filter .18s ease;
+    }
+    button:active{ transform: translateY(1px); }
+
+    .btn-submit{
+      color: #fff;
+      background: linear-gradient(90deg, var(--brand), var(--brand2));
+      filter: saturate(1.05);
+    }
+    .btn-submit:hover{ filter: brightness(1.02) saturate(1.1); }
+
+    .btn-reset{
+      background: rgba(17,24,39,.06);
+      color: #2a2d37;
+    }
+    .btn-reset:hover{ filter: brightness(0.98); }
+
+    .hint{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .receipts{
+      display:grid;
+      gap: 12px;
+      padding: 0 2px 6px;
+    }
+
+    /* Premium receipt look */
+    .receipt{
+      position: relative;
+      background: var(--paper);
+      border-radius: 16px;
+      border: 1px solid rgba(17,24,39,.10);
+      box-shadow: 0 14px 35px rgba(17,24,39,.10);
+      overflow: hidden;
+    }
+    .receipt::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(900px 220px at 20% -10%, rgba(109,40,217,.16), transparent 60%),
+        radial-gradient(600px 220px at 90% 0%, rgba(249,115,22,.14), transparent 60%);
+      pointer-events:none;
+    }
+    .receipt-inner{
+      position:relative;
+      padding: 14px 14px 12px;
+    }
+
+    .receipt-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .receipt-brand{
+      display:flex;
+      flex-direction:column;
+      gap: 3px;
+    }
+    .receipt-brand .name{
+      font-weight: 1000;
+      letter-spacing: .3px;
+      font-size: 15px;
+    }
+    .receipt-brand .sub{
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(22,163,74,.10);
+      border: 1px solid rgba(22,163,74,.18);
+      color: #0f4d25;
+      font-weight: 1000;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .chip .tick{
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--ok);
+      box-shadow: 0 0 0 3px rgba(22,163,74,.12);
+    }
+
+    .tear{
+      margin: 10px 0 12px;
+      border-top: 1px dashed rgba(17,24,39,.22);
+      position: relative;
+    }
+    .tear::before, .tear::after{
+      content:"";
+      position:absolute;
+      top:-8px;
+      width: 16px;
+      height: 16px;
+      background: #f6f7fb;
+      border: 1px solid rgba(17,24,39,.10);
+      border-radius: 999px;
+    }
+    .tear::before{ left: -8px; }
+    .tear::after{ right: -8px; }
+
+    .rgrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .row{
+      padding: 10px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(17,24,39,.08);
+      background: rgba(255,255,255,.82);
+    }
+    .k{
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 900;
+      letter-spacing: .25px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+    .v{
+      font-size: 14px;
+      font-weight: 1000;
+      color: #1e2431;
+      word-break: break-word;
+    }
+
+    .thanks{
+      margin-top: 12px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      background: linear-gradient(90deg, rgba(109,40,217,.10), rgba(249,115,22,.10));
+      border: 1px solid rgba(17,24,39,.08);
+      display:flex;
+      align-items:flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .thanks strong{
+      display:block;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+    .thanks span{
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .stamp{
+      font-weight: 1000;
+      font-size: 11px;
+      letter-spacing: .35px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.9);
+      border: 1px solid rgba(17,24,39,.12);
+      transform: rotate(2deg);
+      white-space: nowrap;
+    }
+
+    .actions{
+      display:flex;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .btn-mini{
+      flex: 1;
+      min-width: 160px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 1000;
+      border: 1px solid rgba(17,24,39,.12);
+      background: rgba(255,255,255,.85);
+    }
+    .btn-mini:hover{ filter: brightness(0.99); }
+    .btn-primary-mini{
+      border: 0;
+      color:#fff;
+      background: linear-gradient(90deg, var(--brand), var(--brand2));
+    }
+
+    .foot{
+      text-align:center;
+      color: rgba(90,100,119,.85);
+      font-size: 11px;
+      padding: 8px 0 0;
+    }
+
+    @media (max-width: 520px){
+      .grid2{ grid-template-columns: 1fr; }
+      .rgrid{ grid-template-columns: 1fr; }
+      button{ min-width: 0; }
+      .btn-mini{ min-width: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="page-title">
+      <h1>RR Library Fee Receipt Mela</h1>
+      <p>Hinglish format • New receipts upar aayenge • PDF download + share option</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <div class="badge"><span class="dot"></span> RR RECEIPT GENERATOR</div>
+        <div style="font-size:12px;color:#4b5563;font-weight:900;">Premium Receipt Look</div>
+      </div>
+
+      <div class="panel-body">
+        <div class="form">
+          <div>
+            <label for="name">Student ka Naam</label>
+            <input id="name" type="text" placeholder="e.g., Ayesha Khan" autocomplete="off" />
+          </div>
+
+          <div class="grid2">
+            <div>
+              <label for="seatNo">Seat No. (Sit number)</label>
+              <input id="seatNo" type="text" placeholder="e.g., 12" autocomplete="off" />
+            </div>
+            <div>
+              <label for="shift">Shift</label>
+              <input id="shift" type="text" placeholder="e.g., Morning / Evening" autocomplete="off" />
+            </div>
+          </div>
+
+          <div class="grid2">
+            <div>
+              <label for="amount">Amount ₹</label>
+              <input id="amount" type="number" inputmode="decimal" min="0" step="0.01" placeholder="e.g., 500" />
+            </div>
+            <div>
+              <label for="paymentDue">Payment Due ₹</label>
+              <input id="paymentDue" type="number" inputmode="decimal" min="0" step="0.01" placeholder="e.g., 0" />
+            </div>
+          </div>
+
+          <div class="grid2">
+            <div>
+              <label for="paymentMode">Payment Mode</label>
+              <select id="paymentMode">
+                <option value="">Select karo</option>
+                <option value="Online">Online</option>
+                <option value="Offline">Offline</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="address">Address (Optional)</label>
+              <input id="address" type="text" placeholder="(optional) e.g., City / Area" autocomplete="off" />
+            </div>
+          </div>
+
+          <div class="btn-row">
+            <button class="btn-reset" type="button" id="btnReset">RESET (sirf fields)</button>
+            <button class="btn-submit" type="button" id="btnSubmit">SUBMIT & RECEIPT BANAAO</button>
+          </div>
+
+          <div class="hint">
+            Note: Share button mobile me tab best chalega jab aapka page <b>https</b> par ho. Agar share support na ho, PDF download karke WhatsApp/Telegram pe bhej do.
+          </div>
+        </div>
+
+        <div class="foot">RR Library • Fee Receipt Cards (Hinglish)</div>
+      </div>
+    </div>
+
+    <div class="receipts" id="receipts"></div>
+  </div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+
+    function escapeHTML(str) {
+      return String(str).replace(/[&<>"']/g, (m) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+      }[m]));
+    }
+
+    function pad2(n){ return String(n).padStart(2, "0"); }
+
+    function makeReceiptNo() {
+      const d = new Date();
+      const y = d.getFullYear();
+      const mo = pad2(d.getMonth() + 1);
+      const da = pad2(d.getDate());
+      const hh = pad2(d.getHours());
+      const mm = pad2(d.getMinutes());
+      const ss = pad2(d.getSeconds());
+      return `RR-${y}${mo}${da}-${hh}${mm}${ss}`;
+    }
+
+    function formatDateTime() {
+      const d = new Date();
+      return d.toLocaleString(undefined, {
+        year: "numeric",
+        month: "short",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+    }
+
+    function money(val) {
+      // Keep simple; no forced decimals
+      const n = Number(val);
+      if (!Number.isFinite(n)) return "0";
+      return n.toString();
+    }
+
+    function collectFormData() {
+      const data = {
+        studentName: $("name").value.trim(),
+        seatNo: $("seatNo").value.trim(),
+        shift: $("shift").value.trim(),
+        amount: $("amount").value,
+        paymentDue: $("paymentDue").value,
+        paymentMode: $("paymentMode").value,
+        address: $("address").value.trim(),
+        receiptNo: makeReceiptNo(),
+        dateTime: formatDateTime()
+      };
+
+      // Validation (Address optional; Due can be empty -> treat as 0)
+      if (!data.studentName || !data.seatNo || !data.shift) {
+        alert("⚠️ Naam, Seat No. aur Shift zaroori hai.");
+        return null;
+      }
+      if (data.paymentMode !== "Online" && data.paymentMode !== "Offline") {
+        alert("⚠️ Payment mode select karo (Online/Offline).");
+        return null;
+      }
+      if (data.amount === "" || Number(data.amount) < 0) {
+        alert("⚠️ Amount ₹ sahi se daalo.");
+        return null;
+      }
+
+      if (data.paymentDue === "" || Number(data.paymentDue) < 0) data.paymentDue = "0";
+      return data;
+    }
+
+    function createReceiptCard(data) {
+      const card = document.createElement("div");
+      card.className = "receipt";
+
+      // Save data on element for download/share actions
+      card.dataset.receipt = JSON.stringify(data);
+
+      const safe = {
+        studentName: escapeHTML(data.studentName),
+        seatNo: escapeHTML(data.seatNo),
+        shift: escapeHTML(data.shift),
+        amount: escapeHTML(money(data.amount)),
+        paymentDue: escapeHTML(money(data.paymentDue)),
+        paymentMode: escapeHTML(data.paymentMode),
+        address: escapeHTML(data.address || "-"),
+        receiptNo: escapeHTML(data.receiptNo),
+        dateTime: escapeHTML(data.dateTime)
+      };
+
+      card.innerHTML = `
+        <div class="receipt-inner">
+          <div class="receipt-top">
+            <div class="receipt-brand">
+              <div class="name">RR LIBRARY • FEE RECEIPT</div>
+              <div class="sub">Hinglish premium receipt • Student ke liye shareable</div>
+            </div>
+            <div class="chip"><span class="tick"></span> PAYMENT OK</div>
+          </div>
+
+          <div class="tear"></div>
+
+          <div class="rgrid">
+            <div class="row">
+              <div class="k">Student ka Naam</div>
+              <div class="v">${safe.studentName}</div>
+            </div>
+
+            <div class="row">
+              <div class="k">Seat No.</div>
+              <div class="v">${safe.seatNo}</div>
+            </div>
+
+            <div class="row">
+              <div class="k">Shift</div>
+              <div class="v">${safe.shift}</div>
+            </div>
+
+            <div class="row">
+              <div class="k">Payment Mode</div>
+              <div class="v">${safe.paymentMode}</div>
+            </div>
+
+            <div class="row">
+              <div class="k">Amount ₹</div>
+              <div class="v">₹ ${safe.amount}</div>
+            </div>
+
+            <div class="row">
+              <div class="k">Payment Due ₹</div>
+              <div class="v">₹ ${safe.paymentDue}</div>
+            </div>
+
+            <div class="row">
+              <div class="k">Receipt No.</div>
+              <div class="v" style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">
+                ${safe.receiptNo}
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="k">Date & Time</div>
+              <div class="v">${safe.dateTime}</div>
+            </div>
+
+            <div class="row" style="grid-column: 1 / -1;">
+              <div class="k">Address</div>
+              <div class="v">${safe.address}</div>
+            </div>
+          </div>
+
+          <div class="thanks">
+            <div>
+              <strong>Shukriya! Aapka library fee record ho gaya.</strong>
+              <span>Ye receipt aap save/share kar sakte ho. Happy reading!</span>
+            </div>
+            <div class="stamp">RR VERIFIED</div>
+          </div>
+
+          <div class="actions">
+            <button class="btn-mini btn-primary-mini" type="button" data-action="download">Download PDF</button>
+            <button class="btn-mini" type="button" data-action="share">Share to Student</button>
+          </div>
+        </div>
+      `;
+
+      // Wire actions
+      card.querySelector('[data-action="download"]').addEventListener("click", () => downloadPDF(data));
+      card.querySelector('[data-action="share"]').addEventListener("click", () => sharePDF(data));
+
+      return card;
+    }
+
+    function buildPDF(data) {
+      const { jsPDF } = window.jspdf;
+      // A6 size is compact and phone-friendly
+      const doc = new jsPDF({ unit: "pt", format: "a6", orientation: "portrait" });
+
+      const pageW = doc.internal.pageSize.getWidth();
+      const pageH = doc.internal.pageSize.getHeight();
+
+      // Background border
+      doc.setDrawColor(109, 40, 217);
+      doc.setLineWidth(1.2);
+      doc.roundedRect(18, 16, pageW - 36, pageH - 32, 12, 12);
+
+      // Header gradient-ish bars (simple)
+      doc.setFillColor(109, 40, 217);
+      doc.roundedRect(18, 16, pageW - 36, 36, 12, 12, "F");
+      doc.setFillColor(249, 115, 22);
+      doc.rect(18, 44, pageW - 36, 8, "F");
+
+      // Header text
+      doc.setTextColor(255, 255, 255);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(12);
+      doc.text("RR LIBRARY • FEE RECEIPT", 28, 38);
+
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(9);
+      doc.text("Hinglish Receipt • Shareable PDF", 28, 58);
+
+      // Body
+      doc.setTextColor(27, 31, 42);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(10);
+
+      let y = 84;
+      const left = 28;
+      const right = pageW - 28;
+
+      function line(label, value) {
+        doc.setFont("helvetica", "bold");
+        doc.setTextColor(90, 100, 119);
+        doc.setFontSize(8);
+        doc.text(label.toUpperCase(), left, y);
+
+        doc.setFont("helvetica", "bold");
+        doc.setTextColor(27, 31, 42);
+        doc.setFontSize(10);
+
+        const text = String(value ?? "");
+        const wrapped = doc.splitTextToSize(text, right - left);
+        y += 14;
+        doc.text(wrapped, left, y);
+        y += (wrapped.length - 1) * 12;
+
+        y += 14;
+      }
+
+      const due = (data.paymentDue === "" || data.paymentDue == null) ? "0" : data.paymentDue;
+
+      line("Student ka Naam", data.studentName);
+      line("Seat No.", data.seatNo);
+      line("Shift", data.shift);
+      line("Payment Mode", data.paymentMode);
+      line("Amount ₹", `₹ ${money(data.amount)}`);
+      line("Payment Due ₹", `₹ ${money(due)}`);
+      line("Receipt No.", data.receiptNo);
+      line("Date & Time", data.dateTime);
+      line("Address", data.address ? data.address : "-");
+
+      // Footer thank you box
+      const boxY = pageH - 88;
+      doc.setDrawColor(17, 24, 39);
+      doc.setFillColor(246, 247, 251);
+      doc.roundedRect(22, boxY, pageW - 44, 62, 10, 10, "F");
+
+      doc.setTextColor(27, 31, 42);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(10);
+      doc.text("Shukriya! Aapka payment record ho gaya.", 30, boxY + 22);
+
+      doc.setTextColor(90, 100, 119);
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(8);
+      doc.text("Save/share this receipt with student. RR Library", 30, boxY + 40);
+
+      return doc;
+    }
+
+    function fileNameFor(data) {
+      const safeName = String(data.studentName || "student").replace(/[^\w\s-]/g, "").trim().replace(/\s+/g, "_");
+      return `${data.receiptNo}_${safeName}.pdf`;
+    }
+
+    function downloadPDF(data) {
+      const doc = buildPDF(data);
+      doc.save(fileNameFor(data));
+    }
+
+    async function sharePDF(data) {
+      try {
+        const doc = buildPDF(data);
+        const blob = doc.output("blob");
+        const file = new File([blob], fileNameFor(data), { type: "application/pdf" });
+
+        if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+          await navigator.share({
+            title: "RR Library Fee Receipt",
+            text: `Receipt: ${data.receiptNo}\nStudent: ${data.studentName}\nAmount: ₹ ${money(data.amount)}`,
+            files: [file]
+          });
+        } else if (navigator.share) {
+          // Some browsers support share without files
+          await navigator.share({
+            title: "RR Library Fee Receipt",
+            text:
+              `RR Library Fee Receipt\n` +
+              `Receipt: ${data.receiptNo}\n` +
+              `Student: ${data.studentName}\n` +
+              `Seat: ${data.seatNo} (${data.shift})\n` +
+              `Mode: ${data.paymentMode}\n` +
+              `Amount: ₹ ${money(data.amount)}\n` +
+              `Due: ₹ ${money(data.paymentDue)}`
+          });
+          alert("Share ho gaya (text). PDF file share support nahi mila — PDF download karke share kar do.");
+        } else {
+          alert("Is device/browser me direct share support nahi hai. PDF download karke WhatsApp/Telegram pe bhej do.");
+        }
+      } catch (err) {
+        alert("Share cancel ya error ho gaya. PDF download karke manually share kar lo.");
+      }
+    }
+
+    function generateSlip() {
+      const data = collectFormData();
+      if (!data) return;
+
+      const card = createReceiptCard(data);
+
+      // Newest on TOP
+      $("receipts").prepend(card);
+
+      // Clear inputs
+      $("name").value = "";
+      $("seatNo").value = "";
+      $("shift").value = "";
+      $("amount").value = "";
+      $("paymentDue").value = "";
+      $("paymentMode").value = "";
+      $("address").value = "";
+      $("name").focus();
+    }
+
+    $("btnSubmit").addEventListener("click", generateSlip);
+
+    $("btnReset").addEventListener("click", () => {
+      $("name").value = "";
+      $("seatNo").value = "";
+      $("shift").value = "";
+      $("amount").value = "";
+      $("paymentDue").value = "";
+      $("paymentMode").value = "";
+      $("address").value = "";
+      $("name").focus();
+    });
+
+    // Enter key flow (mobile-friendly)
+    $("name").addEventListener("keydown", (e) => { if (e.key === "Enter") $("seatNo").focus(); });
+    $("seatNo").addEventListener("keydown", (e) => { if (e.key === "Enter") $("shift").focus(); });
+    $("shift").addEventListener("keydown", (e) => { if (e.key === "Enter") $("amount").focus(); });
+    $("amount").addEventListener("keydown", (e) => { if (e.key === "Enter") $("paymentMode").focus(); });
+    $("paymentMode").addEventListener("keydown", (e) => { if (e.key === "Enter") generateSlip(); });
+  </script>
+</body>
+</html>
+```
