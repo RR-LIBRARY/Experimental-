@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RR Library Fee Receipt Party 🎊</title>
+
+  <style>
+    :root{
+      --bg1:#fff3d6;
+      --bg2:#e7f3ff;
+      --ink:#1b1f2a;
+      --muted:#5a6477;
+      --brand:#6d28d9;
+      --brand2:#f97316;
+      --ok:#16a34a;
+      --paper:#ffffff;
+      --shadow: 0 18px 45px rgba(17, 24, 39, .14);
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 600px at 15% 10%, var(--bg2), transparent 60%),
+        radial-gradient(1000px 600px at 85% 20%, #ffe7f0, transparent 55%),
+        linear-gradient(180deg, var(--bg1), #ffffff 55%, #f6f7fb);
+      min-height:100vh;
+      padding:18px 14px 40px;
+    }
+
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      gap: 16px;
+    }
+
+    .page-title{
+      text-align:center;
+      padding: 10px 10px 0;
+    }
+    .page-title h1{
+      margin: 4px 0 6px;
+      font-size: clamp(20px, 4.5vw, 34px);
+      letter-spacing: .2px;
+      line-height: 1.1;
+      background: linear-gradient(90deg, var(--brand), var(--brand2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 900;
+    }
+    .page-title p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .panel{
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(17,24,39,.08);
+      box-shadow: var(--shadow);
+      border-radius: 18px;
+      overflow: hidden;
+      backdrop-filter: blur(6px);
+    }
+
+    .panel-head{
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(17,24,39,.08);
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content: space-between;
+      background: linear-gradient(90deg, rgba(109,40,217,.09), rgba(249,115,22,.09));
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-weight: 800;
+      color: #2a2d37;
+      letter-spacing: .2px;
+    }
+    .badge .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: conic-gradient(from 0deg, var(--brand), var(--brand2), #22c55e, var(--brand));
+      box-shadow: 0 0 0 4px rgba(109,40,217,.08);
+    }
+
+    .panel-body{
+      padding: 14px 16px 16px;
+    }
+
+    .form{
+      display:grid;
+      gap: 10px;
+    }
+
+    label{
+      font-size: 12px;
+      font-weight: 800;
+      color: #2f3645;
+      letter-spacing: .25px;
+    }
+
+    input{
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(17,24,39,.16);
+      outline: none;
+      font-size: 14px;
+      background: rgba(255,255,255,.9);
+    }
+    input:focus{
+      border-color: rgba(109,40,217,.55);
+      box-shadow: 0 0 0 4px rgba(109,40,217,.14);
+    }
+
+    .btn-row{
+      display:flex;
+      gap: 10px;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+    button{
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-weight: 900;
+      letter-spacing: .25px;
+      cursor: pointer;
+      font-size: 14px;
+      flex: 1;
+      min-width: 140px;
+      transition: transform .06s ease, filter .18s ease;
+    }
+    button:active{ transform: translateY(1px); }
+
+    .btn-submit{
+      color: #fff;
+      background: linear-gradient(90deg, var(--brand), var(--brand2));
+      filter: saturate(1.05);
+    }
+    .btn-submit:hover{ filter: brightness(1.02) saturate(1.1); }
+
+    .btn-reset{
+      background: rgba(17,24,39,.06);
+      color: #2a2d37;
+    }
+    .btn-reset:hover{ filter: brightness(0.98); }
+
+    .hint{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    /* Receipts list */
+    .receipts{
+      display:grid;
+      gap: 12px;
+      padding: 0 2px 6px;
+    }
+
+    /* Premium receipt look */
+    .receipt{
+      position: relative;
+      background: var(--paper);
+      border-radius: 16px;
+      border: 1px solid rgba(17,24,39,.10);
+      box-shadow: 0 14px 35px rgba(17,24,39,.10);
+      overflow: hidden;
+    }
+
+    .receipt::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(900px 220px at 20% -10%, rgba(109,40,217,.16), transparent 60%),
+                  radial-gradient(600px 220px at 90% 0%, rgba(249,115,22,.14), transparent 60%);
+      pointer-events:none;
+    }
+
+    .receipt-inner{
+      position:relative;
+      padding: 14px 14px 12px;
+    }
+
+    .receipt-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .receipt-brand{
+      display:flex;
+      flex-direction:column;
+      gap: 3px;
+    }
+    .receipt-brand .name{
+      font-weight: 1000;
+      letter-spacing: .3px;
+      font-size: 15px;
+    }
+    .receipt-brand .sub{
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(22,163,74,.10);
+      border: 1px solid rgba(22,163,74,.18);
+      color: #0f4d25;
+      font-weight: 900;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .chip .tick{
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--ok);
+      box-shadow: 0 0 0 3px rgba(22,163,74,.12);
+    }
+
+    .tear{
+      margin: 10px 0 12px;
+      border-top: 1px dashed rgba(17,24,39,.22);
+      position: relative;
+    }
+    .tear::before, .tear::after{
+      content:"";
+      position:absolute;
+      top:-8px;
+      width: 16px;
+      height: 16px;
+      background: #f6f7fb;
+      border: 1px solid rgba(17,24,39,.10);
+      border-radius: 999px;
+    }
+    .tear::before{ left: -8px; }
+    .tear::after{ right: -8px; }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .row{
+      padding: 10px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(17,24,39,.08);
+      background: rgba(255,255,255,.82);
+    }
+    .k{
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 800;
+      letter-spacing: .25px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+    .v{
+      font-size: 14px;
+      font-weight: 900;
+      color: #1e2431;
+      word-break: break-word;
+    }
+
+    .thanks{
+      margin-top: 12px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      background: linear-gradient(90deg, rgba(109,40,217,.10), rgba(249,115,22,.10));
+      border: 1px solid rgba(17,24,39,.08);
+      display:flex;
+      align-items:flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .thanks strong{
+      display:block;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+    .thanks span{
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .stamp{
+      font-weight: 1000;
+      font-size: 11px;
+      letter-spacing: .35px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.9);
+      border: 1px solid rgba(17,24,39,.12);
+      transform: rotate(2deg);
+      white-space: nowrap;
+    }
+
+    .foot{
+      text-align:center;
+      color: rgba(90,100,119,.85);
+      font-size: 11px;
+      padding: 8px 0 0;
+    }
+
+    @media (max-width: 520px){
+      .grid{ grid-template-columns: 1fr; }
+      button{ min-width: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="page-title">
+      <h1>RR Library Fee Receipt Carnival</h1>
+      <p>Enter student details → get a premium-style “Thank You” receipt card. New receipts stack on top.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <div class="badge"><span class="dot"></span> RR LIBRARY FEE RECEIPT GENERATOR</div>
+        <div style="font-size:12px;color:#4b5563;font-weight:800;">Mobile Friendly</div>
+      </div>
+
+      <div class="panel-body">
+        <div class="form">
+          <div>
+            <label for="name">Student Name</label>
+            <input id="name" type="text" placeholder="e.g., Ayesha Khan" autocomplete="off" />
+          </div>
+
+          <div>
+            <label for="seatAndShift">Seat and Shift</label>
+            <input id="seatAndShift" type="text" placeholder="e.g., Seat 12 • Morning" autocomplete="off" />
+          </div>
+
+          <div class="btn-row">
+            <button class="btn-reset" type="button" id="btnReset">RESET (fields only)</button>
+            <button class="btn-submit" type="button" id="btnSubmit">SUBMIT & CREATE RECEIPT</button>
+          </div>
+
+          <div class="hint">
+            Tip: After you submit, the receipt appears below. Old receipts stay visible (newest on top).
+          </div>
+        </div>
+
+        <div class="foot">RR Library • Fee Receipt Cards</div>
+      </div>
+    </div>
+
+    <div class="receipts" id="receipts"></div>
+  </div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+
+    function escapeHTML(str) {
+      return String(str).replace(/[&<>"']/g, (m) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+      }[m]));
+    }
+
+    function pad2(n){ return String(n).padStart(2, "0"); }
+
+    function makeReceiptNo() {
+      // Simple readable receipt number using date+time (local)
+      const d = new Date();
+      const y = d.getFullYear();
+      const mo = pad2(d.getMonth() + 1);
+      const da = pad2(d.getDate());
+      const hh = pad2(d.getHours());
+      const mm = pad2(d.getMinutes());
+      const ss = pad2(d.getSeconds());
+      return `RR-${y}${mo}${da}-${hh}${mm}${ss}`;
+    }
+
+    function formatDateTime() {
+      const d = new Date();
+      // Local, readable (no external libs)
+      return d.toLocaleString(undefined, {
+        year: "numeric",
+        month: "short",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+    }
+
+    function generateSlip() {
+      const nameRaw = $("name").value.trim();
+      const seatShiftRaw = $("seatAndShift").value.trim();
+
+      if (!nameRaw || !seatShiftRaw) {
+        alert("⚠️ Please enter both Student Name and Seat & Shift.");
+        return;
+      }
+
+      const name = escapeHTML(nameRaw);
+      const seatShift = escapeHTML(seatShiftRaw);
+
+      const receiptNo = makeReceiptNo();
+      const dateTime = formatDateTime();
+
+      const card = document.createElement("div");
+      card.className = "receipt";
+
+      card.innerHTML = `
+        <div class="receipt-inner">
+          <div class="receipt-top">
+            <div class="receipt-brand">
+              <div class="name">RR LIBRARY • FEE RECEIPT</div>
+              <div class="sub">Premium receipt card • Keep for your record</div>
+            </div>
+            <div class="chip"><span class="tick"></span> PAYMENT RECEIVED</div>
+          </div>
+
+          <div class="tear"></div>
+
+          <div class="grid">
+            <div class="row">
+              <div class="k">Student Name</div>
+              <div class="v">${name}</div>
+            </div>
+
+            <div class="row">
+              <div class="k">Seat & Shift</div>
+              <div class="v">${seatShift}</div>
+            </div>
+
+            <div class="row">
+              <div class="k">Receipt No.</div>
+              <div class="v" style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">
+                ${receiptNo}
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="k">Date & Time</div>
+              <div class="v">${escapeHTML(dateTime)}</div>
+            </div>
+          </div>
+
+          <div class="thanks">
+            <div>
+              <strong>Thank you for paying your library fee!</strong>
+              <span>We’re happy to have you at RR Library. Study hard, read more, and shine bright.</span>
+            </div>
+            <div class="stamp">RR VERIFIED</div>
+          </div>
+        </div>
+      `;
+
+      // Stack receipts: newest on TOP (do not replace old ones)
+      $("receipts").prepend(card);
+
+      // Clear inputs for next entry
+      $("name").value = "";
+      $("seatAndShift").value = "";
+      $("name").focus();
+    }
+
+    $("btnSubmit").addEventListener("click", generateSlip);
+
+    // Enter key submits (nice on mobile keyboards too)
+    $("seatAndShift").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") generateSlip();
+    });
+    $("name").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") $("seatAndShift").focus();
+    });
+
+    $("btnReset").addEventListener("click", () => {
+      $("name").value = "";
+      $("seatAndShift").value = "";
+      $("name").focus();
+    });
+  </script>
+</body>
+</html>
+```
